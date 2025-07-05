@@ -1,21 +1,21 @@
 
-Lights1 castle_grounds_lights = gdSPDefLights1(
+static const Lights1 castle_grounds_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Lights1 castle_grounds_Variation1_lights = gdSPDefLights1(
+static const Lights1 castle_grounds_Variation1_lights = gdSPDefLights1(
 	0x1F, 0x1F, 0x22,
 	0x7F, 0x7F, 0x88, 0x28, 0x28, 0x28);
 
-Lights1 castle_grounds_Variation2_lights = gdSPDefLights1(
+static const Lights1 castle_grounds_Variation2_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0x5B, 0x76, 0x8A, 0x28, 0x28, 0x28);
 
-Lights1 castle_grounds_Variation3_lights = gdSPDefLights1(
+static const Lights1 castle_grounds_Variation3_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x48,
 	0x7F, 0x7F, 0x88, 0x28, 0x28, 0x28);
 
-Gfx mat_castle_grounds_GrassMaterial[] = {
+static const Gfx mat_castle_grounds_GrassMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -29,13 +29,13 @@ Gfx mat_castle_grounds_GrassMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_GrassMaterial[] = {
+static const Gfx mat_revert_castle_grounds_GrassMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_SandMaterial[] = {
+static const Gfx mat_castle_grounds_SandMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -49,13 +49,13 @@ Gfx mat_castle_grounds_SandMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_SandMaterial[] = {
+static const Gfx mat_revert_castle_grounds_SandMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_WaterfallMaterial[] = {
+static const Gfx mat_castle_grounds_WaterfallMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -69,13 +69,13 @@ Gfx mat_castle_grounds_WaterfallMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_WaterfallMaterial[] = {
+static const Gfx mat_revert_castle_grounds_WaterfallMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_BridgeSideMaterial[] = {
+static const Gfx mat_castle_grounds_BridgeSideMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -89,13 +89,13 @@ Gfx mat_castle_grounds_BridgeSideMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_BridgeSideMaterial[] = {
+static const Gfx mat_revert_castle_grounds_BridgeSideMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_ColoredTileMaterial_Variation1[] = {
+static const Gfx mat_castle_grounds_ColoredTileMaterial_Variation1[] = {
 	gsSPSetLights1(castle_grounds_Variation1_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -109,13 +109,13 @@ Gfx mat_castle_grounds_ColoredTileMaterial_Variation1[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_ColoredTileMaterial_Variation1[] = {
+static const Gfx mat_revert_castle_grounds_ColoredTileMaterial_Variation1[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_BrickMaterial_Variation2[] = {
+static const Gfx mat_castle_grounds_BrickMaterial_Variation2[] = {
 	gsSPSetLights1(castle_grounds_Variation2_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -129,13 +129,13 @@ Gfx mat_castle_grounds_BrickMaterial_Variation2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_BrickMaterial_Variation2[] = {
+static const Gfx mat_revert_castle_grounds_BrickMaterial_Variation2[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_BrickMaterial_Variation3[] = {
+static const Gfx mat_castle_grounds_BrickMaterial_Variation3[] = {
 	gsSPSetLights1(castle_grounds_Variation3_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -149,13 +149,13 @@ Gfx mat_castle_grounds_BrickMaterial_Variation3[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_BrickMaterial_Variation3[] = {
+static const Gfx mat_revert_castle_grounds_BrickMaterial_Variation3[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_BrickMaterial_Variation1[] = {
+static const Gfx mat_castle_grounds_BrickMaterial_Variation1[] = {
 	gsSPSetLights1(castle_grounds_Variation1_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -169,13 +169,13 @@ Gfx mat_castle_grounds_BrickMaterial_Variation1[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_BrickMaterial_Variation1[] = {
+static const Gfx mat_revert_castle_grounds_BrickMaterial_Variation1[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_WoodenBridgeMaterial[] = {
+static const Gfx mat_castle_grounds_WoodenBridgeMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -189,13 +189,13 @@ Gfx mat_castle_grounds_WoodenBridgeMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_WoodenBridgeMaterial[] = {
+static const Gfx mat_revert_castle_grounds_WoodenBridgeMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_BrickMaterial[] = {
+static const Gfx mat_castle_grounds_BrickMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -209,13 +209,13 @@ Gfx mat_castle_grounds_BrickMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_BrickMaterial[] = {
+static const Gfx mat_revert_castle_grounds_BrickMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_RoofMaterial[] = {
+static const Gfx mat_castle_grounds_RoofMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -229,13 +229,13 @@ Gfx mat_castle_grounds_RoofMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_RoofMaterial[] = {
+static const Gfx mat_revert_castle_grounds_RoofMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_RockyDirtMaterial[] = {
+static const Gfx mat_castle_grounds_RockyDirtMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -249,13 +249,13 @@ Gfx mat_castle_grounds_RockyDirtMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_RockyDirtMaterial[] = {
+static const Gfx mat_revert_castle_grounds_RockyDirtMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_ColoredTileMaterial[] = {
+static const Gfx mat_castle_grounds_ColoredTileMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -269,13 +269,13 @@ Gfx mat_castle_grounds_ColoredTileMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_ColoredTileMaterial[] = {
+static const Gfx mat_revert_castle_grounds_ColoredTileMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_WoodenBridgeSideMaterial[] = {
+static const Gfx mat_castle_grounds_WoodenBridgeSideMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -289,13 +289,13 @@ Gfx mat_castle_grounds_WoodenBridgeSideMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_WoodenBridgeSideMaterial[] = {
+static const Gfx mat_revert_castle_grounds_WoodenBridgeSideMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_CarpetMaterial[] = {
+static const Gfx mat_castle_grounds_CarpetMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -309,13 +309,13 @@ Gfx mat_castle_grounds_CarpetMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_CarpetMaterial[] = {
+static const Gfx mat_revert_castle_grounds_CarpetMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_BridgeMaterial[] = {
+static const Gfx mat_castle_grounds_BridgeMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -329,13 +329,13 @@ Gfx mat_castle_grounds_BridgeMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_BridgeMaterial[] = {
+static const Gfx mat_revert_castle_grounds_BridgeMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_RockySandMaterial[] = {
+static const Gfx mat_castle_grounds_RockySandMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -349,13 +349,13 @@ Gfx mat_castle_grounds_RockySandMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_RockySandMaterial[] = {
+static const Gfx mat_revert_castle_grounds_RockySandMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_GrayscaleGrassMaterial[] = {
+static const Gfx mat_castle_grounds_GrayscaleGrassMaterial[] = {
 	gsSPClearGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -369,14 +369,14 @@ Gfx mat_castle_grounds_GrayscaleGrassMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_GrayscaleGrassMaterial[] = {
+static const Gfx mat_revert_castle_grounds_GrayscaleGrassMaterial[] = {
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_LiningMaterial[] = {
+static const Gfx mat_castle_grounds_LiningMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -390,13 +390,13 @@ Gfx mat_castle_grounds_LiningMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_LiningMaterial[] = {
+static const Gfx mat_revert_castle_grounds_LiningMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_ClockBottomMaterial[] = {
+static const Gfx mat_castle_grounds_ClockBottomMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -410,13 +410,13 @@ Gfx mat_castle_grounds_ClockBottomMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_ClockBottomMaterial[] = {
+static const Gfx mat_revert_castle_grounds_ClockBottomMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_ClockTopMaterial[] = {
+static const Gfx mat_castle_grounds_ClockTopMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -430,13 +430,13 @@ Gfx mat_castle_grounds_ClockTopMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_ClockTopMaterial[] = {
+static const Gfx mat_revert_castle_grounds_ClockTopMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_FlagPoleMaterial[] = {
+static const Gfx mat_castle_grounds_FlagPoleMaterial[] = {
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0),
@@ -450,14 +450,14 @@ Gfx mat_castle_grounds_FlagPoleMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_FlagPoleMaterial[] = {
+static const Gfx mat_revert_castle_grounds_FlagPoleMaterial[] = {
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_FenceMaterial[] = {
+static const Gfx mat_castle_grounds_FenceMaterial[] = {
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0),
@@ -471,14 +471,14 @@ Gfx mat_castle_grounds_FenceMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_FenceMaterial[] = {
+static const Gfx mat_revert_castle_grounds_FenceMaterial[] = {
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_WindowMaterial[] = {
+static const Gfx mat_castle_grounds_WindowMaterial[] = {
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
@@ -493,14 +493,14 @@ Gfx mat_castle_grounds_WindowMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_WindowMaterial[] = {
+static const Gfx mat_revert_castle_grounds_WindowMaterial[] = {
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_FlagMaterial[] = {
+static const Gfx mat_castle_grounds_FlagMaterial[] = {
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0),
@@ -514,14 +514,14 @@ Gfx mat_castle_grounds_FlagMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_FlagMaterial[] = {
+static const Gfx mat_revert_castle_grounds_FlagMaterial[] = {
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_ShadowMaterial[] = {
+static const Gfx mat_castle_grounds_ShadowMaterial[] = {
 	gsSPClearGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
@@ -536,14 +536,14 @@ Gfx mat_castle_grounds_ShadowMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_ShadowMaterial[] = {
+static const Gfx mat_revert_castle_grounds_ShadowMaterial[] = {
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_grounds_MoatDirtMaterial[] = {
+static const Gfx mat_castle_grounds_MoatDirtMaterial[] = {
 	gsSPSetLights1(castle_grounds_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -557,7 +557,7 @@ Gfx mat_castle_grounds_MoatDirtMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_grounds_MoatDirtMaterial[] = {
+static const Gfx mat_revert_castle_grounds_MoatDirtMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),

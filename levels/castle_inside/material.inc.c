@@ -1,22 +1,24 @@
-Lights1 castle_inside_lights_main = gdSPDefLights1(
+static const Lights1 castle_inside_lights_main = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Gfx mat_castle_inside_WallBottomMaterial[] = {
-	gsSPSetLights1(castle_inside_lights_main),
+static const Gfx mat_castle_inside_WallBottomMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
-	gsDPSetAlphaDither(G_AD_NOISE),
 	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, inside_09000000),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
+	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 2047, 256),
+	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_CLAMP | G_TX_NOMIRROR, 6, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0),
 	gsDPSetTileSize(0, 0, 0, 124, 252),
+	gsSPSetLights1(castle_inside_lights_main),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_CarpetMaterial[] = {
+static const Gfx mat_castle_inside_CarpetMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
@@ -32,7 +34,7 @@ Gfx mat_castle_inside_CarpetMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_CheckerboardMaterial[] = {
+static const Gfx mat_castle_inside_CheckerboardMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
@@ -48,67 +50,68 @@ Gfx mat_castle_inside_CheckerboardMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_WallTopMaterial[] = {
-	gsSPSetLights1(castle_inside_lights_main),
+static const Gfx mat_castle_inside_WallTopMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
-	gsDPSetAlphaDither(G_AD_NOISE),
 	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, inside_09001000),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
+	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 2047, 256),
+	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_CLAMP | G_TX_NOMIRROR, 6, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0),
 	gsDPSetTileSize(0, 0, 0, 124, 252),
+	gsSPSetLights1(castle_inside_lights_main),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_MoonMaterial[] = {
-	gsSPClearGeometryMode(G_CULL_BACK),
-	gsSPSetLights1(castle_inside_lights_main),
+static const Gfx mat_castle_inside_MoonMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
+	gsSPClearGeometryMode(G_CULL_BACK),
 	gsDPSetAlphaDither(G_AD_NOISE),
 	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsDPTileSync(),
 	gsDPSetPrimColor(0, 0, 255, 255, 255, 200),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, inside_09002000),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
+	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
+	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_WRAP | G_TX_MIRROR, 5, 0, G_TX_WRAP | G_TX_MIRROR, 5, 0),
 	gsDPSetTileSize(0, 0, 0, 124, 124),
-	gsSPEndDisplayList(),
-};
-
-Gfx mat_revert_castle_inside_MoonMaterial[] = {
-	gsSPSetGeometryMode(G_CULL_BACK),
-	gsDPPipeSync(),
-	gsDPSetAlphaDither(G_AD_DISABLE),
-	gsSPEndDisplayList(),
-};
-
-Gfx mat_castle_inside_StarMaterial[] = {
-	gsSPClearGeometryMode(G_CULL_BACK),
 	gsSPSetLights1(castle_inside_lights_main),
+	gsSPEndDisplayList(),
+};
+
+static const Gfx mat_castle_inside_StarMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
+	gsSPClearGeometryMode(G_CULL_BACK),
 	gsDPSetAlphaDither(G_AD_NOISE),
 	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsDPTileSync(),
 	gsDPSetPrimColor(0, 0, 255, 255, 255, 200),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, inside_09002800),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
+	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
+	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_WRAP | G_TX_MIRROR, 5, 0, G_TX_WRAP | G_TX_MIRROR, 5, 0),
 	gsDPSetTileSize(0, 0, 0, 124, 124),
+	gsSPSetLights1(castle_inside_lights_main),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_inside_StarMaterial[] = {
+static const Gfx mat_revert_castle_inside_DecalMaterial[] = {
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_RailingMaterial[] = {
+static const Gfx mat_castle_inside_RailingMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
@@ -124,27 +127,23 @@ Gfx mat_castle_inside_RailingMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_CeilingMaterial[] = {
-	gsSPSetLights1(castle_inside_lights_main),
+static const Gfx mat_castle_inside_CeilingMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
-	gsDPSetAlphaDither(G_AD_NOISE),
 	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, inside_09009000),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
+	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
+	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0),
 	gsDPSetTileSize(0, 0, 0, 124, 124),
+	gsSPSetLights1(castle_inside_lights_main),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_inside_CeilingMaterial[] = {
-	gsDPPipeSync(),
-	gsDPSetTextureLUT(G_TT_NONE),
-	gsSPEndDisplayList(),
-};
-
-Gfx mat_castle_inside_BowserWallMaterial[] = {
+static const Gfx mat_castle_inside_BowserWallMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
@@ -160,7 +159,7 @@ Gfx mat_castle_inside_BowserWallMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_PillarMaterial[] = {
+static const Gfx mat_castle_inside_PillarMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
@@ -176,12 +175,12 @@ Gfx mat_castle_inside_PillarMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_BrickWallMaterial[] = {
+static const Gfx mat_castle_inside_BrickWallMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
-	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 64, castle_inside_WF_Room_rgba16),
+	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 64, inside_0900A000),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 16, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0, G_TX_WRAP | G_TX_NOMIRROR, 6, 0),
 	gsDPLoadSync(),
 	gsDPLoadTile(7, 0, 0, 252, 124),
@@ -192,7 +191,7 @@ Gfx mat_castle_inside_BrickWallMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_PurpleCeilingMaterial[] = {
+static const Gfx mat_castle_inside_PurpleCeilingMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
@@ -208,7 +207,7 @@ Gfx mat_castle_inside_PurpleCeilingMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_MarbleWallMaterial[] = {
+static const Gfx mat_castle_inside_MarbleWallMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
@@ -224,7 +223,7 @@ Gfx mat_castle_inside_MarbleWallMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_ArrowMaterial[] = {
+static const Gfx mat_castle_inside_ArrowMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
 	gsSPClearGeometryMode(G_CULL_BACK),
@@ -241,13 +240,13 @@ Gfx mat_castle_inside_ArrowMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_castle_inside_ArrowMaterial[] = {
+static const Gfx mat_revert_castle_inside_ArrowMaterial[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_PurpleWallMaterial[] = {
+static const Gfx mat_castle_inside_PurpleWallMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
@@ -263,7 +262,7 @@ Gfx mat_castle_inside_PurpleWallMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_castle_inside_WoodMaterial[] = {
+static const Gfx mat_castle_inside_WoodMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),

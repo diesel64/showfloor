@@ -1,12 +1,12 @@
-Lights1 slider_f3dlite_material_024_layer4_lights = gdSPDefLights1(
+static const Lights1 slider_f3dlite_material_024_layer4_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Lights1 slider_f3dlite_material_025_layer4_lights = gdSPDefLights1(
+static const Lights1 slider_f3dlite_material_025_layer4_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Vtx slider_2_dl_mesh_vtx_0[28] = {
+static const Vtx slider_2_dl_mesh_vtx_0[28] = {
 	{{ {-6120, -1533, -5499}, 0, {-16, 4062}, {74, 0, 103, 255} }},
 	{{ {-6001, -1021, -5558}, 0, {2013, 4731}, {48, 0, 117, 255} }},
 	{{ {-6120, -1021, -5499}, 0, {2013, 4062}, {74, 0, 103, 255} }},
@@ -37,7 +37,7 @@ Vtx slider_2_dl_mesh_vtx_0[28] = {
 	{{ {-6678, -1635, -4941}, 0, {-16, 4062}, {90, 0, 90, 255} }},
 };
 
-Gfx slider_2_dl_mesh_tri_0[] = {
+static const Gfx slider_2_dl_mesh_tri_0[] = {
 	gsSPVertex(slider_2_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -61,21 +61,21 @@ Gfx slider_2_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx slider_2_dl_mesh_vtx_1[4] = {
+static const Vtx slider_2_dl_mesh_vtx_1[4] = {
 	{{ {-3834, 13, -4293}, 0, {2017, -3}, {90, 0, 90, 255} }},
 	{{ {-4003, 13, -4124}, 0, {-28, -3}, {90, 0, 90, 255} }},
 	{{ {-4003, -104, -4124}, 0, {-28, 995}, {90, 0, 90, 255} }},
 	{{ {-3834, -104, -4293}, 0, {2017, 995}, {90, 0, 90, 255} }},
 };
 
-Gfx slider_2_dl_mesh_tri_1[] = {
+static const Gfx slider_2_dl_mesh_tri_1[] = {
 	gsSPVertex(slider_2_dl_mesh_vtx_1 + 0, 4, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_slider_f3dlite_material_024_layer4[] = {
+static const Gfx mat_slider_f3dlite_material_024_layer4[] = {
 	gsSPSetGeometryMode(G_FOG),
 	gsSPSetLights1(slider_f3dlite_material_024_layer4_lights),
 	gsDPPipeSync(),
@@ -94,7 +94,7 @@ Gfx mat_slider_f3dlite_material_024_layer4[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_slider_f3dlite_material_024_layer4[] = {
+static const Gfx mat_revert_slider_f3dlite_material_024_layer4[] = {
 	gsSPClearGeometryMode(G_FOG),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
@@ -103,7 +103,7 @@ Gfx mat_revert_slider_f3dlite_material_024_layer4[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_slider_f3dlite_material_025_layer4[] = {
+static const Gfx mat_slider_f3dlite_material_025_layer4[] = {
 	gsSPSetGeometryMode(G_FOG),
 	gsSPSetLights1(slider_f3dlite_material_025_layer4_lights),
 	gsDPPipeSync(),
@@ -122,7 +122,7 @@ Gfx mat_slider_f3dlite_material_025_layer4[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_slider_f3dlite_material_025_layer4[] = {
+static const Gfx mat_revert_slider_f3dlite_material_025_layer4[] = {
 	gsSPClearGeometryMode(G_FOG),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
@@ -131,7 +131,7 @@ Gfx mat_revert_slider_f3dlite_material_025_layer4[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx slider_2_dl_mesh[] = {
+const Gfx slider_2_dl_mesh[] = {
 	gsSPDisplayList(mat_slider_f3dlite_material_024_layer4),
 	gsSPDisplayList(slider_2_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_slider_f3dlite_material_024_layer4),

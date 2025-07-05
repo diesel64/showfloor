@@ -4,43 +4,43 @@
 
 **********************+************+***********/
 
-Lights1 water_land_lights = gdSPDefLights1(
+static const Lights1 water_land_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Lights1 water_land_RockyWallMaterialVariation1_lights = gdSPDefLights1(
+static const Lights1 water_land_RockyWallMaterialVariation1_lights = gdSPDefLights1(
 	0x19, 0x1A, 0x3F,
 	0x9B, 0x9B, 0xFF, 0x28, 0x28, 0x28);
 
-Lights1 water_land_RockyWallMaterialVariation2_lights = gdSPDefLights1(
+static const Lights1 water_land_RockyWallMaterialVariation2_lights = gdSPDefLights1(
 	0x26, 0x25, 0x3F,
 	0x9B, 0x9B, 0xFF, 0x28, 0x28, 0x28);
 
-Lights1 water_land_RockyWallMaterialVariation3_lights = gdSPDefLights1(
+static const Lights1 water_land_RockyWallMaterialVariation3_lights = gdSPDefLights1(
 	0x32, 0x32, 0x3F,
 	0xC8, 0xC8, 0xFF, 0x28, 0x28, 0x28);
 
-Lights1 water_land_RockyWallMaterialVariation4_lights = gdSPDefLights1(
+static const Lights1 water_land_RockyWallMaterialVariation4_lights = gdSPDefLights1(
 	0x1B, 0x1B, 0x1B,
 	0x44, 0x44, 0x44, 0x28, 0x28, 0x28);
 
-Lights1 submarine_SubmarineMetalMaterial_Variation1_lights = gdSPDefLights1(
+static const Lights1 submarine_SubmarineMetalMaterial_Variation1_lights = gdSPDefLights1(
 	0x3F, 0x1E, 0x19,
 	0xFE, 0x7E, 0x65, 0x28, 0x28, 0x28);
 
-Lights1 submarine_SubmarineMetalMaterial_Variation2_lights = gdSPDefLights1(
+static const Lights1 submarine_SubmarineMetalMaterial_Variation2_lights = gdSPDefLights1(
 	0x2F, 0x19, 0xF,
 	0xBE, 0x6A, 0x3F, 0x28, 0x28, 0x28);
 
-Lights1 submarine_SubmarineMetalMaterial_Variation3_lights = gdSPDefLights1(
+static const Lights1 submarine_SubmarineMetalMaterial_Variation3_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Lights1 submarine_SubmarineWoodMaterial_lights = gdSPDefLights1(
+static const Lights1 submarine_SubmarineWoodMaterial_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Lights1 submarine_SubmarineDecalMaterial_lights = gdSPDefLights1(
+static const Lights1 submarine_SubmarineDecalMaterial_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
@@ -50,7 +50,7 @@ Lights1 submarine_SubmarineDecalMaterial_lights = gdSPDefLights1(
 
 **********************+************+***********/
 
-Gfx mat_water_land_RockMaterial[] = {
+static const Gfx mat_water_land_RockMaterial[] = {
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
@@ -64,13 +64,13 @@ Gfx mat_water_land_RockMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_RockMaterial[] = {
+static const Gfx mat_revert_water_land_RockMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_RockyWallMaterial[] = {
+static const Gfx mat_water_land_RockyWallMaterial[] = {
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -84,13 +84,13 @@ Gfx mat_water_land_RockyWallMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_RockyWallMaterial[] = {
+static const Gfx mat_revert_water_land_RockyWallMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_RockyWallMaterialVariation1[] = {
+static const Gfx mat_water_land_RockyWallMaterialVariation1[] = {
 	gsSPSetLights1(water_land_RockyWallMaterialVariation1_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -104,13 +104,13 @@ Gfx mat_water_land_RockyWallMaterialVariation1[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_RockyWallMaterialVariation1[] = {
+static const Gfx mat_revert_water_land_RockyWallMaterialVariation1[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_RockyWallMaterialVariation2[] = {
+static const Gfx mat_water_land_RockyWallMaterialVariation2[] = {
 	gsSPSetLights1(water_land_RockyWallMaterialVariation2_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -124,13 +124,13 @@ Gfx mat_water_land_RockyWallMaterialVariation2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_RockyWallMaterialVariation2[] = {
+static const Gfx mat_revert_water_land_RockyWallMaterialVariation2[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_RockyWallMaterialVariation3[] = {
+static const Gfx mat_water_land_RockyWallMaterialVariation3[] = {
 	gsSPSetLights1(water_land_RockyWallMaterialVariation3_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -144,19 +144,19 @@ Gfx mat_water_land_RockyWallMaterialVariation3[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_RockyWallMaterialVariation3[] = {
+static const Gfx mat_revert_water_land_RockyWallMaterialVariation3[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_RockyWallMaterialVariation5[] = {
+static const Gfx mat_revert_water_land_RockyWallMaterialVariation5[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_MetalWallMaterial[] = {
+static const Gfx mat_water_land_MetalWallMaterial[] = {
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -170,13 +170,13 @@ Gfx mat_water_land_MetalWallMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_MetalWallMaterial[] = {
+static const Gfx mat_revert_water_land_MetalWallMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_RockyWallMaterialVariation4[] = {
+static const Gfx mat_water_land_RockyWallMaterialVariation4[] = {
 	gsSPSetLights1(water_land_RockyWallMaterialVariation4_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -190,13 +190,13 @@ Gfx mat_water_land_RockyWallMaterialVariation4[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_RockyWallMaterialVariation4[] = {
+static const Gfx mat_revert_water_land_RockyWallMaterialVariation4[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_RockyWallYellowMaterial[] = {
+static const Gfx mat_water_land_RockyWallYellowMaterial[] = {
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -210,13 +210,13 @@ Gfx mat_water_land_RockyWallYellowMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_RockyWallYellowMaterial[] = {
+static const Gfx mat_revert_water_land_RockyWallYellowMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_BrickWallMaterial[] = {
+static const Gfx mat_water_land_BrickWallMaterial[] = {
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -230,13 +230,13 @@ Gfx mat_water_land_BrickWallMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_BrickWallMaterial[] = {
+static const Gfx mat_revert_water_land_BrickWallMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_WoodMaterial[] = {
+static const Gfx mat_water_land_WoodMaterial[] = {
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
@@ -250,13 +250,13 @@ Gfx mat_water_land_WoodMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_WoodMaterial[] = {
+static const Gfx mat_revert_water_land_WoodMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_ReinforcedMetalWallBottomMaterial[] = {
+static const Gfx mat_water_land_ReinforcedMetalWallBottomMaterial[] = {
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
@@ -271,7 +271,7 @@ Gfx mat_water_land_ReinforcedMetalWallBottomMaterial[] = {
 };
 
 
-Gfx mat_water_land_GreyMetalWallMaterial[] = {
+static const Gfx mat_water_land_GreyMetalWallMaterial[] = {
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
@@ -285,19 +285,19 @@ Gfx mat_water_land_GreyMetalWallMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_GreyMetalWallMaterial[] = {
+static const Gfx mat_revert_water_land_GreyMetalWallMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_ReinforcedMetalWallBottomMaterial[] = {
+static const Gfx mat_revert_water_land_ReinforcedMetalWallBottomMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_ReinforcedMetalWallTopMaterial[] = {
+static const Gfx mat_water_land_ReinforcedMetalWallTopMaterial[] = {
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
@@ -311,13 +311,13 @@ Gfx mat_water_land_ReinforcedMetalWallTopMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_ReinforcedMetalWallTopMaterial[] = {
+static const Gfx mat_revert_water_land_ReinforcedMetalWallTopMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_PlantMaterial[] = {
+static const Gfx mat_water_land_PlantMaterial[] = {
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
@@ -332,14 +332,14 @@ Gfx mat_water_land_PlantMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_PlantMaterial[] = {
+static const Gfx mat_revert_water_land_PlantMaterial[] = {
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_GridMaterial[] = {
+static const Gfx mat_water_land_GridMaterial[] = {
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
@@ -354,14 +354,14 @@ Gfx mat_water_land_GridMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_GridMaterial[] = {
+static const Gfx mat_revert_water_land_GridMaterial[] = {
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_water_land_ArrowMaterial[] = {
+static const Gfx mat_water_land_ArrowMaterial[] = {
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
@@ -377,7 +377,7 @@ Gfx mat_water_land_ArrowMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_water_land_ArrowMaterial[] = {
+static const Gfx mat_revert_water_land_ArrowMaterial[] = {
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
@@ -391,7 +391,7 @@ Gfx mat_revert_water_land_ArrowMaterial[] = {
 **********************+************+***********/
 
 // Materials
-Gfx mat_submarine_SubmarineMetalMaterial[] = {
+static const Gfx mat_submarine_SubmarineMetalMaterial[] = {
 	gsSPSetLights1(water_land_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -405,7 +405,7 @@ Gfx mat_submarine_SubmarineMetalMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_submarine_SubmarineMetalMaterial_Variation1[] = {
+static const Gfx mat_submarine_SubmarineMetalMaterial_Variation1[] = {
 	gsSPSetLights1(submarine_SubmarineMetalMaterial_Variation1_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -419,7 +419,7 @@ Gfx mat_submarine_SubmarineMetalMaterial_Variation1[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_submarine_SubmarineMetalMaterial_Variation2[] = {
+static const Gfx mat_submarine_SubmarineMetalMaterial_Variation2[] = {
 	gsSPSetLights1(submarine_SubmarineMetalMaterial_Variation2_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -433,7 +433,7 @@ Gfx mat_submarine_SubmarineMetalMaterial_Variation2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_submarine_SubmarineWoodMaterial[] = {
+static const Gfx mat_submarine_SubmarineWoodMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 1),
@@ -450,7 +450,7 @@ Gfx mat_submarine_SubmarineWoodMaterial[] = {
 };
 
 // Materials
-Gfx mat_submarine_SubmarineBowserDecalMaterial[] = {
+static const Gfx mat_submarine_SubmarineBowserDecalMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
 	gsSPTexture(65535, 65535, 0, 0, 1),
@@ -466,7 +466,7 @@ Gfx mat_submarine_SubmarineBowserDecalMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_submarine_SubmarineTextDecalMaterial[] = {
+static const Gfx mat_submarine_SubmarineTextDecalMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
 	gsSPTexture(65535, 65535, 0, 0, 1),

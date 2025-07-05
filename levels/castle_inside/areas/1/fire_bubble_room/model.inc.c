@@ -1,4 +1,4 @@
-Vtx castle_inside_fire_bubble_dl_mesh_vtx_0[242] = {
+static const Vtx castle_inside_fire_bubble_dl_mesh_vtx_0[242] = {
 	{{ {1175, -153, -1553}, 0, {1077, 727}, {91, 88, 0, 255} }},
 	{{ {1175, -153, -1604}, 0, {937, 727}, {91, 88, 0, 255} }},
 	{{ {1150, -127, -1579}, 0, {1009, 796}, {91, 88, 0, 255} }},
@@ -243,7 +243,7 @@ Vtx castle_inside_fire_bubble_dl_mesh_vtx_0[242] = {
 	{{ {764, -153, -1604}, 0, {937, 867}, {127, 0, 0, 255} }},
 };
 
-Gfx castle_inside_fire_bubble_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_fire_bubble_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_fire_bubble_dl_mesh_vtx_0 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -385,7 +385,7 @@ Gfx castle_inside_fire_bubble_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_fire_bubble_dl_mesh_vtx_1[74] = {
+static const Vtx castle_inside_fire_bubble_dl_mesh_vtx_1[74] = {
 	{{ {500, -208, -1373}, 0, {-4622, -2736}, {0, 127, 0, 255} }},
 	{{ {1388, -208, -1373}, 0, {-4622, 5300}, {0, 127, 0, 255} }},
 	{{ {1388, -208, -2145}, 0, {2351, 5300}, {0, 127, 0, 255} }},
@@ -462,7 +462,7 @@ Vtx castle_inside_fire_bubble_dl_mesh_vtx_1[74] = {
 	{{ {867, 0, -757}, 0, {13326, 2303}, {0, 127, 0, 255} }},
 };
 
-Gfx castle_inside_fire_bubble_dl_mesh_tri_1[] = {
+static const Gfx castle_inside_fire_bubble_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_inside_fire_bubble_dl_mesh_vtx_1 + 0, 14, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -509,7 +509,7 @@ Gfx castle_inside_fire_bubble_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_fire_bubble_dl_mesh_vtx_2[12] = {
+static const Vtx castle_inside_fire_bubble_dl_mesh_vtx_2[12] = {
 	{{ {867, 256, -655}, 0, {2540, 1031}, {127, 0, 0, 255} }},
 	{{ {867, 0, -655}, 0, {2540, 2034}, {127, 0, 0, 255} }},
 	{{ {867, 256, -757}, 0, {2540, 1031}, {127, 0, 0, 255} }},
@@ -524,7 +524,7 @@ Vtx castle_inside_fire_bubble_dl_mesh_vtx_2[12] = {
 	{{ {1021, 256, -757}, 0, {1770, 1031}, {129, 0, 0, 255} }},
 };
 
-Gfx castle_inside_fire_bubble_dl_mesh_tri_2[] = {
+static const Gfx castle_inside_fire_bubble_dl_mesh_tri_2[] = {
 	gsSPVertex(castle_inside_fire_bubble_dl_mesh_vtx_2 + 0, 12, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 2, 1, 0),
@@ -535,21 +535,21 @@ Gfx castle_inside_fire_bubble_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_fire_bubble_decal_dl_mesh_vtx_0[4] = {
+static const Vtx castle_inside_fire_bubble_decal_dl_mesh_vtx_0[4] = {
 	{{ {504, 253, -1877}, 0, {1674, -170}, {127, 0, 0, 255} }},
 	{{ {504, 253, -1653}, 0, {342, -170}, {127, 0, 0, 255} }},
 	{{ {504, 29, -1653}, 0, {342, 1162}, {127, 0, 0, 255} }},
 	{{ {504, 29, -1877}, 0, {1674, 1162}, {127, 0, 0, 255} }},
 };
 
-Gfx castle_inside_fire_bubble_decal_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_fire_bubble_decal_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_fire_bubble_decal_dl_mesh_vtx_0 + 0, 4, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_inside_fire_bubble_dl_mesh[] = {
+const Gfx castle_inside_fire_bubble_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_MarbleWallMaterial),
 	gsSPDisplayList(castle_inside_fire_bubble_dl_mesh_tri_0),
 	gsSPDisplayList(mat_castle_inside_CarpetMaterial),
@@ -564,7 +564,7 @@ Gfx castle_inside_fire_bubble_dl_mesh[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_inside_fire_bubble_decal_dl_mesh[] = {
+const Gfx castle_inside_fire_bubble_decal_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_ArrowMaterial),
 	gsSPDisplayList(castle_inside_fire_bubble_decal_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_castle_inside_ArrowMaterial),

@@ -1,4 +1,4 @@
-Vtx castle_inside_snow_slider_dl_mesh_vtx_0[76] = {
+static const Vtx castle_inside_snow_slider_dl_mesh_vtx_0[76] = {
 	{{ {-2539, 384, 216}, 0, {-946, 3701}, {0, 127, 0, 255} }},
 	{{ {-2513, 384, 216}, 0, {-946, 3525}, {0, 127, 0, 255} }},
 	{{ {-2513, 384, -145}, 0, {-3486, 3525}, {0, 127, 0, 255} }},
@@ -77,7 +77,7 @@ Vtx castle_inside_snow_slider_dl_mesh_vtx_0[76] = {
 	{{ {-1638, 205, 113}, 0, {-11822, 11037}, {0, 127, 0, 255} }},
 };
 
-Gfx castle_inside_snow_slider_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_snow_slider_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_snow_slider_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -124,7 +124,7 @@ Gfx castle_inside_snow_slider_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_snow_slider_dl_mesh_vtx_1[260] = {
+static const Vtx castle_inside_snow_slider_dl_mesh_vtx_1[260] = {
 	{{ {-2588, 460, -145}, 0, {1210, -125}, {0, 0, 127, 255} }},
 	{{ {-2588, 205, -144}, 0, {678, 348}, {0, 0, 127, 255} }},
 	{{ {-2537, 460, -145}, 0, {1116, -231}, {0, 0, 127, 255} }},
@@ -387,7 +387,7 @@ Vtx castle_inside_snow_slider_dl_mesh_vtx_1[260] = {
 	{{ {-1740, 461, 113}, 0, {968, 407}, {129, 0, 0, 255} }},
 };
 
-Gfx castle_inside_snow_slider_dl_mesh_tri_1[] = {
+static const Gfx castle_inside_snow_slider_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_inside_snow_slider_dl_mesh_vtx_1 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -532,7 +532,7 @@ Gfx castle_inside_snow_slider_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_snow_slider_dl_mesh_vtx_2[12] = {
+static const Vtx castle_inside_snow_slider_dl_mesh_vtx_2[12] = {
 	{{ {-1740, 461, -41}, 0, {496, 240}, {0, 0, 127, 255} }},
 	{{ {-1638, 205, -41}, 0, {496, 1228}, {0, 0, 127, 255} }},
 	{{ {-1638, 461, -41}, 0, {496, 240}, {0, 0, 127, 255} }},
@@ -547,7 +547,7 @@ Vtx castle_inside_snow_slider_dl_mesh_vtx_2[12] = {
 	{{ {-1740, 461, 113}, 0, {-273, 240}, {0, 0, 129, 255} }},
 };
 
-Gfx castle_inside_snow_slider_dl_mesh_tri_2[] = {
+static const Gfx castle_inside_snow_slider_dl_mesh_tri_2[] = {
 	gsSPVertex(castle_inside_snow_slider_dl_mesh_vtx_2 + 0, 12, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(1, 0, 3, 0),
@@ -559,7 +559,7 @@ Gfx castle_inside_snow_slider_dl_mesh_tri_2[] = {
 };
 
 
-Gfx castle_inside_snow_slider_dl_mesh[] = {
+const Gfx castle_inside_snow_slider_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_CarpetMaterial),
 	gsSPDisplayList(castle_inside_snow_slider_dl_mesh_tri_0),
 	gsSPDisplayList(mat_castle_inside_WoodMaterial),

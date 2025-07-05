@@ -1,4 +1,4 @@
-Vtx snow_slider_1_dl_mesh_vtx_0[110] = {
+static const Vtx snow_slider_1_dl_mesh_vtx_0[110] = {
 	{{ {3921, -2114, 5005}, 0, {1981, 187}, {127, 0, 0, 255} }},
 	{{ {3921, -1476, 5005}, 0, {1911, -1117}, {127, 0, 0, 255} }},
 	{{ {3921, -2114, 5517}, 0, {935, 243}, {127, 0, 0, 255} }},
@@ -111,7 +111,7 @@ Vtx snow_slider_1_dl_mesh_vtx_0[110] = {
 	{{ {3921, -1476, 3981}, 0, {-737, -744}, {0, 0, 127, 255} }},
 };
 
-Gfx snow_slider_1_dl_mesh_tri_0[] = {
+static const Gfx snow_slider_1_dl_mesh_tri_0[] = {
 	gsSPVertex(snow_slider_1_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -172,7 +172,7 @@ Gfx snow_slider_1_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx snow_slider_1_dl_mesh_vtx_1[23] = {
+static const Vtx snow_slider_1_dl_mesh_vtx_1[23] = {
 	{{ {2897, 5285, -754}, 0, {967, 508}, {0, 116, 205, 255} }},
 	{{ {2494, 5388, -518}, 0, {3020, 64}, {0, 116, 205, 255} }},
 	{{ {2897, 5388, -518}, 0, {967, 64}, {0, 116, 205, 255} }},
@@ -198,7 +198,7 @@ Vtx snow_slider_1_dl_mesh_vtx_1[23] = {
 	{{ {2494, 5388, -115}, 0, {-167, 40}, {0, 0, 127, 255} }},
 };
 
-Gfx snow_slider_1_dl_mesh_tri_1[] = {
+static const Gfx snow_slider_1_dl_mesh_tri_1[] = {
 	gsSPVertex(snow_slider_1_dl_mesh_vtx_1 + 0, 14, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -215,7 +215,7 @@ Gfx snow_slider_1_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx snow_slider_1_dl_mesh_vtx_2[296] = {
+static const Vtx snow_slider_1_dl_mesh_vtx_2[296] = {
 	{{ {-2223, -3204, 7057}, 0, {919, -16}, {205, 116, 0, 255} }},
 	{{ {-2223, -3204, 8079}, 0, {-16, -16}, {205, 116, 0, 255} }},
 	{{ {-1199, -2752, 8079}, 0, {-16, 1008}, {205, 116, 0, 255} }},
@@ -514,7 +514,7 @@ Vtx snow_slider_1_dl_mesh_vtx_2[296] = {
 	{{ {7713, -2547, 4391}, 0, {597, 703}, {0, 127, 0, 255} }},
 };
 
-Gfx snow_slider_1_dl_mesh_tri_2[] = {
+static const Gfx snow_slider_1_dl_mesh_tri_2[] = {
 	gsSPVertex(snow_slider_1_dl_mesh_vtx_2 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -676,7 +676,7 @@ Gfx snow_slider_1_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx snow_slider_1_dl_mesh_vtx_3[77] = {
+static const Vtx snow_slider_1_dl_mesh_vtx_3[77] = {
 	{{ {5363, -2752, -4660}, 0, {-5427, 3817}, {122, 36, 252, 255} }},
 	{{ {4945, -1283, -4211}, 0, {-4860, -578}, {122, 36, 252, 255} }},
 	{{ {5320, -2496, -3560}, 0, {-8028, 1914}, {122, 36, 252, 255} }},
@@ -756,7 +756,7 @@ Vtx snow_slider_1_dl_mesh_vtx_3[77] = {
 	{{ {849, -771, -7188}, 0, {-7920, -3169}, {250, 58, 143, 255} }},
 };
 
-Gfx snow_slider_1_dl_mesh_tri_3[] = {
+static const Gfx snow_slider_1_dl_mesh_tri_3[] = {
 	gsSPVertex(snow_slider_1_dl_mesh_vtx_3 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -794,7 +794,7 @@ Gfx snow_slider_1_dl_mesh_tri_3[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx snow_slider_1_dl_mesh_vtx_4[349] = {
+static const Vtx snow_slider_1_dl_mesh_vtx_4[349] = {
 	{{ {-2223, 4085, 1933}, 0, {539, -5086}, {166, 0, 90, 255} }},
 	{{ {-1199, 2138, 2959}, 0, {6852, 3404}, {166, 0, 90, 255} }},
 	{{ {-1199, 4085, 2957}, 0, {6851, -5082}, {166, 0, 90, 255} }},
@@ -1146,7 +1146,7 @@ Vtx snow_slider_1_dl_mesh_vtx_4[349] = {
 	{{ {849, 2138, 3983}, 0, {6441, -2530}, {0, 43, 119, 255} }},
 };
 
-Gfx snow_slider_1_dl_mesh_tri_4[] = {
+static const Gfx snow_slider_1_dl_mesh_tri_4[] = {
 	gsSPVertex(snow_slider_1_dl_mesh_vtx_4 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -1314,7 +1314,7 @@ Gfx snow_slider_1_dl_mesh_tri_4[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx snow_slider_1_dl_mesh_vtx_5[152] = {
+static const Vtx snow_slider_1_dl_mesh_vtx_5[152] = {
 	{{ {-1199, 4085, 1933}, 0, {733, -6416}, {217, 114, 39, 255} }},
 	{{ {-2223, 4085, 1933}, 0, {-352, -7501}, {188, 99, 40, 255} }},
 	{{ {-1199, 4085, 2957}, 0, {-352, -5331}, {207, 72, 93, 255} }},
@@ -1469,7 +1469,7 @@ Vtx snow_slider_1_dl_mesh_vtx_5[152] = {
 	{{ {-4324, 1063, 2682}, 0, {1428, 4216}, {207, 97, 65, 255} }},
 };
 
-Gfx snow_slider_1_dl_mesh_tri_5[] = {
+static const Gfx snow_slider_1_dl_mesh_tri_5[] = {
 	gsSPVertex(snow_slider_1_dl_mesh_vtx_5 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 2, 0),
@@ -1578,7 +1578,7 @@ Gfx snow_slider_1_dl_mesh_tri_5[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx snow_slider_1_dl_mesh_vtx_6[48] = {
+static const Vtx snow_slider_1_dl_mesh_vtx_6[48] = {
 	{{ {-4096, -3204, 6428}, 0, {-1583, 4614}, {0, 127, 0, 255} }},
 	{{ {-6280, -3204, 4244}, 0, {-2935, 3263}, {0, 127, 0, 255} }},
 	{{ {-5969, -3204, 6031}, 0, {-2742, 4368}, {0, 127, 0, 255} }},
@@ -1629,7 +1629,7 @@ Vtx snow_slider_1_dl_mesh_vtx_6[48] = {
 	{{ {-2223, -3204, 8079}, 0, {-425, 5636}, {0, 127, 0, 255} }},
 };
 
-Gfx snow_slider_1_dl_mesh_tri_6[] = {
+static const Gfx snow_slider_1_dl_mesh_tri_6[] = {
 	gsSPVertex(snow_slider_1_dl_mesh_vtx_6 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -1671,7 +1671,7 @@ Gfx snow_slider_1_dl_mesh_tri_6[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx snow_slider_1_dl_mesh_vtx_7[40] = {
+static const Vtx snow_slider_1_dl_mesh_vtx_7[40] = {
 	{{ {2798, 5388, -419}, 0, {14048, -30430}, {255, 255, 255, 255} }},
 	{{ {2798, 5185, -214}, 0, {31157, -13521}, {255, 255, 255, 255} }},
 	{{ {2798, 5388, -214}, 0, {31157, -30430}, {255, 255, 255, 255} }},
@@ -1714,7 +1714,7 @@ Vtx snow_slider_1_dl_mesh_vtx_7[40] = {
 	{{ {7713, -2547, 4391}, 0, {31483, -30430}, {255, 255, 255, 255} }},
 };
 
-Gfx snow_slider_1_dl_mesh_tri_7[] = {
+static const Gfx snow_slider_1_dl_mesh_tri_7[] = {
 	gsSPVertex(snow_slider_1_dl_mesh_vtx_7 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(1, 0, 3, 0),
@@ -1741,7 +1741,7 @@ Gfx snow_slider_1_dl_mesh_tri_7[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx snow_slider_1_dl_mesh[] = {
+const Gfx snow_slider_1_dl_mesh[] = {
 	gsSPDisplayList(mat_snow_slider_GraniteRockMaterial),
 	gsSPDisplayList(snow_slider_1_dl_mesh_tri_0),
 	gsSPDisplayList(mat_snow_slider_IceBrickGradientMaterial),

@@ -1,4 +1,4 @@
-Vtx castle_inside_bowser_dl_mesh_vtx_0[76] = {
+static const Vtx castle_inside_bowser_dl_mesh_vtx_0[76] = {
 	{{ {305, 615, -3538}, 0, {-8411, 1212}, {129, 0, 0, 255} }},
 	{{ {305, 1383, -3538}, 0, {-8411, -1860}, {129, 0, 0, 255} }},
 	{{ {305, 615, -6430}, 0, {-18025, 1212}, {129, 0, 0, 255} }},
@@ -77,7 +77,7 @@ Vtx castle_inside_bowser_dl_mesh_vtx_0[76] = {
 	{{ {-21, 1383, -5061}, 0, {14349, -3547}, {0, 129, 0, 255} }},
 };
 
-Gfx castle_inside_bowser_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_bowser_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_bowser_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 1, 0),
@@ -124,7 +124,7 @@ Gfx castle_inside_bowser_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_bowser_dl_mesh_vtx_1[201] = {
+static const Vtx castle_inside_bowser_dl_mesh_vtx_1[201] = {
 	{{ {-360, 410, -1063}, 0, {-16, 1008}, {90, 0, 89, 255} }},
 	{{ {-309, 410, -1115}, 0, {326, 1008}, {90, 0, 89, 255} }},
 	{{ {-360, 1434, -1063}, 0, {-16, -2396}, {90, 0, 89, 255} }},
@@ -328,7 +328,7 @@ Vtx castle_inside_bowser_dl_mesh_vtx_1[201] = {
 	{{ {356, 1434, -3061}, 0, {-155, -2057}, {0, 166, 167, 255} }},
 };
 
-Gfx castle_inside_bowser_dl_mesh_tri_1[] = {
+static const Gfx castle_inside_bowser_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_inside_bowser_dl_mesh_vtx_1 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -435,7 +435,7 @@ Gfx castle_inside_bowser_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_bowser_dl_mesh_vtx_2[8] = {
+static const Vtx castle_inside_bowser_dl_mesh_vtx_2[8] = {
 	{{ {152, 410, -655}, 0, {3076, 2032}, {0, 127, 0, 255} }},
 	{{ {152, 410, -757}, 0, {3076, 1008}, {0, 127, 0, 255} }},
 	{{ {-156, 410, -655}, 0, {-16, 2032}, {0, 127, 0, 255} }},
@@ -446,7 +446,7 @@ Vtx castle_inside_bowser_dl_mesh_vtx_2[8] = {
 	{{ {-360, 410, -1472}, 0, {-2064, -6170}, {0, 127, 0, 255} }},
 };
 
-Gfx castle_inside_bowser_dl_mesh_tri_2[] = {
+static const Gfx castle_inside_bowser_dl_mesh_tri_2[] = {
 	gsSPVertex(castle_inside_bowser_dl_mesh_vtx_2 + 0, 8, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 2, 1, 0),
@@ -455,7 +455,7 @@ Gfx castle_inside_bowser_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_bowser_dl_mesh_vtx_3[90] = {
+static const Vtx castle_inside_bowser_dl_mesh_vtx_3[90] = {
 	{{ {-310, 1, -4152}, 0, {9527, 3544}, {127, 0, 0, 255} }},
 	{{ {-309, 615, -4152}, 0, {9527, -2620}, {127, 0, 0, 255} }},
 	{{ {-309, 1, -3538}, 0, {3363, 3544}, {127, 0, 0, 255} }},
@@ -548,7 +548,7 @@ Vtx castle_inside_bowser_dl_mesh_vtx_3[90] = {
 	{{ {-360, 410, -1472}, 0, {-1040, -12926}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_inside_bowser_dl_mesh_tri_3[] = {
+static const Gfx castle_inside_bowser_dl_mesh_tri_3[] = {
 	gsSPVertex(castle_inside_bowser_dl_mesh_vtx_3 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -600,7 +600,7 @@ Gfx castle_inside_bowser_dl_mesh_tri_3[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_bowser_dl_mesh_vtx_4[12] = {
+static const Vtx castle_inside_bowser_dl_mesh_vtx_4[12] = {
 	{{ {152, 666, -757}, 0, {6096, 1426}, {129, 0, 0, 255} }},
 	{{ {152, 518, -757}, 0, {6096, 2017}, {129, 0, 0, 255} }},
 	{{ {152, 666, -655}, 0, {6096, 1426}, {129, 0, 0, 255} }},
@@ -615,7 +615,7 @@ Vtx castle_inside_bowser_dl_mesh_vtx_4[12] = {
 	{{ {-156, 666, -655}, 0, {7640, 1426}, {0, 129, 0, 255} }},
 };
 
-Gfx castle_inside_bowser_dl_mesh_tri_4[] = {
+static const Gfx castle_inside_bowser_dl_mesh_tri_4[] = {
 	gsSPVertex(castle_inside_bowser_dl_mesh_vtx_4 + 0, 12, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 2, 1, 0),
@@ -626,7 +626,7 @@ Gfx castle_inside_bowser_dl_mesh_tri_4[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_bowser_dl_mesh_vtx_5[10] = {
+static const Vtx castle_inside_bowser_dl_mesh_vtx_5[10] = {
 	{{ {152, 518, -757}, 0, {6357, 95}, {129, 0, 0, 255} }},
 	{{ {152, 410, -757}, 0, {6357, 447}, {129, 0, 0, 255} }},
 	{{ {152, 518, -655}, 0, {6357, -6}, {129, 0, 0, 255} }},
@@ -639,7 +639,7 @@ Vtx castle_inside_bowser_dl_mesh_vtx_5[10] = {
 	{{ {-156, 518, -655}, 0, {7634, 4}, {127, 0, 0, 255} }},
 };
 
-Gfx castle_inside_bowser_dl_mesh_tri_5[] = {
+static const Gfx castle_inside_bowser_dl_mesh_tri_5[] = {
 	gsSPVertex(castle_inside_bowser_dl_mesh_vtx_5 + 0, 10, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -648,7 +648,7 @@ Gfx castle_inside_bowser_dl_mesh_tri_5[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_inside_bowser_dl_mesh[] = {
+const Gfx castle_inside_bowser_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_BowserWallMaterial),
 	gsSPDisplayList(castle_inside_bowser_dl_mesh_tri_0),
 	gsSPDisplayList(mat_castle_inside_PillarMaterial),
@@ -669,7 +669,7 @@ Gfx castle_inside_bowser_dl_mesh[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_bowser_painting_dl_mesh_vtx[] = {
+static const Vtx castle_inside_bowser_painting_dl_mesh_vtx[] = {
 	{{{-1, 1076, -6429},0, {-16, 1008},{0xFF, 0xFF, 0xFF, 0xFF}}},
 	{{{306, 1076, -6429},0, {1008, 1008},{0xFF, 0xFF, 0xFF, 0xFF}}},
 	{{{306, 1383, -6429},0, {1008, -16},{0xFF, 0xFF, 0xFF, 0xFF}}},
@@ -688,7 +688,7 @@ Vtx castle_inside_bowser_painting_dl_mesh_vtx[] = {
 	{{{-1, 1076, -6429},0, {-16, -16},{0xFF, 0xFF, 0xFF, 0xFF}}},
 };
 
-Gfx castle_inside_bowser_painting_dl_mesh[] = {
+const Gfx castle_inside_bowser_painting_dl_mesh[] = {
     gsDPPipeSync(),
     gsDPSetCycleType(G_CYC_2CYCLE),
     gsDPSetCombineMode(G_CC_TRILERP, G_CC_DECALRGB2),

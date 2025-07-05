@@ -1,4 +1,4 @@
-Vtx castle_grounds_2_dl_mesh_vtx_0[91] = {
+static const Vtx castle_grounds_2_dl_mesh_vtx_0[91] = {
 	{{ {-816, 260, 3370}, 0, {310, 2278}, {0, 224, 0, 255} }},
 	{{ {48, 260, 3912}, 0, {65, 486}, {0, 224, 0, 255} }},
 	{{ {513, 823, 3527}, 0, {668, 486}, {0, 224, 0, 255} }},
@@ -92,7 +92,7 @@ Vtx castle_grounds_2_dl_mesh_vtx_0[91] = {
 	{{ {6682, 2539, -7762}, 0, {540, -5028}, {0, 224, 0, 255} }},
 };
 
-Gfx castle_grounds_2_dl_mesh_tri_0[] = {
+static const Gfx castle_grounds_2_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_grounds_2_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -158,7 +158,7 @@ Gfx castle_grounds_2_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_grounds_2_dl_mesh[] = {
+const Gfx castle_grounds_2_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_grounds_GrayscaleGrassMaterial),
 	gsSPDisplayList(castle_grounds_2_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_castle_grounds_GrayscaleGrassMaterial),

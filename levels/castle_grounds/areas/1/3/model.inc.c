@@ -1,4 +1,4 @@
-Vtx castle_grounds_3_dl_mesh_vtx_0[116] = {
+static const Vtx castle_grounds_3_dl_mesh_vtx_0[116] = {
 	{{ {3211, 853, -2420}, 0, {3054, 496}, {103, 0, 74, 255} }},
 	{{ {3683, 853, -3073}, 0, {8189, 496}, {103, 0, 74, 255} }},
 	{{ {3683, 907, -3073}, 0, {8189, 57}, {103, 0, 74, 255} }},
@@ -117,7 +117,7 @@ Vtx castle_grounds_3_dl_mesh_vtx_0[116] = {
 	{{ {-3477, 907, -3685}, 0, {-8225, 57}, {136, 0, 216, 255} }},
 };
 
-Gfx castle_grounds_3_dl_mesh_tri_0[] = {
+static const Gfx castle_grounds_3_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_grounds_3_dl_mesh_vtx_0 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -187,7 +187,7 @@ Gfx castle_grounds_3_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_grounds_3_dl_mesh_vtx_1[8] = {
+static const Vtx castle_grounds_3_dl_mesh_vtx_1[8] = {
 	{{ {-237, 2070, -2103}, 0, {-16, -16}, {0, 0, 127, 255} }},
 	{{ {-237, 1843, -2103}, 0, {-16, 935}, {0, 0, 127, 255} }},
 	{{ {-219, 1826, -2103}, 0, {58, 1008}, {0, 0, 127, 255} }},
@@ -198,7 +198,7 @@ Vtx castle_grounds_3_dl_mesh_vtx_1[8] = {
 	{{ {251, 2070, -2103}, 0, {2032, -16}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_grounds_3_dl_mesh_tri_1[] = {
+static const Gfx castle_grounds_3_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_grounds_3_dl_mesh_vtx_1 + 0, 8, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -207,7 +207,7 @@ Gfx castle_grounds_3_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_grounds_3_dl_mesh_vtx_2[8] = {
+static const Vtx castle_grounds_3_dl_mesh_vtx_2[8] = {
 	{{ {251, 2070, -2103}, 0, {2032, 1008}, {0, 0, 127, 255} }},
 	{{ {251, 2296, -2103}, 0, {2032, 58}, {0, 0, 127, 255} }},
 	{{ {233, 2313, -2103}, 0, {1958, -16}, {0, 0, 127, 255} }},
@@ -218,7 +218,7 @@ Vtx castle_grounds_3_dl_mesh_vtx_2[8] = {
 	{{ {-219, 2313, -2103}, 0, {58, -16}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_grounds_3_dl_mesh_tri_2[] = {
+static const Gfx castle_grounds_3_dl_mesh_tri_2[] = {
 	gsSPVertex(castle_grounds_3_dl_mesh_vtx_2 + 0, 8, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -227,7 +227,7 @@ Gfx castle_grounds_3_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_grounds_3_dl_mesh[] = {
+const Gfx castle_grounds_3_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_grounds_LiningMaterial),
 	gsSPDisplayList(castle_grounds_3_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_castle_grounds_LiningMaterial),

@@ -1,4 +1,4 @@
-Vtx castle_inside_hallway_dl_mesh_vtx_0[123] = {
+static const Vtx castle_inside_hallway_dl_mesh_vtx_0[123] = {
 	{{ {240, 0, -480}, 0, {7032, 5084}, {0, 127, 0, 255} }},
 	{{ {312, 0, -407}, 0, {7754, 5817}, {0, 127, 0, 255} }},
 	{{ {349, 0, -588}, 0, {8126, 4000}, {0, 127, 0, 255} }},
@@ -124,7 +124,7 @@ Vtx castle_inside_hallway_dl_mesh_vtx_0[123] = {
 	{{ {312, 0, -407}, 0, {7754, 5817}, {0, 127, 0, 255} }},
 };
 
-Gfx castle_inside_hallway_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_hallway_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_hallway_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -197,7 +197,7 @@ Gfx castle_inside_hallway_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_hallway_dl_mesh_vtx_1[137] = {
+static const Vtx castle_inside_hallway_dl_mesh_vtx_1[137] = {
 	{{ {143, 324, -383}, 0, {4837, 277}, {0, 0, 129, 255} }},
 	{{ {143, 0, -383}, 0, {4837, 1461}, {0, 0, 129, 255} }},
 	{{ {-147, 324, -383}, 0, {3389, 277}, {0, 0, 129, 255} }},
@@ -337,7 +337,7 @@ Vtx castle_inside_hallway_dl_mesh_vtx_1[137] = {
 	{{ {-316, 256, -407}, 0, {9680, 1047}, {166, 0, 167, 255} }},
 };
 
-Gfx castle_inside_hallway_dl_mesh_tri_1[] = {
+static const Gfx castle_inside_hallway_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_inside_hallway_dl_mesh_vtx_1 + 0, 14, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -406,7 +406,7 @@ Gfx castle_inside_hallway_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_hallway_dl_mesh_vtx_2[20] = {
+static const Vtx castle_inside_hallway_dl_mesh_vtx_2[20] = {
 	{{ {204, 324, -1211}, 0, {-16, -16}, {0, 129, 0, 255} }},
 	{{ {-147, 324, -383}, 0, {-16, -16}, {0, 129, 0, 255} }},
 	{{ {204, 324, -3080}, 0, {-16, -16}, {0, 129, 0, 255} }},
@@ -429,7 +429,7 @@ Vtx castle_inside_hallway_dl_mesh_vtx_2[20] = {
 	{{ {-412, 324, -647}, 0, {-16, -16}, {0, 129, 0, 255} }},
 };
 
-Gfx castle_inside_hallway_dl_mesh_tri_2[] = {
+static const Gfx castle_inside_hallway_dl_mesh_tri_2[] = {
 	gsSPVertex(castle_inside_hallway_dl_mesh_vtx_2 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 1, 4, 0),
@@ -445,7 +445,7 @@ Gfx castle_inside_hallway_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_inside_hallway_dl_mesh[] = {
+const Gfx castle_inside_hallway_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_CarpetMaterial),
 	gsSPDisplayList(castle_inside_hallway_dl_mesh_tri_0),
 	gsSPDisplayList(mat_castle_inside_WallBottomMaterial),

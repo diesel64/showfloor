@@ -1,8 +1,8 @@
-Lights1 snow_slider_lights = gdSPDefLights1(
+static const Lights1 snow_slider_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Gfx mat_snow_slider_SnowMaterial[] = {
+static const Gfx mat_snow_slider_SnowMaterial[] = {
 	gsSPSetLights1(snow_slider_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
@@ -11,13 +11,13 @@ Gfx mat_snow_slider_SnowMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_snow_slider_SnowMaterial[] = {
+static const Gfx mat_revert_snow_slider_SnowMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_snow_slider_IceMaterial[] = {
+static const Gfx mat_snow_slider_IceMaterial[] = {
 	gsSPSetLights1(snow_slider_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -31,13 +31,13 @@ Gfx mat_snow_slider_IceMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_snow_slider_IceMaterial[] = {
+static const Gfx mat_revert_snow_slider_IceMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_snow_slider_GraniteRockMaterial[] = {
+static const Gfx mat_snow_slider_GraniteRockMaterial[] = {
 	gsSPSetLights1(snow_slider_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -51,13 +51,13 @@ Gfx mat_snow_slider_GraniteRockMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_snow_slider_GraniteRockMaterial[] = {
+static const Gfx mat_revert_snow_slider_GraniteRockMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_snow_slider_DirtySnowMaterial[] = {
+static const Gfx mat_snow_slider_DirtySnowMaterial[] = {
 	gsSPSetLights1(snow_slider_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -71,13 +71,13 @@ Gfx mat_snow_slider_DirtySnowMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_snow_slider_DirtySnowMaterial[] = {
+static const Gfx mat_revert_snow_slider_DirtySnowMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_snow_slider_IceHazardMaterial[] = {
+static const Gfx mat_snow_slider_IceHazardMaterial[] = {
 	gsSPSetLights1(snow_slider_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -91,13 +91,13 @@ Gfx mat_snow_slider_IceHazardMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_snow_slider_IceHazardMaterial[] = {
+static const Gfx mat_revert_snow_slider_IceHazardMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_snow_slider_IceBrickGradientMaterial[] = {
+static const Gfx mat_snow_slider_IceBrickGradientMaterial[] = {
 	gsSPSetLights1(snow_slider_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -111,13 +111,13 @@ Gfx mat_snow_slider_IceBrickGradientMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_snow_slider_IceBrickGradientMaterial[] = {
+static const Gfx mat_revert_snow_slider_IceBrickGradientMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_snow_slider_VoidMaterial[] = {
+static const Gfx mat_snow_slider_VoidMaterial[] = {
 	gsSPClearGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(0, 0, 0, ENVIRONMENT, 0, 0, 0, ENVIRONMENT, 0, 0, 0, ENVIRONMENT, 0, 0, 0, ENVIRONMENT),
@@ -127,14 +127,14 @@ Gfx mat_snow_slider_VoidMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_snow_slider_VoidMaterial[] = {
+static const Gfx mat_revert_snow_slider_VoidMaterial[] = {
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_snow_slider_IceBrickMaterial[] = {
+static const Gfx mat_snow_slider_IceBrickMaterial[] = {
 	gsSPSetLights1(snow_slider_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -148,13 +148,13 @@ Gfx mat_snow_slider_IceBrickMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_snow_slider_IceBrickMaterial[] = {
+static const Gfx mat_revert_snow_slider_IceBrickMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_snow_slider_RockMaterial[] = {
+static const Gfx mat_snow_slider_RockMaterial[] = {
 	gsSPSetLights1(snow_slider_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -168,14 +168,14 @@ Gfx mat_snow_slider_RockMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_snow_slider_RockMaterial[] = {
+static const Gfx mat_revert_snow_slider_RockMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
 
-Gfx mat_snow_slider_FenceMaterial[] = {
+static const Gfx mat_snow_slider_FenceMaterial[] = {
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0),
@@ -189,7 +189,7 @@ Gfx mat_snow_slider_FenceMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_snow_slider_FenceMaterial[] = {
+static const Gfx mat_revert_snow_slider_FenceMaterial[] = {
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),

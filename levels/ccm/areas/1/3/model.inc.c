@@ -1,4 +1,4 @@
-Vtx snow_slider_3_dl_mesh_vtx_0[131] = {
+static const Vtx snow_slider_3_dl_mesh_vtx_0[131] = {
 	{{ {-8017, -3102, 4244}, 0, {-28071, -21}, {129, 0, 0, 255} }},
 	{{ {-8017, -3204, 8077}, 0, {11673, 1003}, {166, 0, 90, 255} }},
 	{{ {-8017, -3102, 8077}, 0, {11673, -21}, {166, 0, 90, 255} }},
@@ -132,7 +132,7 @@ Vtx snow_slider_3_dl_mesh_vtx_0[131] = {
 	{{ {3070, -2409, -8079}, 0, {-5120, -16}, {0, 0, 129, 255} }},
 };
 
-Gfx snow_slider_3_dl_mesh_tri_0[] = {
+static const Gfx snow_slider_3_dl_mesh_tri_0[] = {
 	gsSPVertex(snow_slider_3_dl_mesh_vtx_0 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(1, 3, 4, 0),
@@ -216,7 +216,7 @@ Gfx snow_slider_3_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx snow_slider_3_dl_mesh[] = {
+const Gfx snow_slider_3_dl_mesh[] = {
 	gsSPDisplayList(mat_snow_slider_FenceMaterial),
 	gsSPDisplayList(snow_slider_3_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_snow_slider_FenceMaterial),

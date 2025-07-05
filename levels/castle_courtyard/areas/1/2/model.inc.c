@@ -1,4 +1,4 @@
-Vtx courtyard_2_dl_mesh_vtx_0[52] = {
+static const Vtx courtyard_2_dl_mesh_vtx_0[52] = {
 	{{ {-2250, -204, -1703}, 0, {1008, 1007}, {255, 255, 255, 255} }},
 	{{ {-2434, -204, -1888}, 0, {-16, -17}, {255, 255, 255, 255} }},
 	{{ {-2434, -204, -1703}, 0, {-16, 1007}, {255, 255, 255, 255} }},
@@ -53,7 +53,7 @@ Vtx courtyard_2_dl_mesh_vtx_0[52] = {
 	{{ {1849, -204, -475}, 0, {1008, -12}, {255, 255, 255, 255} }},
 };
 
-Gfx courtyard_2_dl_mesh_tri_0[] = {
+static const Gfx courtyard_2_dl_mesh_tri_0[] = {
 	gsSPVertex(courtyard_2_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(1, 0, 3, 0),
@@ -87,7 +87,7 @@ Gfx courtyard_2_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_courtyard_ShadowMaterial[] = {
+static const Gfx mat_courtyard_ShadowMaterial[] = {
 	gsSPClearGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
@@ -102,14 +102,14 @@ Gfx mat_courtyard_ShadowMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_courtyard_ShadowMaterial[] = {
+static const Gfx mat_revert_courtyard_ShadowMaterial[] = {
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx courtyard_2_dl_mesh[] = {
+const Gfx courtyard_2_dl_mesh[] = {
 	gsSPDisplayList(mat_courtyard_ShadowMaterial),
 	gsSPDisplayList(courtyard_2_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_courtyard_ShadowMaterial),

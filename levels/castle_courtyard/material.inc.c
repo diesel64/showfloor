@@ -1,8 +1,8 @@
-Lights1 courtyard_lights = gdSPDefLights1(
+static const Lights1 courtyard_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Gfx mat_courtyard_LightBrickMaterial[] = {
+static const Gfx mat_courtyard_LightBrickMaterial[] = {
 	gsSPSetLights1(courtyard_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -16,13 +16,13 @@ Gfx mat_courtyard_LightBrickMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_courtyard_LightBrickMaterial[] = {
+static const Gfx mat_revert_courtyard_LightBrickMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_courtyard_DarkBrickLedgeMaterial[] = {
+static const Gfx mat_courtyard_DarkBrickLedgeMaterial[] = {
 	gsSPSetLights1(courtyard_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -36,13 +36,13 @@ Gfx mat_courtyard_DarkBrickLedgeMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_courtyard_DarkBrickLedgeMaterial[] = {
+static const Gfx mat_revert_courtyard_DarkBrickLedgeMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_courtyard_StonePatternMaterial[] = {
+static const Gfx mat_courtyard_StonePatternMaterial[] = {
 	gsSPSetLights1(courtyard_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -56,13 +56,13 @@ Gfx mat_courtyard_StonePatternMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_courtyard_StonePatternMaterial[] = {
+static const Gfx mat_revert_courtyard_StonePatternMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_courtyard_PolkaDotDarkMaterial[] = {
+static const Gfx mat_courtyard_PolkaDotDarkMaterial[] = {
 	gsSPSetLights1(courtyard_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -76,13 +76,13 @@ Gfx mat_courtyard_PolkaDotDarkMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_courtyard_PolkaDotDarkMaterial[] = {
+static const Gfx mat_revert_courtyard_PolkaDotDarkMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_courtyard_DarkBrickMaterial[] = {
+static const Gfx mat_courtyard_DarkBrickMaterial[] = {
 	gsSPSetLights1(courtyard_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -96,13 +96,13 @@ Gfx mat_courtyard_DarkBrickMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_courtyard_DarkBrickMaterial[] = {
+static const Gfx mat_revert_courtyard_DarkBrickMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_courtyard_DirtMaterial[] = {
+static const Gfx mat_courtyard_DirtMaterial[] = {
 	gsSPSetLights1(courtyard_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -116,13 +116,13 @@ Gfx mat_courtyard_DirtMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_courtyard_DirtMaterial[] = {
+static const Gfx mat_revert_courtyard_DirtMaterial[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_courtyard_VoidMaterial[] = {
+static const Gfx mat_courtyard_VoidMaterial[] = {
 	gsSPClearGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(0, 0, 0, ENVIRONMENT, 0, 0, 0, ENVIRONMENT, 0, 0, 0, ENVIRONMENT, 0, 0, 0, ENVIRONMENT),
@@ -132,7 +132,7 @@ Gfx mat_courtyard_VoidMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_courtyard_VoidMaterial[] = {
+static const Gfx mat_revert_courtyard_VoidMaterial[] = {
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),

@@ -1,4 +1,4 @@
-Vtx water_land_1_dl_mesh_vtx_0[38] = {
+static const Vtx water_land_1_dl_mesh_vtx_0[38] = {
 	{{ {-6143, 1074, -818}, 0, {-9127, 17}, {126, 0, 17, 255} }},
 	{{ {-6143, 0, -818}, 0, {-9127, 1002}, {118, 43, 16, 255} }},
 	{{ {-6143, 0, -2047}, 0, {-8033, 1002}, {110, 41, 48, 255} }},
@@ -39,7 +39,7 @@ Vtx water_land_1_dl_mesh_vtx_0[38] = {
 	{{ {-6143, 1074, -818}, 0, {11363, 17}, {126, 0, 17, 255} }},
 };
 
-Gfx water_land_1_dl_mesh_tri_0[] = {
+static const Gfx water_land_1_dl_mesh_tri_0[] = {
 	gsSPVertex(water_land_1_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -78,7 +78,7 @@ Gfx water_land_1_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx water_land_1_dl_mesh_vtx_1[173] = {
+static const Vtx water_land_1_dl_mesh_vtx_1[173] = {
 	{{ {1441, -3419, 519}, 0, {2267, 483}, {46, 251, 138, 255} }},
 	{{ {1441, -3000, 519}, 0, {1657, 483}, {49, 0, 139, 255} }},
 	{{ {1865, -3000, 519}, 0, {1657, 1504}, {207, 0, 139, 255} }},
@@ -254,7 +254,7 @@ Vtx water_land_1_dl_mesh_vtx_1[173] = {
 	{{ {-5938, -1023, 1843}, 0, {-1914, 2812}, {97, 65, 205, 255} }},
 };
 
-Gfx water_land_1_dl_mesh_tri_1[] = {
+static const Gfx water_land_1_dl_mesh_tri_1[] = {
 	gsSPVertex(water_land_1_dl_mesh_vtx_1 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 4, 0),
@@ -366,7 +366,7 @@ Gfx water_land_1_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx water_land_1_dl_mesh_vtx_2[32] = {
+static const Vtx water_land_1_dl_mesh_vtx_2[32] = {
 	{{ {2186, -844, 220}, 0, {-86, 483}, {150, 46, 204, 255} }},
 	{{ {2325, -691, 220}, 0, {-591, 483}, {212, 107, 203, 255} }},
 	{{ {2325, -691, -204}, 0, {-591, 1495}, {207, 107, 47, 255} }},
@@ -401,7 +401,7 @@ Vtx water_land_1_dl_mesh_vtx_2[32] = {
 	{{ {1675, -333, 519}, 0, {-86, 1495}, {45, 220, 143, 255} }},
 };
 
-Gfx water_land_1_dl_mesh_tri_2[] = {
+static const Gfx water_land_1_dl_mesh_tri_2[] = {
 	gsSPVertex(water_land_1_dl_mesh_vtx_2 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -423,7 +423,7 @@ Gfx water_land_1_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx water_land_1_dl_mesh_vtx_3[92] = {
+static const Vtx water_land_1_dl_mesh_vtx_3[92] = {
 	{{ {4417, 294, 519}, 0, {2025, 990}, {167, 166, 0, 255} }},
 	{{ {4318, 392, 519}, 0, {2025, 1220}, {219, 165, 176, 255} }},
 	{{ {4318, 392, -504}, 0, {78, 1224}, {219, 165, 80, 255} }},
@@ -518,7 +518,7 @@ Vtx water_land_1_dl_mesh_vtx_3[92] = {
 	{{ {2325, 392, -204}, 0, {1455, 4835}, {33, 143, 47, 255} }},
 };
 
-Gfx water_land_1_dl_mesh_tri_3[] = {
+static const Gfx water_land_1_dl_mesh_tri_3[] = {
 	gsSPVertex(water_land_1_dl_mesh_vtx_3 + 0, 14, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -586,7 +586,7 @@ Gfx water_land_1_dl_mesh_tri_3[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx water_land_1_dl_mesh_vtx_4[78] = {
+static const Vtx water_land_1_dl_mesh_vtx_4[78] = {
 	{{ {1441, -3000, 519}, 0, {1636, 483}, {49, 0, 139, 255} }},
 	{{ {1441, -1062, 519}, 0, {-1161, 483}, {52, 247, 141, 255} }},
 	{{ {1865, -1062, 519}, 0, {-1161, 1504}, {210, 4, 138, 255} }},
@@ -667,7 +667,7 @@ Vtx water_land_1_dl_mesh_vtx_4[78] = {
 	{{ {1974, -632, -504}, 0, {-157, 1500}, {225, 22, 121, 255} }},
 };
 
-Gfx water_land_1_dl_mesh_tri_4[] = {
+static const Gfx water_land_1_dl_mesh_tri_4[] = {
 	gsSPVertex(water_land_1_dl_mesh_vtx_4 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -708,7 +708,7 @@ Gfx water_land_1_dl_mesh_tri_4[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx water_land_1_dl_mesh_vtx_5[28] = {
+static const Vtx water_land_1_dl_mesh_vtx_5[28] = {
 	{{ {-658, -3584, -204}, 0, {1761, 1497}, {0, 139, 49, 255} }},
 	{{ {-921, -3584, 220}, 0, {2033, 482}, {154, 186, 227, 255} }},
 	{{ {-921, -3584, -204}, 0, {2033, 1497}, {154, 186, 29, 255} }},
@@ -739,7 +739,7 @@ Vtx water_land_1_dl_mesh_vtx_5[28] = {
 	{{ {-921, -3884, -504}, 0, {2033, 1497}, {154, 227, 70, 255} }},
 };
 
-Gfx water_land_1_dl_mesh_tri_5[] = {
+static const Gfx water_land_1_dl_mesh_tri_5[] = {
 	gsSPVertex(water_land_1_dl_mesh_vtx_5 + 0, 14, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -761,7 +761,7 @@ Gfx water_land_1_dl_mesh_tri_5[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx water_land_1_dl_mesh_vtx_6[52] = {
+static const Vtx water_land_1_dl_mesh_vtx_6[52] = {
 	{{ {-6223, -234, 862}, 0, {4111, 602}, {199, 220, 148, 255} }},
 	{{ {-6223, 86, 862}, 0, {4111, -1102}, {210, 80, 169, 255} }},
 	{{ {-6057, 86, 847}, 0, {3263, -1102}, {29, 80, 162, 255} }},
@@ -816,7 +816,7 @@ Vtx water_land_1_dl_mesh_vtx_6[52] = {
 	{{ {-6122, -549, 1056}, 0, {-1403, 2256}, {0, 129, 0, 255} }},
 };
 
-Gfx water_land_1_dl_mesh_tri_6[] = {
+static const Gfx water_land_1_dl_mesh_tri_6[] = {
 	gsSPVertex(water_land_1_dl_mesh_vtx_6 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -854,21 +854,21 @@ Gfx water_land_1_dl_mesh_tri_6[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx water_land_1_dl_mesh_vtx_7[4] = {
+static const Vtx water_land_1_dl_mesh_vtx_7[4] = {
 	{{ {-511, -5119, -2559}, 0, {904, 187}, {0, 127, 0, 255} }},
 	{{ {-5631, -5119, 2560}, 0, {1368, 5484}, {0, 127, 0, 255} }},
 	{{ {-511, -5119, 2560}, 0, {3769, 2606}, {0, 127, 0, 255} }},
 	{{ {-5631, -5119, -2559}, 0, {-1529, 3070}, {0, 127, 0, 255} }},
 };
 
-Gfx water_land_1_dl_mesh_tri_7[] = {
+static const Gfx water_land_1_dl_mesh_tri_7[] = {
 	gsSPVertex(water_land_1_dl_mesh_vtx_7 + 0, 4, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx water_land_1_dl_mesh_vtx_8[93] = {
+static const Vtx water_land_1_dl_mesh_vtx_8[93] = {
 	{{ {-4914, -2047, 1229}, 0, {2221, -1578}, {76, 57, 172, 255} }},
 	{{ {-4914, -5119, 1229}, 0, {-6, -1654}, {101, 251, 179, 255} }},
 	{{ {-5221, -5119, 614}, 0, {-27, -1130}, {124, 251, 231, 255} }},
@@ -964,7 +964,7 @@ Vtx water_land_1_dl_mesh_vtx_8[93] = {
 	{{ {-3276, -4607, 717}, 0, {1426, 3291}, {2, 124, 26, 255} }},
 };
 
-Gfx water_land_1_dl_mesh_tri_8[] = {
+static const Gfx water_land_1_dl_mesh_tri_8[] = {
 	gsSPVertex(water_land_1_dl_mesh_vtx_8 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -1048,7 +1048,7 @@ Gfx water_land_1_dl_mesh_tri_8[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx water_land_1_dl_mesh_vtx_9[54] = {
+static const Vtx water_land_1_dl_mesh_vtx_9[54] = {
 	{{ {-2866, -4607, 717}, 0, {1619, 3061}, {8, 123, 30, 255} }},
 	{{ {-2661, -4607, 614}, 0, {1659, 2896}, {25, 121, 29, 255} }},
 	{{ {-2457, -4607, 410}, 0, {1641, 2686}, {23, 122, 28, 255} }},
@@ -1105,7 +1105,7 @@ Vtx water_land_1_dl_mesh_vtx_9[54] = {
 	{{ {-5938, -1023, 1843}, 0, {-1914, 2812}, {97, 65, 205, 255} }},
 };
 
-Gfx water_land_1_dl_mesh_tri_9[] = {
+static const Gfx water_land_1_dl_mesh_tri_9[] = {
 	gsSPVertex(water_land_1_dl_mesh_vtx_9 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 0, 2, 0),
@@ -1159,7 +1159,7 @@ Gfx water_land_1_dl_mesh_tri_9[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx water_land_1_dl_mesh[] = {
+const Gfx water_land_1_dl_mesh[] = {
 	gsSPDisplayList(mat_water_land_BrickWallMaterial),
 	gsSPDisplayList(water_land_1_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_water_land_BrickWallMaterial),

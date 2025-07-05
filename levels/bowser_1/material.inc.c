@@ -1,9 +1,9 @@
 
-Lights1 bowser_1_lights = gdSPDefLights1(
+static const Lights1 bowser_1_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Gfx mat_bowser_f3dlite_material_001[] = {
+static const Gfx mat_bowser_f3dlite_material_001[] = {
 	gsSPSetLights1(bowser_1_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -16,7 +16,7 @@ Gfx mat_bowser_f3dlite_material_001[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_bowser_f3dlite_material_002[] = {
+static const Gfx mat_bowser_f3dlite_material_002[] = {
 	gsSPSetLights1(bowser_1_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
@@ -29,7 +29,7 @@ Gfx mat_bowser_f3dlite_material_002[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_bowser_f3dlite_material_003[] = {
+static const Gfx mat_bowser_f3dlite_material_003[] = {
 	gsSPSetLights1(bowser_1_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),

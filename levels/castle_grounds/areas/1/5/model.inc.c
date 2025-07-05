@@ -1,4 +1,4 @@
-Vtx castle_grounds_5_dl_mesh_vtx_0[112] = {
+static const Vtx castle_grounds_5_dl_mesh_vtx_0[112] = {
 	{{ {-1116, 664, 2254}, 0, {-16, -16}, {255, 255, 255, 255} }},
 	{{ {-768, 560, 2573}, 0, {974, 974}, {255, 255, 255, 255} }},
 	{{ {-764, 678, 2245}, 0, {974, -16}, {255, 255, 255, 255} }},
@@ -113,7 +113,7 @@ Vtx castle_grounds_5_dl_mesh_vtx_0[112] = {
 	{{ {1376, 301, 3035}, 0, {-16, -16}, {255, 255, 255, 255} }},
 };
 
-Gfx castle_grounds_5_dl_mesh_tri_0[] = {
+static const Gfx castle_grounds_5_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_grounds_5_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -180,7 +180,7 @@ Gfx castle_grounds_5_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_grounds_5_dl_mesh[] = {
+const Gfx castle_grounds_5_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_grounds_ShadowMaterial),
 	gsSPDisplayList(castle_grounds_5_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_castle_grounds_ShadowMaterial),
