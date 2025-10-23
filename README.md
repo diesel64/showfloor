@@ -49,7 +49,7 @@ make GRUCODE=f3d_20E
 **Was it worth it?**
 - Yep.
 
-For more questions, join our [Discord server](https://discord.gg/CpxaEqg6ww).
+For more questions, join our [Discord server](https://discord.gg/ynabeAS4eD).
 
 ## Credits
 

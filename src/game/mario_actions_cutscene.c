@@ -1115,9 +1115,9 @@ static void intro_cutscene_wait_for_dialog(struct MarioState *m) {
 
 static void intro_cutscene_set_mario_to_idle(struct MarioState *m) {
     if (gCamera->cutscene == 0) {
-        gCameraMovementFlags &= CAM_MOVE_C_UP_MODE;
         gObjCutsceneDone = TRUE;
-        set_mario_action(m, ACT_FIRST_PERSON, 0);
+        set_camera_mode(m->area->camera, CAMERA_MODE_C_UP, 2); 
+        set_mario_action(m, ACT_FIRST_PERSON, 1);
     }
 
     stop_and_set_height_to_floor(m);
