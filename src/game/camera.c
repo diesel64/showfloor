@@ -1453,7 +1453,7 @@ void mode_fixed_camera(struct Camera *c) {
 
     c->nextYaw = update_fixed_camera(c, c->focus, c->pos);
     c->yaw = c->nextYaw;
-    vec3f_set(sCastleEntranceOffset, 0.f, 0.f, 0.f);
+    vec3f_set(sCastleEntranceOffset, 0.f, 0.f, -15.f);
 }
 
 /**
@@ -2790,7 +2790,7 @@ void init_camera(struct Camera *c) {
             gCameraMovementFlags |= (CAM_MOVE_ROTATE_RIGHT | CAM_MOVE_ENTERED_ROTATE_SURFACE);
             break;
         case AREA_CCM_SLIDE:
-            vec3f_set(marioOffset, 0.f, 0.f, 465.f);
+            vec3f_set(marioOffset, 0.f, 0.f, 475.f);
             break;
     }
 

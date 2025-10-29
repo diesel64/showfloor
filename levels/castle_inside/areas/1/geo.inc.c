@@ -155,17 +155,17 @@ const GeoLayout castle_geo[] = {
                GEO_OPEN_NODE(),
                   GEO_BRANCH(1, castle_geo_lobby),
                   GEO_BRANCH(1, castle_geo_lobby_to_mountain),
-                  GEO_BRANCH(1, castle_geo_mountain_room),
+                  GEO_BRANCH(1, castle_geo_lobby_to_mountain),
                   GEO_BRANCH(1, castle_geo_lobby_to_bowser),
-                  GEO_BRANCH(1, castle_geo_bowser_hallway),
-                  GEO_BRANCH(1, castle_geo_fire_bubble_room), // area 7
+                  GEO_BRANCH(1, castle_geo_lobby_to_bowser),
+                  GEO_BRANCH(1, castle_geo_lobby_to_fire_bubble), // area 7
                   GEO_BRANCH(1, castle_geo_lobby_to_fire_bubble), // area 6
                   GEO_BRANCH(1, castle_geo_lobby_to_water_land),
                   GEO_BRANCH(1, castle_geo_lobby_to_snow_slider),
-                  GEO_BRANCH(1, castle_geo_snow_slider_room),
+                  GEO_BRANCH(1, castle_geo_lobby_to_snow_slider),
                   GEO_BRANCH(1, castle_geo_lobby_to_hallway),
-                  GEO_BRANCH(1, castle_geo_hallway),
-                  GEO_BRANCH(1, castle_geo_water_land_room),
+                  GEO_BRANCH(1, castle_geo_lobby_to_hallway),
+                  GEO_BRANCH(1, castle_geo_lobby_to_water_land),
                GEO_CLOSE_NODE(),
                GEO_RENDER_OBJ(),
                GEO_ASM(0, geo_envfx_main),

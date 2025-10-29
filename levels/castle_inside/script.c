@@ -117,6 +117,7 @@ const LevelScript level_castle_inside_entry[] = {
         WARP_NODE(/*id*/ 0xF1, /*destLevel*/ LEVEL_CASTLE_GROUNDS, /*destArea*/ 0x01, /*destNode*/ 0x03, /*flags*/ WARP_NO_CHECKPOINT),
         TERRAIN(/*terrainData*/ castle_inside_collision),
         ROOMS(/*surfaceRooms*/ castle_inside_collision_rooms),
+        SHOW_DIALOG(/*index*/ 0x00, DIALOG_021),
         SET_BACKGROUND_MUSIC(/*settingsPreset*/ 0x0001, /*seq*/ SEQ_LEVEL_INSIDE_CASTLE),
         TERRAIN_TYPE(/*terrainType*/ TERRAIN_STONE),
     END_AREA(),

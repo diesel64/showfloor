@@ -582,7 +582,7 @@ s32 act_warp_door_spawn(struct MarioState *m) {
     } else if (m->usedObj->oAction == 0) {
         if (!gMessageHasBeenRead && gCurrLevelNum == LEVEL_CASTLE) {
             gMessageHasBeenRead = TRUE;
-            set_mario_action(m, ACT_READING_AUTOMATIC_DIALOG, DIALOG_021);
+            load_level_init_text(0);
         } else {
             set_mario_action(m, ACT_IDLE, 0);
         }

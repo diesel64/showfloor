@@ -1404,7 +1404,7 @@ void update_mario_health(struct MarioState *m) {
                     m->health -= (terrainIsSnow ? 3 : 1);
                 }
             } else {
-                m->health++;
+                m->health += 0x2;
             }
         }
 
@@ -1423,6 +1423,13 @@ void update_mario_health(struct MarioState *m) {
         if (m->health < 0x100) {
             m->health = 0xFF;
         }
+
+    /*   -- keep this commented out for now --
+    
+        if (((m->action & ACT_GROUP_MASK) == ACT_GROUP_SUBMERGED) && (m->health < 0x300)) {
+            play_sound(SOUND_MOVING_UNK1A, gGlobalSoundSource);
+        }
+    */
     }
 }
 

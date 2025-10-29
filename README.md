@@ -95,6 +95,7 @@ For more questions, join our [Discord server](https://discord.gg/ynabeAS4eD).
 - Diamond Hero
 - Xiartic
 - icehotlemonade
+- Neverax
   
 #### Special Thanks
 - Neverax
