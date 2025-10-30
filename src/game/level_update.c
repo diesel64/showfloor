@@ -212,7 +212,7 @@ void init_mario_after_warp(void) {
         gMarioState->interactObj = spawnNode->object;
         gMarioState->usedObj = spawnNode->object;
         // Reset the camera. Thank you diesel.
-        set_camera_mode(gMarioState->area->camera, gMarioState->area->camera->defMode, 1);
+        update_mario_sound_and_camera(gMarioState);
     }
 
     reset_camera(gCurrentArea->camera);
