@@ -954,6 +954,7 @@ s32 act_braking(struct MarioState *m) {
                m->marioObj->header.gfx.cameraToObject);
 
     set_mario_animation(m, MARIO_ANIM_SKID_ON_GROUND);
+    check_ledge_climb_down(m);
     return FALSE;
 }
 
