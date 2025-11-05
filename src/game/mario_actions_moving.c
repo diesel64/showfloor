@@ -294,7 +294,7 @@ void apply_slope_accel(struct MarioState *m) {
                 slopeAccel = 2.7f;
                 break;
             default:
-                slopeAccel = 1.7f;
+                slopeAccel = 1.3f;
                 break;
             case SURFACE_CLASS_NOT_SLIPPERY:
                 slopeAccel = 0.0f;
