@@ -768,7 +768,7 @@ s32 act_ground_pound(struct MarioState *m) {
                                                  : MARIO_ANIM_TRIPLE_JUMP_GROUND_POUND);
 
         if (m->actionTimer == 0) {
-            play_sound(SOUND_ACTION_KEY_SWISH, m->marioObj->header.gfx.cameraToObject);
+            play_sound(SOUND_ACTION_THROW, m->marioObj->header.gfx.cameraToObject);
             play_sound(SOUND_MARIO_HAUGH, m->marioObj->header.gfx.cameraToObject);
         }
 
