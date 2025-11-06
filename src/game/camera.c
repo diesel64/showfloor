@@ -1841,7 +1841,7 @@ s16 update_default_camera(struct Camera *c) {
 
     if (xzDist < 180.f && sMarioCamState->unused == 1) {
         c->pos[1] = marioFloorHeight + (300 - xzDist);
-    } else if (xzDist > 300.f && sMarioCamState->unused != 0) {
+    } else if ((xzDist > 300.f && sMarioCamState->unused != 0) || gCurrLevelNum != LEVEL_CASTLE_GROUNDS) {
         sMarioCamState->unused = 0;
     }
 
