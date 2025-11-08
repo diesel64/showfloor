@@ -13,7 +13,7 @@ static struct ObjectHitbox sBooGivingStarHitbox = {
 };
 
 // Relative positions
-static s16 sCourtyardBooTripletPositions[][3] = { { 210, 100, 420 }, { 0, 70, 210 }, { -210, 100, -210 } };
+static s16 sCourtyardBooTripletPositions[][3] = { { 210, 100, 430 }, { 0, 70, 210 }, { -210, 100, -210 } };
 
 static s32 boo_should_be_active(void) {
     if (o->oRoom == -1) {

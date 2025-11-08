@@ -5989,22 +5989,22 @@ BAD_RETURN(s32) cutscene_intro_rotate_camera(struct Camera *c) {
 }
 
 BAD_RETURN(s32) cutscene_intro_zoom(struct Camera *c) {
-    rotate_and_move_vec3f(c->pos, sMarioCamState->pos, 0, 0xF, 0);
-    c->pos[1] += 0.225f;
-    c->pos[2] -= 0.731f;
+    rotate_and_move_vec3f(c->pos, sMarioCamState->pos, 0, 0x10, 0);
+    c->pos[1] += 0.265f;
+    c->pos[2] -= 0.850f;
 }
 
 BAD_RETURN(s32) cutscene_intro(struct Camera *c) {
     cutscene_event(cutscene_intro_init, c, 0, 0);
     cutscene_event(cutscene_intro_rotate_camera, c, 0, 60);
-    cutscene_event(cutscene_intro_zoom, c, 60, 80);
+    cutscene_event(cutscene_intro_zoom, c, 60, 75);
 }
 
 BAD_RETURN(s32) cutscene_intro_end(struct Camera *c) {
     if (gDialogBoxAngle > 30.0f) {
         if (c->pos[1] < 382.f) {
             c->pos[1] += 1.450f;
-            c->pos[2] -= 2.169f;     
+            c->pos[2] -= 2.700f;     
         } else {
             sStatusFlags |= (CAM_FLAG_SMOOTH_MOVEMENT | CAM_FLAG_UNUSED_CUTSCENE_ACTIVE);
             gCutsceneTimer = CUTSCENE_STOP;
@@ -6406,7 +6406,7 @@ struct Cutscene sCutsceneUnusedExit[] = { { cutscene_unused_exit_start, 1 },
 /**
  * The intro of the game.
  */
-struct Cutscene sCutsceneIntro[] = { { cutscene_intro, 80 }, { cutscene_intro_end, CUTSCENE_LOOP } };
+struct Cutscene sCutsceneIntro[] = { { cutscene_intro, 75 }, { cutscene_intro_end, CUTSCENE_LOOP } };
 
 /**
  * Cutscene that plays when Mario dies while standing, or from electrocution.
