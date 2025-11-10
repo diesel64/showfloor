@@ -1029,7 +1029,6 @@ s32 act_forward_rollout(struct MarioState *m) {
             m->actionState = 1;
         }
     }
-    play_mario_sound(m, SOUND_ACTION_TERRAIN_JUMP, 0);
 
     update_air_without_turn(m);
 
@@ -1074,8 +1073,6 @@ s32 act_backward_rollout(struct MarioState *m) {
             m->actionState = 1;
         }
     }
-
-    play_mario_sound(m, SOUND_ACTION_TERRAIN_JUMP, 0);
 
     update_air_without_turn(m);
 
