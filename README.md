@@ -87,6 +87,9 @@ For more questions, join our [Discord server](https://discord.gg/ynabeAS4eD).
 - Fluvian
 - skibidigurt
 - Woohale54
+- Zucchino
+- pack.san
+- timmy6259
 - diesel64
 - Holo
 - toonjoey
@@ -98,7 +101,6 @@ For more questions, join our [Discord server](https://discord.gg/ynabeAS4eD).
 - Neverax
   
 #### Special Thanks
-- Neverax
 - na0micakes
 - Matsilagi
 - lunr
