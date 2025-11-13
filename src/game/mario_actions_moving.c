@@ -1150,9 +1150,7 @@ void common_slide_action(struct MarioState *m, u32 endAction, u32 airAction, s32
             break;
 
         case GROUND_STEP_HIT_WALL:
-        if (!mario_floor_is_slippery(m)) {
-            slide_bonk(m, ACT_GROUND_BONK, endAction);
-        } else if (m->wall != NULL) {
+        if (m->wall != NULL) {
             // verify! may not be the correct handling
             set_mario_action(m, ACT_STOMACH_SLIDE, 0);
             break;
