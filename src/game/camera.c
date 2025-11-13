@@ -791,6 +791,9 @@ void radial_camera_move(struct Camera *c) {
     f32 areaDistZ = sMarioCamState->pos[2] - c->areaCenZ;
     UNUSED s32 filler;
 
+    // The angle from the camera to the pivot subtracted from mario's angle
+    s16 turnYaw = gMarioState->faceAngle[1] - atan2s(areaDistZ, areaDistX);
+
     // How much the camera's yaw changed
     s16 yawOffset = calculate_yaw(sMarioCamState->pos, c->pos) - atan2s(areaDistZ, areaDistX);
 
@@ -882,19 +885,25 @@ void radial_camera_move(struct Camera *c) {
             s2ndRotateFlags &= ~CAM_MOVE_ROTATE_LEFT;
         }
     }
+
+    // ! HI GUYS !
+    // this is the main camera turning function
+
     if (!(gCameraMovementFlags & CAM_MOVE_ROTATE)) {
         // If not rotating, rotate away from walls obscuring mario from view
         if (avoidStatus == 3) {
             approach_s16_asymptotic_bool(&sModeOffsetYaw, avoidYaw, 10);
         } else {
+            // sModeOffsetYaw only updates when mario is moving
             if (c->mode == CAMERA_MODE_RADIAL) {
-                // sModeOffsetYaw only updates when mario is moving
-                if (gMarioStates[0].floor->type == SURFACE_WALL_MISC) {
-                    rotateSpeed = gMarioStates[0].forwardVel;
-                } else {
-                    rotateSpeed = gMarioStates[0].forwardVel + 768.f;
-                }
+                /* 
+                   rotateSpeed is based on the direction and velocity of mario. if you are moving 
+                   parallel to the angle from the camera to the pivot, the camera will NOT turn.
+                   if you are moving adjacent to it, the camera WILL turn.
+                */
+                rotateSpeed = gMarioStates[0].forwardVel + (16 * gMarioStates[0].forwardVel * sins(turnYaw));
                 camera_approach_s16_symmetric_bool(&sModeOffsetYaw, yawOffset, rotateSpeed);
+                
             }
         }
     }
