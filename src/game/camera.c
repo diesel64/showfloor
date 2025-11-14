@@ -901,7 +901,7 @@ void radial_camera_move(struct Camera *c) {
                    parallel to the angle from the camera to the pivot, the camera will NOT turn.
                    if you are moving adjacent to it, the camera WILL turn.
                 */
-                rotateSpeed = 770.f * sins(turnYaw);
+                rotateSpeed = 777.f * sins(turnYaw);
                 camera_approach_s16_symmetric_bool(&sModeOffsetYaw, yawOffset, rotateSpeed);
                 
             }
