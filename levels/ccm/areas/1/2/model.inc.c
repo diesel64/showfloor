@@ -1,4 +1,4 @@
-Vtx snow_slider_2_dl_mesh_vtx_0[228] = {
+static const Vtx snow_slider_2_dl_mesh_vtx_0[228] = {
 	{{ {5120, 1, -1024}, 0, {237, 202}, {47, 118, 0, 255} }},
 	{{ {4096, 410, -2048}, 0, {-180, -8}, {47, 118, 0, 255} }},
 	{{ {4091, 410, -1024}, 0, {-164, 243}, {47, 118, 0, 255} }},
@@ -229,7 +229,7 @@ Vtx snow_slider_2_dl_mesh_vtx_0[228] = {
 	{{ {-5120, -3891, -7168}, 0, {4160, 1228}, {0, 127, 0, 255} }},
 };
 
-Gfx snow_slider_2_dl_mesh_tri_0[] = {
+static const Gfx snow_slider_2_dl_mesh_tri_0[] = {
 	gsSPVertex(snow_slider_2_dl_mesh_vtx_0 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -364,7 +364,7 @@ Gfx snow_slider_2_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx snow_slider_2_dl_mesh[] = {
+const Gfx snow_slider_2_dl_mesh[] = {
 	gsSPDisplayList(mat_snow_slider_DirtySnowMaterial),
 	gsSPDisplayList(snow_slider_2_dl_mesh_tri_0),
 	gsDPPipeSync(),
