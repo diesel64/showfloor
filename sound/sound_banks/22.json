@@ -47,22 +47,22 @@
     },
     "instruments": {
         "inst0": {
-            "release_rate": 255,
+            "release_rate": 208,
             "envelope": "envelope0",
             "sound": "19_brass_Eb3"
         },
         "inst1": {
-            "release_rate": 255,
+            "release_rate": 208,
             "envelope": "envelope1",
             "sound": "1A_slap_bass_G#2"
         },
         "inst2": {
-            "release_rate": 155,
+            "release_rate": 128,
             "envelope": "envelope2",
             "sound": "1B_percussive_synth_Eb3"
         },
         "inst3": {
-            "release_rate": 255,
+            "release_rate": 208,
             "envelope": "envelope3",
             "sound": "1C_les_paul_guitar_E2"
         },
@@ -133,14 +133,14 @@
             {"release_rate": 10, "pan": 128, "envelope": "envelope4", "sound": "0D_clave"}
         ],
         "inst4": {
-            "release_rate":150,
+            "release_rate": 208,
             "normal_range_lo": 24,
             "envelope": "envelope5",
             "sound_lo": "0E_hihat_closed",
             "sound": "0F_hihat_open"
         },
         "inst5": {
-            "release_rate": 3,
+            "release_rate": 10,
             "normal_range_lo": 28,
             "normal_range_hi": 28,
             "envelope": "envelope6",
