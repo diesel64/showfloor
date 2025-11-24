@@ -3,9 +3,7 @@
 
 ## Introduction
 
-**showfloor** is a reimplementation of [The Preservation Project](https://github.com/Sunlitspace542/tpp-mirror) (TPP) with improvements and details sourced from footage of the Shoshinkai 1995 demo. 
-
-The goal is to carry on the hack’s legacy with greater accuracy to the source material while keeping the codebase clean and easy to modify.
+**showfloor** is a recreation of the Shoshinkai 1995 demo of Super Mario 64, based on [The Preservation Project](https://github.com/Sunlitspace542/tpp-mirror) (TPP). It aims to continue TPP's legacy with greater accuracy to the source material.
 
 ## Installation
 
@@ -37,17 +35,11 @@ make GRUCODE=f3d_20E
 
 ## Q&A
 
-**Why reimplement TPP?**
-- The original was cluttered with unused assets and built on an outdated SM64 Decomp refresh, making it harder to build and maintain. Starting fresh was cleaner and more practical.
-
 **Can I use this as a base for another project?**
 - Yes, but not recommended, as many vanilla assets were removed or edited, so you'd need to re-add them.
 
 **Can I contribute to this repository?**
-- Contrbutions are welcome. Please open an issue to report problems or suggest improvements, and feel free to submit pull requests.
-
-**Was it worth it?**
-- Yep.
+- Contributions are welcome. Please open an issue to report problems or suggest improvements, and feel free to submit pull requests.
 
 For more questions, join our [Discord server](https://discord.gg/ynabeAS4eD).
 
