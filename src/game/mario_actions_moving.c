@@ -79,7 +79,8 @@ void play_step_sound(struct MarioState *m, s16 frame1, s16 frame2) {
 }
 
 void align_with_floor(struct MarioState *m) {
-    mtxf_align_terrain_triangle(sFloorAlignMatrix[m->unk00], m->pos, m->faceAngle[1], 40.0f); // screaming2.mp3
+    mtxf_align_terrain_triangle(sFloorAlignMatrix[m->unk00], m->pos, m->faceAngle[1],
+                                40.0f); // screaming2.mp3
     m->marioObj->header.gfx.throwMatrix = &sFloorAlignMatrix[m->unk00];
 }
 
@@ -226,17 +227,17 @@ s32 update_sliding(struct MarioState *m, f32 stopSpeed) {
         case SURFACE_CLASS_VERY_SLIPPERY:
             accel = 10.0f;
             lossFactor = m->intendedMag / 32.0f * forward * 0.02f + 0.98f;
-        break;
+            break;
 
         case SURFACE_CLASS_SLIPPERY:
-        if ((m->area->terrainType & TERRAIN_MASK) == TERRAIN_SNOW) {
-            accel = 8.0f;
-            lossFactor = m->intendedMag / 32.0f * forward * 0.02f + 0.96f;
-        } else {
-            accel = 7.0f;
-            lossFactor = m->intendedMag / 32.0f * forward * 0.02f + 0.92f;
-        }
-        break;
+            if ((m->area->terrainType & TERRAIN_MASK) == TERRAIN_SNOW) {
+                accel = 8.0f;
+                lossFactor = m->intendedMag / 32.0f * forward * 0.02f + 0.96f;
+            } else {
+                accel = 7.0f;
+                lossFactor = m->intendedMag / 32.0f * forward * 0.02f + 0.92f;
+            }
+            break;
 
         default:
             accel = 7.0f;
@@ -637,7 +638,8 @@ void push_or_sidle_wall(struct MarioState *m, Vec3f startPos) {
         dWallAngle = wallAngle - m->faceAngle[1];
     }
 
-    if ((dWallAngle <= -29128 && dWallAngle >= -31000) || (dWallAngle >= 29128 && dWallAngle <= 31000)) {
+    if ((dWallAngle <= -29128 && dWallAngle >= -31000)
+        || (dWallAngle >= 29128 && dWallAngle <= 31000)) {
         if (m->forwardVel > 6.0f) {
             mario_set_forward_vel(m, 6.0f);
         }
@@ -1155,11 +1157,11 @@ void common_slide_action(struct MarioState *m, u32 endAction, u32 airAction, s32
             break;
 
         case GROUND_STEP_HIT_WALL:
-        if (m->wall != NULL) {
-            // verify! may not be the correct handling
-            set_mario_action(m, ACT_STOMACH_SLIDE, 0);
-            break;
-        }
+            if (m->wall != NULL) {
+                // verify! may not be the correct handling
+                set_mario_action(m, ACT_STOMACH_SLIDE, 0);
+                break;
+            }
     }
 }
 

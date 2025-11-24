@@ -13,7 +13,9 @@ static struct ObjectHitbox sBooGivingStarHitbox = {
 };
 
 // Relative positions
-static s16 sCourtyardBooTripletPositions[][3] = { { 210, 100, 430 }, { 0, 70, 210 }, { -210, 100, -210 } };
+static s16 sCourtyardBooTripletPositions[][3] = { { 210, 100, 430 },
+                                                  { 0, 70, 210 },
+                                                  { -210, 100, -210 } };
 
 static s32 boo_should_be_active(void) {
     if (o->oRoom == -1) {
@@ -95,7 +97,7 @@ static s32 boo_vanish_or_appear(void) {
 
     if (relativeAngleToMario < relativeAngleToMarioThreshhold
         || relativeMarioFaceAngle < relativeMarioFaceAngleThreshhold) {
-        o->oBooTargetOpacity = 255;        
+        o->oBooTargetOpacity = 255;
 
         if (o->oOpacity > 180) {
             doneAppearing = TRUE;
@@ -141,7 +143,8 @@ static void boo_reset_after_hit(void) {
     o->oInteractStatus = 0;
 }
 
-// called iff boo/big boo/cage boo is in action 2, which only occurs if it was non-attack-ly interacted with/bounced on?
+// called iff boo/big boo/cage boo is in action 2, which only occurs if it was non-attack-ly interacted
+// with/bounced on?
 static s32 boo_update_after_bounced_on(void) {
     o->oForwardVel = 0.0f;
     o->oVelY = 0.0f;
@@ -237,8 +240,8 @@ static void boo_chase_mario(f32 a0, s16 a1) {
         if (mario_is_in_air_action() == 0) {
             sp1C = o->oPosY - gMarioObject->oPosY;
             if (a0 < sp1C && sp1C < 500.0f) {
-                o->oVelY =
-                    increment_velocity_toward_range(o->oPosY, (gMarioObject->oPosY + 60.0f*o->oBooBaseScale), 10.f, 2.0f);
+                o->oVelY = increment_velocity_toward_range(
+                    o->oPosY, (gMarioObject->oPosY + 60.0f * o->oBooBaseScale), 10.f, 2.0f);
             }
         }
 
@@ -257,7 +260,7 @@ static void boo_chase_mario(f32 a0, s16 a1) {
 
 static void boo_act_0(void) {
     cur_obj_set_pos_to_home();
-    
+
     o->oBooBaseScale = 1.0f;
     o->oBooTargetOpacity = 0xFF;
 
@@ -296,7 +299,7 @@ static void boo_act_3(void) {
     }
 }
 
-static void (*sBooActions[])(void) = { boo_act_0, boo_act_1, boo_act_2, boo_act_3};
+static void (*sBooActions[])(void) = { boo_act_0, boo_act_1, boo_act_2, boo_act_3 };
 
 void bhv_boo_loop(void) {
     // PARTIAL_UPDATE

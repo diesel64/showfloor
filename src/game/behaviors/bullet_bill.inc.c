@@ -43,7 +43,6 @@ void bullet_bill_act_2(void) {
         spawn_object(o, MODEL_SMOKE, bhvWhitePuffSmoke);
         o->oForwardVel = 30.0f;
 
-
         if (o->oTimer == 50) {
             cur_obj_play_sound_2(SOUND_OBJ_POUNDING_CANNON);
         }

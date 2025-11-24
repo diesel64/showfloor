@@ -896,14 +896,13 @@ void radial_camera_move(struct Camera *c) {
         } else {
             // sModeOffsetYaw only updates when mario is moving
             if (c->mode == CAMERA_MODE_RADIAL) {
-                /* 
-                   rotateSpeed is based on the direction and velocity of mario. if you are moving 
+                /*
+                   rotateSpeed is based on the direction and velocity of mario. if you are moving
                    parallel to the angle from the camera to the pivot, the camera will NOT turn.
                    if you are moving adjacent to it, the camera WILL turn.
                 */
                 rotateSpeed = 777.f * sins(turnYaw);
                 camera_approach_s16_symmetric_bool(&sModeOffsetYaw, yawOffset, rotateSpeed);
-                
             }
         }
     }
@@ -1765,7 +1764,7 @@ s16 update_default_camera(struct Camera *c) {
             nextYawVel = 0x1000;
             sYawSpeed = 0;
             if (sMarioCamState->unused != 1) {
-            vec3f_get_dist_and_angle(sMarioCamState->pos, c->pos, &dist, &pitch, &yaw);
+                vec3f_get_dist_and_angle(sMarioCamState->pos, c->pos, &dist, &pitch, &yaw);
             }
         }
     }
@@ -1850,7 +1849,8 @@ s16 update_default_camera(struct Camera *c) {
 
     if (xzDist < 180.f && sMarioCamState->unused == 1) {
         c->pos[1] = marioFloorHeight + (300 - xzDist);
-    } else if ((xzDist > 300.f && sMarioCamState->unused != 0) || gCurrLevelNum != LEVEL_CASTLE_GROUNDS) {
+    } else if ((xzDist > 300.f && sMarioCamState->unused != 0)
+               || gCurrLevelNum != LEVEL_CASTLE_GROUNDS) {
         sMarioCamState->unused = 0;
     }
 
@@ -4058,7 +4058,7 @@ s32 radial_camera_input(struct Camera *c, UNUSED f32 unused) {
                     // if < ~48 degrees, we're rotating for the second time.
                     if (sModeOffsetYaw < -0x22AA) {
                         s2ndRotateFlags |= CAM_MOVE_ROTATE_LEFT;
-                    }                 
+                    }
                 }
                 play_sound_cbutton_side();
             } else {
@@ -6013,7 +6013,7 @@ BAD_RETURN(s32) cutscene_intro_end(struct Camera *c) {
     if (gDialogBoxAngle > 30.0f) {
         if (c->pos[1] < 382.f) {
             c->pos[1] += 1.450f;
-            c->pos[2] -= 2.700f;     
+            c->pos[2] -= 2.700f;
         } else {
             sStatusFlags |= (CAM_FLAG_SMOOTH_MOVEMENT | CAM_FLAG_UNUSED_CUTSCENE_ACTIVE);
             gCutsceneTimer = CUTSCENE_STOP;
@@ -6269,8 +6269,8 @@ BAD_RETURN(s32) cutscene_door_move_behind_mario(struct Camera *c) {
     if (doorRotation == 0) { // pulling door
         camOffset[0] = 120.f;
         camOffset[1] = 40.f;
-        camOffset[2] = 195.f; //used to be 280.f
-    } else { // pushing door
+        camOffset[2] = 195.f; // used to be 280.f
+    } else {                  // pushing door
         camOffset[0] = -85.f;
         camOffset[1] = 30.f;
     }
@@ -6289,10 +6289,9 @@ BAD_RETURN(s32) cutscene_door_follow_mario(struct Camera *c) {
 
     camera_approach_f32_symmetric_bool(&dist, 225.f, 10);
     camera_approach_s16_symmetric_bool(&pitch, 0, 96);
-    //camera_approach_s16_symmetric_bool(&yaw, 0, 16);
+    // camera_approach_s16_symmetric_bool(&yaw, 0, 16);
 
     vec3f_set_dist_and_angle(c->focus, c->pos, dist, pitch, yaw);
-    
 }
 
 /**

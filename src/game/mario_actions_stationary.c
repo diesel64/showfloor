@@ -746,7 +746,8 @@ s32 act_first_person(struct MarioState *m) {
 
     if (m->actionState == 0) {
         lower_background_noise(2);
-        if (m->actionArg != 1) // If Mario is entering c-up from the intro, don't use this slower transition
+        if (m->actionArg
+            != 1) // If Mario is entering c-up from the intro, don't use this slower transition
             set_camera_mode(m->area->camera, CAMERA_MODE_C_UP, 0x10);
         m->actionState = 1;
     } else if (!(m->input & INPUT_FIRST_PERSON) || sp1C) {
