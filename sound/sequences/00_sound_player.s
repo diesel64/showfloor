@@ -901,7 +901,7 @@ chan_setlayer 0, .layer_51A
 chan_end
 
 .layer_51A:
-layer_note1 38, 0x3c, 110
+layer_note1 39, 0x7f, 110
 layer_end
 
 .chan_522:
