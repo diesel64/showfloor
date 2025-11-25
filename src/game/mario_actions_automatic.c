@@ -181,8 +181,7 @@ s32 act_climbing_pole(struct MarioState *m) {
 
     marioObj->oMarioPolePos += m->controller->stickY / 8.0f;
     marioObj->oMarioPoleYawVel = 0;
-    m->faceAngle[1] =
-        cameraAngle - approach_s32((s16) (cameraAngle - m->faceAngle[1]), 0, 0x400, 0x400);
+    m->faceAngle[1] = cameraAngle - approach_s32((s16)(cameraAngle - m->faceAngle[1]), 0, 0x400, 0x400);
 
     if (set_pole_position(m, 0.0f) == POLE_NONE) {
         sp24 = m->controller->stickY / 4.0f * 0x10000;
@@ -256,43 +255,6 @@ s32 act_grab_pole_fast(struct MarioState *m) {
     return FALSE;
 }
 
-s32 act_top_of_pole_transition(struct MarioState *m) {
-    struct Object *marioObj = m->marioObj;
-
-    marioObj->oMarioPoleYawVel = 0;
-    if (m->actionArg == 0) {
-        set_mario_animation(m, MARIO_ANIM_START_HANDSTAND);
-        if (is_anim_at_end(m)) {
-            return set_mario_action(m, ACT_TOP_OF_POLE, 0);
-        }
-    } else {
-        set_mario_animation(m, MARIO_ANIM_RETURN_FROM_HANDSTAND);
-        if (m->marioObj->header.gfx.animInfo.animFrame == 0) {
-            return set_mario_action(m, ACT_HOLDING_POLE, 0);
-        }
-    }
-
-    set_pole_position(m, return_mario_anim_y_translation(m));
-    return FALSE;
-}
-
-s32 act_top_of_pole(struct MarioState *m) {
-    UNUSED struct Object *marioObj = m->marioObj;
-
-    if (m->input & INPUT_A_PRESSED) {
-        return set_mario_action(m, ACT_TOP_OF_POLE_JUMP, 0);
-    }
-    if (m->controller->stickY < -16.0f) {
-        return set_mario_action(m, ACT_TOP_OF_POLE_TRANSITION, 1);
-    }
-
-    m->faceAngle[1] -= m->controller->stickX * 16.0f;
-
-    set_mario_animation(m, MARIO_ANIM_HANDSTAND_IDLE);
-    set_pole_position(m, return_mario_anim_y_translation(m));
-    return FALSE;
-}
-
 s32 perform_hanging_step(struct MarioState *m, Vec3f nextPos) {
     UNUSED u8 filler[4];
     struct Surface *ceil;
@@ -348,7 +310,7 @@ s32 update_hang_moving(struct MarioState *m) {
     }
 
     m->faceAngle[1] =
-        m->intendedYaw - approach_s32((s16) (m->intendedYaw - m->faceAngle[1]), 0, 0x800, 0x800);
+        m->intendedYaw - approach_s32((s16)(m->intendedYaw - m->faceAngle[1]), 0, 0x800, 0x800);
 
     m->slideYaw = m->faceAngle[1];
     m->slideVelX = m->forwardVel * sins(m->faceAngle[1]);
@@ -687,8 +649,8 @@ s32 act_in_cannon(struct MarioState *m) {
             break;
 
         case 2:
-            m->faceAngle[0] -= (s16) (m->controller->stickY * 10.0f);
-            marioObj->oMarioCannonInputYaw -= (s16) (m->controller->stickX * 10.0f);
+            m->faceAngle[0] -= (s16)(m->controller->stickY * 10.0f);
+            marioObj->oMarioCannonInputYaw -= (s16)(m->controller->stickX * 10.0f);
 
             if (m->faceAngle[0] > 0x38E3) {
                 m->faceAngle[0] = 0x38E3;
@@ -834,8 +796,6 @@ s32 mario_execute_automatic_action(struct MarioState *m) {
         case ACT_GRAB_POLE_SLOW:         cancel = act_grab_pole_slow(m);         break;
         case ACT_GRAB_POLE_FAST:         cancel = act_grab_pole_fast(m);         break;
         case ACT_CLIMBING_POLE:          cancel = act_climbing_pole(m);          break;
-        case ACT_TOP_OF_POLE_TRANSITION: cancel = act_top_of_pole_transition(m); break;
-        case ACT_TOP_OF_POLE:            cancel = act_top_of_pole(m);            break;
         case ACT_START_HANGING:          cancel = act_start_hanging(m);          break;
         case ACT_HANGING:                cancel = act_hanging(m);                break;
         case ACT_HANG_MOVING:            cancel = act_hang_moving(m);            break;

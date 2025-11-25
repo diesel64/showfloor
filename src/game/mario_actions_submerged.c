@@ -19,7 +19,7 @@
 #define MIN_SWIM_STRENGTH 160
 #define MIN_SWIM_SPEED 16.0f
 
-static s16 sWasAtSurface = FALSE;
+static s16 sWasAtSurface[2] = { FALSE, FALSE };
 static s16 sSwimStrength = MIN_SWIM_STRENGTH;
 static s16 sWaterCurrentSpeeds[] = { 28, 12, 8, 4 };
 
@@ -34,12 +34,12 @@ static void set_swimming_at_surface_particles(struct MarioState *m, u32 particle
 
     if (atSurface) {
         m->particleFlags |= particleFlag;
-        if (atSurface ^ sWasAtSurface) {
+        if (atSurface ^ sWasAtSurface[m->playerNum]) {
             play_sound(SOUND_ACTION_UNKNOWN431, m->marioObj->header.gfx.cameraToObject);
         }
     }
 
-    sWasAtSurface = atSurface;
+    sWasAtSurface[m->playerNum] = atSurface;
 }
 
 static s32 swimming_near_surface(struct MarioState *m) {
@@ -189,7 +189,7 @@ static void update_swimming_speed(struct MarioState *m, f32 decelThreshold) {
 }
 
 static void update_swimming_yaw(struct MarioState *m, s32 arg) {
-    s16 targetYawVel = -(s16) (10.0f * m->controller->stickX);
+    s16 targetYawVel = -(s16)(10.0f * m->controller->stickX);
 
     if (targetYawVel > 0) {
         if (m->angleVel[1] < 0) {
@@ -225,7 +225,7 @@ static void update_swimming_yaw(struct MarioState *m, s32 arg) {
 }
 
 static void update_swimming_pitch(struct MarioState *m) {
-    s16 targetPitch = -(s16) (252.0f * m->controller->stickY);
+    s16 targetPitch = -(s16)(252.0f * m->controller->stickY);
 
     s16 pitchVel;
     if (m->faceAngle[0] < 0) {
@@ -246,8 +246,8 @@ static void update_swimming_pitch(struct MarioState *m) {
 }
 
 static void common_idle_step(struct MarioState *m, s32 animation, s32 arg) {
-    s16 targetPitch = -(s16) (252.0f);
-    s16 targetSpeed = (s16) (32.0f * m->controller->stickY);
+    s16 targetPitch = -(s16)(252.0f);
+    s16 targetSpeed = (s16)(32.0f * m->controller->stickY);
 
     update_swimming_yaw(m, arg);
     update_swimming_speed(m, MIN_SWIM_SPEED);
@@ -424,7 +424,7 @@ static void play_swimming_noise(struct MarioState *m) {
 }
 
 static s32 check_water_jump(struct MarioState *m) {
-    s32 probe = (s32) (m->pos[1] + 1.5f);
+    s32 probe = (s32)(m->pos[1] + 1.5f);
 
     if (m->input & INPUT_A_PRESSED) {
         if (probe >= m->waterLevel - 100 && m->faceAngle[0] >= 0 && m->controller->stickY < -63.0f) {

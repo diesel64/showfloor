@@ -466,8 +466,8 @@ void setup_game_memory(void) {
     gPhysicalFramebuffers[1] = VIRTUAL_TO_PHYSICAL(gFramebuffer1);
     gPhysicalFramebuffers[2] = VIRTUAL_TO_PHYSICAL(gFramebuffer2);
     // Setup Mario Animations
-    gPlayerAnimsMemAlloc[0] = main_pool_alloc(0x2000, MEMORY_POOL_LEFT);
-    gPlayerAnimsMemAlloc[1] = main_pool_alloc(0x2000, MEMORY_POOL_LEFT);
+    gPlayerAnimsMemAlloc[0] = main_pool_alloc(0x2F14, MEMORY_POOL_LEFT); // 0x2F14
+    gPlayerAnimsMemAlloc[1] = main_pool_alloc(0x2F14, MEMORY_POOL_LEFT); // 0x2F14
     set_segment_base_addr(17, (void *) gPlayerAnimsMemAlloc[0]);
     set_segment_base_addr(18, (void *) gPlayerAnimsMemAlloc[1]);
     setup_dma_table_list(&gPlayerAnimsBuf[0], gMarioAnims, gPlayerAnimsMemAlloc[0]);

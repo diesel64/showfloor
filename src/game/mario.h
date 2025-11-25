@@ -6,6 +6,31 @@
 #include "macros.h"
 #include "types.h"
 
+extern u32 gNumPlayers;
+
+#define MARIO_ANIM_GRAB_HEAVY_OBJECT MARIO_ANIM_A_POSE
+#define MARIO_ANIM_IDLE_HEAVY_OBJ MARIO_ANIM_A_POSE
+#define MARIO_ANIM_WALK_WITH_HEAVY_OBJ MARIO_ANIM_A_POSE
+#define MARIO_ANIM_HEAVY_THROW MARIO_ANIM_A_POSE
+#define MARIO_ANIM_SUFFOCATING MARIO_ANIM_A_POSE
+#define MARIO_ANIM_BEING_GRABBED MARIO_ANIM_A_POSE
+#define MARIO_ANIM_ELECTROCUTION MARIO_ANIM_A_POSE
+#define MARIO_ANIM_SHOCKED MARIO_ANIM_A_POSE
+#define MARIO_ANIM_RETURN_FROM_STAR_DANCE MARIO_ANIM_A_POSE
+#define MARIO_ANIM_RETURN_FROM_WATER_STAR_DANCE MARIO_ANIM_A_POSE
+#define MARIO_ANIM_SUMMON_STAR MARIO_ANIM_A_POSE
+#define MARIO_ANIM_RETURN_STAR_APPROACH_DOOR MARIO_ANIM_A_POSE
+#define MARIO_ANIM_WATER_IDLE_WITH_OBJ MARIO_ANIM_A_POSE
+#define MARIO_ANIM_WATER_ACTION_END_WITH_OBJ MARIO_ANIM_A_POSE
+#define MARIO_ANIM_STOP_GRAB_OBJ_WATER MARIO_ANIM_A_POSE
+#define MARIO_ANIM_SWIM_WITH_OBJ_PART1 MARIO_ANIM_A_POSE
+#define MARIO_ANIM_SWIM_WITH_OBJ_PART2 MARIO_ANIM_A_POSE
+#define MARIO_ANIM_FLUTTERKICK_WITH_OBJ MARIO_ANIM_A_POSE
+#define MARIO_ANIM_WATER_THROW_OBJ MARIO_ANIM_A_POSE
+#define MARIO_ANIM_WATER_GRAB_OBJ_PART1 MARIO_ANIM_A_POSE
+#define MARIO_ANIM_WATER_GRAB_OBJ_PART2 MARIO_ANIM_A_POSE
+#define MARIO_ANIM_WATER_PICK_UP_OBJ MARIO_ANIM_A_POSE
+
 s32 is_anim_at_end(struct MarioState *m);
 s32 is_anim_past_end(struct MarioState *m);
 s16 set_mario_animation(struct MarioState *m, s32 targetAnimID);
@@ -46,7 +71,7 @@ s32 check_common_action_exits(struct MarioState *m);
 s32 check_common_hold_action_exits(struct MarioState *m);
 s32 transition_submerged_to_walking(struct MarioState *m);
 s32 set_water_plunge_action(struct MarioState *m);
-s32 execute_mario_action(UNUSED struct Object *o);
+s32 execute_mario_action(UNUSED struct Object *o, u8 i);
 void init_mario(void);
 void init_mario_from_save_file(void);
 

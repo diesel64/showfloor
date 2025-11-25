@@ -17,12 +17,14 @@ void door_animation_and_reset(s32 sp18) {
 }
 
 void set_door_camera_event(void) {
-    if (segmented_to_virtual(bhvDoor) == o->behavior)
-        gPlayerCameraState->cameraEvent = CAM_EVENT_DOOR;
-    else if (gMarioStates->action != ACT_WARP_DOOR_SPAWN) {
-        gPlayerCameraState->cameraEvent = CAM_EVENT_DOOR_WARP;
+    if (gMarioStates[0].interactObj == o) {
+        if (segmented_to_virtual(bhvDoor) == o->behavior)
+            gPlayerCameraState[0].cameraEvent = CAM_EVENT_DOOR;
+        else if (gMarioStates[0].action != ACT_WARP_DOOR_SPAWN) {
+            gPlayerCameraState[0].cameraEvent = CAM_EVENT_DOOR_WARP;
+        }
+        gPlayerCameraState[0].usedObj = o;
     }
-    gPlayerCameraState->usedObj = o;
 }
 
 void play_door_open_noise(void) {

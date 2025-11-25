@@ -620,14 +620,17 @@ void reset_mario_pitch(struct MarioState *m) {
 }
 
 u32 interact_coin(struct MarioState *m, UNUSED u32 interactType, struct Object *o) {
-    m->numCoins++;
+    gMarioStates[0].numCoins++;
     m->healCounter += 4;
 
     o->oInteractStatus = INT_STATUS_INTERACTED;
 
-    if (m->numCoins >= 100) {
-        m->numCoins -= 100;
-        m->numLives++;
+    if (gMarioStates[0].numCoins >= 100) {
+        gMarioStates[0].numCoins -= 100;
+        gMarioStates[0].numLives++;
+        if (gNumPlayers > 1) {
+            gMarioStates[1].numLives++;
+        }
         gHudDisplay.coins = m->numCoins;
         play_sound(SOUND_GENERAL_COLLECT_1UP, gGlobalSoundSource);
     }
@@ -679,9 +682,9 @@ u32 interact_star_or_key(struct MarioState *m, UNUSED u32 interactType, struct O
         m->usedObj = o;
 
         starIndex = (o->oBhvParams >> 24) & 0x1F;
-        save_file_collect_star_or_key(m->numCoins, starIndex);
+        save_file_collect_star_or_key(&gMarioStates[0].numCoins, starIndex);
 
-        m->numStars =
+        gMarioStates[0].numStars =
             save_file_get_total_star_count(gCurrSaveFileNum - 1, COURSE_MIN - 1, COURSE_MAX - 1);
 
         if (!noExit) {
@@ -1207,7 +1210,7 @@ u32 interact_pole(struct MarioState *m, UNUSED u32 interactType, struct Object *
 
             //! @bug Using m->forwardVel here is assumed to be 0.0f due to the set from earlier.
             //       This is fixed in the Shindou version.
-            marioObj->oMarioPoleYawVel = (s32) (m->forwardVel * 0x100 + 0x1000);
+            marioObj->oMarioPoleYawVel = (s32)(m->forwardVel * 0x100 + 0x1000);
             reset_mario_pitch(m);
             return set_mario_action(m, ACT_GRAB_POLE_FAST, 0);
         }
@@ -1219,6 +1222,12 @@ u32 interact_pole(struct MarioState *m, UNUSED u32 interactType, struct Object *
 u32 interact_hoot(struct MarioState *m, UNUSED u32 interactType, struct Object *o) {
     s32 actionId = m->action & ACT_ID_MASK;
 
+    if (gNumPlayers > 1) {
+        if (m != &gMarioStates[0] && gMarioStates[0].usedObj == o)
+            return FALSE;
+        if (m != &gMarioStates[1] && gMarioStates[1].usedObj == o)
+            return FALSE;
+    }
     //! Can pause to advance the global timer without falling too far, allowing
     // you to regrab after letting go.
     if (actionId >= 0x080 && actionId < 0x098
@@ -1254,11 +1263,44 @@ u32 interact_grabbable(struct MarioState *m, u32 interactType, struct Object *o)
         }
     }
 
-    if (able_to_grab_object(m, o)) {
+    /*if (able_to_grab_object(m, o)) {
+        if (gNumPlayers > 1) {
+            if (dist_between_objects(o, gMarioStates[0].marioObj) <= dist_between_objects(o, gMarioStates[1].marioObj)) {
+                if (m != &gMarioStates[0] && able_to_grab_object(&gMarioStates[0], o))
+                    return FALSE;
+            } else if (dist_between_objects(o, gMarioStates[1].marioObj) < dist_between_objects(o, gMarioStates[0].marioObj)) {
+                if (m != &gMarioStates[1] && able_to_grab_object(&gMarioStates[1], o))
+                    return FALSE;
+            }
+        }
         if (!(o->oInteractionSubtype & INT_SUBTYPE_NOT_GRABBABLE)) {
             m->interactObj = o;
             m->input |= INPUT_INTERACT_OBJ_GRABBABLE;
             return TRUE;
+        }
+    }*/
+
+    if (able_to_grab_object(&gMarioStates[0], o)) {
+        if (gNumPlayers > 1) {
+            if (able_to_grab_object(&gMarioStates[1], o))
+                return FALSE;
+        }
+        if (!(o->oInteractionSubtype & INT_SUBTYPE_NOT_GRABBABLE)) {
+            gMarioStates[0].interactObj = o;
+            gMarioStates[0].input |= INPUT_INTERACT_OBJ_GRABBABLE;
+            return TRUE;
+        }
+    }
+
+    if (gNumPlayers > 1) {
+        if (able_to_grab_object(&gMarioStates[1], o)) {
+            if (able_to_grab_object(&gMarioStates[0], o))
+                return FALSE;
+            if (!(o->oInteractionSubtype & INT_SUBTYPE_NOT_GRABBABLE)) {
+                gMarioStates[1].interactObj = o;
+                gMarioStates[1].input |= INPUT_INTERACT_OBJ_GRABBABLE;
+                return TRUE;
+            }
         }
     }
 
@@ -1293,7 +1335,7 @@ u32 mario_can_talk(struct MarioState *m, u32 arg) {
 
 u32 check_read_sign(struct MarioState *m, struct Object *o) {
     if ((m->input & READ_MASK) && mario_can_talk(m, 0) && object_facing_mario(m, o, SIGN_RANGE)) {
-        s16 facingDYaw = (s16) (o->oMoveAngleYaw + 0x8000) - m->faceAngle[1];
+        s16 facingDYaw = (s16)(o->oMoveAngleYaw + 0x8000) - m->faceAngle[1];
         if (facingDYaw >= -SIGN_RANGE && facingDYaw <= SIGN_RANGE) {
             f32 targetX = o->oPosX + 105.0f * sins(o->oMoveAngleYaw);
             f32 targetZ = o->oPosZ + 105.0f * coss(o->oMoveAngleYaw);

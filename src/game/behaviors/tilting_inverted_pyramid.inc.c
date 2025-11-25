@@ -83,7 +83,7 @@ void bhv_tilting_inverted_pyramid_loop(void) {
     UNUSED u8 filler2[28];
 
     if (gMarioObject->platform == o) {
-        get_mario_pos(&mx, &my, &mz);
+        get_mario_pos(&mx, &my, &mz, gMarioObject == gLuigiObject);
 
         dist[0] = gMarioObject->oPosX - o->oPosX;
         dist[1] = gMarioObject->oPosY - o->oPosY;
@@ -135,7 +135,7 @@ void bhv_tilting_inverted_pyramid_loop(void) {
         mx += posAfterRotation[0] - posBeforeRotation[0];
         my += posAfterRotation[1] - posBeforeRotation[1];
         mz += posAfterRotation[2] - posBeforeRotation[2];
-        set_mario_pos(mx, my, mz);
+        set_mario_pos(mx, my, mz, gMarioObject == gLuigiObject);
     }
 
     o->header.gfx.throwMatrix = transform;

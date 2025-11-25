@@ -83,9 +83,9 @@ void bhv_unlock_door_star_init(void) {
     gCurrentObject->oUnlockDoorStarState = UNLOCK_DOOR_STAR_RISING;
     gCurrentObject->oUnlockDoorStarTimer = 0;
     gCurrentObject->oUnlockDoorStarYawVel = 0x1000;
-    gCurrentObject->oPosX += 30.0f * sins(gMarioState->faceAngle[1] - 0x4000);
+    gCurrentObject->oPosX += 30.0f * sins(gMarioStates[0].faceAngle[1] - 0x4000);
     gCurrentObject->oPosY += 160.0f;
-    gCurrentObject->oPosZ += 30.0f * coss(gMarioState->faceAngle[1] - 0x4000);
+    gCurrentObject->oPosZ += 30.0f * coss(gMarioStates[0].faceAngle[1] - 0x4000);
     gCurrentObject->oMoveAngleYaw = 0x7800;
     obj_scale(gCurrentObject, 0.5f);
 }
@@ -260,7 +260,7 @@ Gfx *geo_mario_head_rotation(s32 callContext, struct GraphNode *node, UNUSED Mat
  */
 Gfx *geo_switch_mario_hand(s32 callContext, struct GraphNode *node, UNUSED Mat4 *c) {
     struct GraphNodeSwitchCase *switchCase = (struct GraphNodeSwitchCase *) node;
-    struct MarioBodyState *bodyState = &gBodyStates[0];
+    struct MarioBodyState *bodyState = &gBodyStates[switchCase->numCases];
 
     if (callContext == GEO_CONTEXT_RENDER) {
         if (bodyState->handState == MARIO_HAND_FISTS) {
@@ -285,9 +285,11 @@ Gfx *geo_switch_mario_hand(s32 callContext, struct GraphNode *node, UNUSED Mat4 
 Gfx *geo_switch_mario_hand_grab_pos(s32 callContext, struct GraphNode *b, Mat4 *mtx) {
     struct GraphNodeHeldObject *asHeldObj = (struct GraphNodeHeldObject *) b;
     Mat4 *curTransform = mtx;
-    struct MarioState *marioState = &gMarioStates[asHeldObj->playerIndex];
+//    struct MarioState *marioState = &gMarioStates[asHeldObj->playerIndex];
+    struct MarioState *marioState;
 
     if (callContext == GEO_CONTEXT_RENDER) {
+        marioState = &gMarioStates[gCurGraphNodeObject->sharedChild == gLoadedGraphNodes[2]];
         asHeldObj->objNode = NULL;
         if (marioState->heldObj != NULL) {
             asHeldObj->objNode = marioState->heldObj;
@@ -308,6 +310,7 @@ Gfx *geo_switch_mario_hand_grab_pos(s32 callContext, struct GraphNode *b, Mat4 *
             }
         }
     } else if (callContext == GEO_CONTEXT_HELD_OBJ) {
+        marioState = &gMarioStates[gCurGraphNodeObject->sharedChild == gLoadedGraphNodes[2]];
         // ! The HOLP is set here, which is why it only updates when the held object is drawn.
         // This is why it won't update during a pause buffered hitstun or when the camera is very far
         // away.
@@ -321,7 +324,7 @@ Gfx *geo_switch_mario_hand_grab_pos(s32 callContext, struct GraphNode *b, Mat4 *
 #define MIRROR_X 4331.53
 
 /**
- * Geo node that creates a clone of Mario's geo node and updates it to becomes
+ * Geo node that creates a clone of Mario's geo node and updates it to become
  * a mirror image of the player.
  */
 Gfx *geo_render_mirror_mario(s32 callContext, struct GraphNode *node, UNUSED Mat4 *c) {

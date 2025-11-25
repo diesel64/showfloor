@@ -116,7 +116,7 @@ Gfx *geo_move_mario_part_from_parent(s32 run, UNUSED struct GraphNode *node, Mat
     if (run == TRUE) {
         Mat4 sp20;
         struct Object *obj = (struct Object *) gCurGraphNodeObject;
-        if (obj == gMarioObject && obj->prevObj != NULL) {
+        if ((obj == gMarioObject || obj == gLuigiObject) && obj->prevObj != NULL) {
             create_transformation_from_matrices(sp20, mtx, *gCurGraphNodeCamera->matrixPtr);
             obj_update_pos_from_parent_transformation(sp20, obj->prevObj);
             obj_set_gfx_pos_from_pos(obj->prevObj);

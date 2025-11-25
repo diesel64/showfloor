@@ -8,6 +8,7 @@
 #include "memory.h"
 #include "game_init.h"
 #include "geo_misc.h"
+#include "mario.h"
 #include "level_update.h"
 #include "headers.h"
 
@@ -81,20 +82,27 @@ void render_map_base(Gfx **dl, struct AreaMapData *mapPtr) {
 /*
  * areamap arrow
  */
-void render_map_arrow(Gfx **dl, struct AreaMapData *mapPtr) {
+void render_map_arrow(Gfx **dl, struct AreaMapData *mapPtr, u8 player) {
     Mtx *translate = alloc_display_list(sizeof(Mtx));
     Mtx *rotate = alloc_display_list(sizeof(Mtx));
     Vtx *vertex = alloc_display_list(4 * sizeof(Vtx));
 
-    make_vertex(vertex, 0, -4, -4, 0, 0, 256, 255, 0, 0, 255);
-    make_vertex(vertex, 1, 4, -4, 0, 256, 256, 255, 0, 0, 255);
-    make_vertex(vertex, 2, 4, 4, 0, 256, 0, 255, 0, 0, 255);
-    make_vertex(vertex, 3, -4, 4, 0, 0, 0, 255, 0, 0, 255);
+    if (!player) {
+        make_vertex(vertex, 0, -4, -4, 0, 0, 256, 255, 0, 0, 255);
+        make_vertex(vertex, 1, 4, -4, 0, 256, 256, 255, 0, 0, 255);
+        make_vertex(vertex, 2, 4, 4, 0, 256, 0, 255, 0, 0, 255);
+        make_vertex(vertex, 3, -4, 4, 0, 0, 0, 255, 0, 0, 255);
+    } else {
+        make_vertex(vertex, 0, -4, -4, 0, 0, 256, 0, 255, 0, 255);
+        make_vertex(vertex, 1, 4, -4, 0, 256, 256, 0, 255, 0, 255);
+        make_vertex(vertex, 2, 4, 4, 0, 256, 0, 0, 255, 0, 255);
+        make_vertex(vertex, 3, -4, 4, 0, 0, 0, 0, 255, 0, 255);
+    }
 
     guTranslate(translate,
-                (mapPtr->map_x + (gMarioState->pos[0] / 256) * mapPtr->side_g + mapPtr->xo_g),
-                (gMapPosi - (gMarioState->pos[2] / 256) * mapPtr->side_g + mapPtr->zo_g), 0.0f);
-    guRotate(rotate, gMarioState->faceAngle[1] / 180 + 180, 0.0f, 0.0f, 1.0f);
+                (mapPtr->map_x + (gMarioStates[player].pos[0] / 256) * mapPtr->side_g + mapPtr->xo_g),
+                (gMapPosi - (gMarioStates[player].pos[2] / 256) * mapPtr->side_g + mapPtr->zo_g), 0.0f);
+    guRotate(rotate, gMarioStates[player].faceAngle[1] / 180 + 180, 0.0f, 0.0f, 1.0f);
     gSPMatrix((*dl)++, translate, G_MTX_MODELVIEW | G_MTX_MUL | G_MTX_PUSH);
     gSPMatrix((*dl)++, rotate, G_MTX_MODELVIEW | G_MTX_MUL | G_MTX_NOPUSH);
 
@@ -115,6 +123,7 @@ Gfx *AreaMap(s32 callContext, struct GraphNode *node, UNUSED Mat4 *c) {
     Gfx *dlIter = NULL;
     Mtx *matrix;
     struct AreaMapData *mapPtr;
+    u8 i;
 
     if (callContext == GEO_CONTEXT_AREA_INIT) {
         gMapStatus = MAP_STATUS_OFFSCREEN;
@@ -142,7 +151,9 @@ Gfx *AreaMap(s32 callContext, struct GraphNode *node, UNUSED Mat4 *c) {
         render_map_base(&dlIter, mapPtr);
 
         gSPDisplayList(dlIter++, dl_ia8_up_arrow_load_texture_block);
-        render_map_arrow(&dlIter, mapPtr);
+        for (i = 0; i < gNumPlayers; i++) {
+            render_map_arrow(&dlIter, mapPtr, i);
+        }
 
         gSPDisplayList(dlIter++, dl_ia8_up_arrow_end);
 

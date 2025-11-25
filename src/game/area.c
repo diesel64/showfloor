@@ -266,6 +266,9 @@ void load_mario_area(void) {
     if (gCurrentArea->index == gMarioSpawnInfo->areaIndex) {
         gCurrentArea->flags |= 0x01;
         spawn_objects_from_info(0, gMarioSpawnInfo);
+        if (gNumPlayers > 1) {
+            spawn_objects_from_info(1, gMarioSpawnInfo);
+        }
     }
 }
 
@@ -289,10 +292,16 @@ void change_area(s32 index) {
 
         gCurrentArea->flags = areaFlags;
         gMarioObject->oActiveParticleFlags = 0;
+        if (gNumPlayers > 1) {
+            gLuigiObject->oActiveParticleFlags = 0;
+        }
     }
 
     if (areaFlags & 0x01) {
         gMarioObject->header.gfx.areaIndex = index, gMarioSpawnInfo->areaIndex = index;
+        if (gNumPlayers > 1) {
+            gLuigiObject->header.gfx.areaIndex = index, gMarioSpawnInfo->areaIndex = index;
+        }
     }
 }
 

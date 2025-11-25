@@ -9,6 +9,7 @@
 #include "print.h"
 #include "ingame_menu.h"
 #include "hud.h"
+#include "mario.h"
 #include "segment2.h"
 #include "area.h"
 #include "save_file.h"
@@ -20,6 +21,8 @@
  * cannon reticle, and the unused keys.
  **/
 
+#define LUIGI_HUD
+
 struct PowerMeterHUD {
     s8 animation;
     s16 x;
@@ -29,19 +32,25 @@ struct PowerMeterHUD {
 
 // Stores health segmented value defined by numHealthWedges
 // When the HUD is rendered this value is 8, full health.
-static s16 sPowerMeterStoredHealth;
+static s16 sPowerMeterStoredHealth[2];
 
-static struct PowerMeterHUD sPowerMeterHUD = {
-    POWER_METER_HIDDEN,
+static struct PowerMeterHUD sPowerMeterHUD[2] = {
+{    POWER_METER_HIDDEN,
     140,
     166,
     1.0,
+},
+{    POWER_METER_HIDDEN,
+    100,
+    166,
+    1.0,
+}
 };
 
 // Power Meter timer that keeps counting when it's visible.
 // Gets reset when the health is filled and stops counting
 // when the power meter is hidden.
-s32 sPowerMeterVisibleTimer = 0;
+s32 sPowerMeterVisibleTimer[2] = {0, 0};
 
 UNUSED static s32 sUnusedHUDValue1 = 0;
 UNUSED static s16 sUnusedHUDValue2 = 10;
@@ -98,7 +107,7 @@ void render_power_meter_health_segment(s16 numHealthWedges) {
  * Renders power meter display lists.
  * That includes the "POWER" base and the colored health segment textures.
  */
-void render_dl_power_meter(s16 numHealthWedges) {
+void render_dl_power_meter(s16 numHealthWedges, u8 id) {
     Mtx *translateMtx;
     Mtx *scaleMtx;
 
@@ -110,7 +119,12 @@ void render_dl_power_meter(s16 numHealthWedges) {
         return;
     }
 
-    guTranslate(translateMtx, (f32) sPowerMeterHUD.x, (f32) sPowerMeterHUD.y, 0);
+#ifdef LUIGI_HUD
+    sPowerMeterHUD[0].x = gNumPlayers < 2 ? 140 : 145;
+    sPowerMeterHUD[1].x = 100;
+#endif
+
+    guTranslate(translateMtx, (f32) sPowerMeterHUD[id].x, (f32) sPowerMeterHUD[id].y, 0);
     guScale(scaleMtx, 1.0f, 1.0f, 1.0f);
 
     gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(translateMtx++),
@@ -130,15 +144,15 @@ void render_dl_power_meter(s16 numHealthWedges) {
  * Power meter animation called when there's less than 8 health segments
  * Checks its timer to later change into deemphasizing mode.
  */
-void animate_power_meter_emphasized(void) {
-    s16 hudDisplayFlags = gHudDisplay.flags;
+void animate_power_meter_emphasized(u8 id) {
+    s16 hudDisplayFlags = gHudDisplay.flags[id];
 
     if (!(hudDisplayFlags & HUD_DISPLAY_FLAG_EMPHASIZE_POWER)) {
-        if (sPowerMeterVisibleTimer == 45.0) {
-            sPowerMeterHUD.animation = POWER_METER_DEEMPHASIZING;
+        if (sPowerMeterVisibleTimer[id] == 45.0) {
+            sPowerMeterHUD[id].animation = POWER_METER_DEEMPHASIZING;
         }
     } else {
-        sPowerMeterVisibleTimer = 0;
+        sPowerMeterVisibleTimer[id] = 0;
     }
 }
 
@@ -146,26 +160,26 @@ void animate_power_meter_emphasized(void) {
  * Power meter animation called after emphasized mode.
  * Moves power meter y pos speed until it's at 200 to be visible.
  */
-static void animate_power_meter_deemphasizing(void) {
+static void animate_power_meter_deemphasizing(u8 id) {
     s16 speed = 5;
 
-    if (sPowerMeterHUD.y > 180) {
+    if (sPowerMeterHUD[id].y > 180) {
         speed = 3;
     }
 
-    if (sPowerMeterHUD.y > 190) {
+    if (sPowerMeterHUD[id].y > 190) {
         speed = 2;
     }
 
-    if (sPowerMeterHUD.y > 195) {
+    if (sPowerMeterHUD[id].y > 195) {
         speed = 1;
     }
 
-    sPowerMeterHUD.y += speed;
+    sPowerMeterHUD[id].y += speed;
 
-    if (sPowerMeterHUD.y > 200) {
-        sPowerMeterHUD.y = 200;
-        sPowerMeterHUD.animation = POWER_METER_VISIBLE;
+    if (sPowerMeterHUD[id].y > 200) {
+        sPowerMeterHUD[id].y = 200;
+        sPowerMeterHUD[id].animation = POWER_METER_VISIBLE;
     }
 }
 
@@ -173,46 +187,46 @@ static void animate_power_meter_deemphasizing(void) {
  * Power meter animation called when there's 8 health segments.
  * Moves power meter y pos quickly until it's at 301 to be hidden.
  */
-static void animate_power_meter_hiding(void) {
-    sPowerMeterHUD.y += 20;
-    if (sPowerMeterHUD.y > 300) {
-        sPowerMeterHUD.animation = POWER_METER_HIDDEN;
-        sPowerMeterVisibleTimer = 0;
+static void animate_power_meter_hiding(u8 id) {
+    sPowerMeterHUD[id].y += 20;
+    if (sPowerMeterHUD[id].y > 300) {
+        sPowerMeterHUD[id].animation = POWER_METER_HIDDEN;
+        sPowerMeterVisibleTimer[id] = 0;
     }
 }
 
 /**
  * Handles power meter actions depending of the health segments values.
  */
-void handle_power_meter_actions(s16 numHealthWedges) {
+void handle_power_meter_actions(s16 numHealthWedges, u8 id) {
     // Show power meter if health is not full, less than 8
-    if (numHealthWedges < 8 && sPowerMeterStoredHealth == 8
-        && sPowerMeterHUD.animation == POWER_METER_HIDDEN) {
-        sPowerMeterHUD.animation = POWER_METER_EMPHASIZED;
-        sPowerMeterHUD.y = 166;
+    if (numHealthWedges < 8 && sPowerMeterStoredHealth[id] == 8
+        && sPowerMeterHUD[id].animation == POWER_METER_HIDDEN) {
+        sPowerMeterHUD[id].animation = POWER_METER_EMPHASIZED;
+        sPowerMeterHUD[id].y = 166;
     }
 
     // Show power meter if health is full, has 8
-    if (numHealthWedges == 8 && sPowerMeterStoredHealth == 7) {
-        sPowerMeterVisibleTimer = 0;
+    if (numHealthWedges == 8 && sPowerMeterStoredHealth[id] == 7) {
+        sPowerMeterVisibleTimer[id] = 0;
     }
 
     // After health is full, hide power meter
-    if (numHealthWedges == 8 && sPowerMeterVisibleTimer > 45.0) {
-        sPowerMeterHUD.animation = POWER_METER_HIDING;
+    if (numHealthWedges == 8 && sPowerMeterVisibleTimer[id] > 45.0) {
+        sPowerMeterHUD[id].animation = POWER_METER_HIDING;
     }
 
     // Update to match health value
-    sPowerMeterStoredHealth = numHealthWedges;
+    sPowerMeterStoredHealth[id] = numHealthWedges;
 
     // If Mario is swimming, keep power meter visible
-    if (gPlayerCameraState->action & ACT_FLAG_SWIMMING) {
-        if (sPowerMeterHUD.animation == POWER_METER_HIDDEN
-            || sPowerMeterHUD.animation == POWER_METER_EMPHASIZED) {
-            sPowerMeterHUD.animation = POWER_METER_DEEMPHASIZING;
-            sPowerMeterHUD.y = 166;
+    if (gPlayerCameraState[id].action & ACT_FLAG_SWIMMING) {
+        if (sPowerMeterHUD[id].animation == POWER_METER_HIDDEN
+            || sPowerMeterHUD[id].animation == POWER_METER_EMPHASIZED) {
+            sPowerMeterHUD[id].animation = POWER_METER_DEEMPHASIZING;
+            sPowerMeterHUD[id].y = 166;
         }
-        sPowerMeterVisibleTimer = 0;
+        sPowerMeterVisibleTimer[id] = 0;
     }
 }
 
@@ -222,33 +236,39 @@ void handle_power_meter_actions(s16 numHealthWedges) {
  * And calls a power meter animation function depending of the value defined.
  */
 void render_hud_power_meter(void) {
-    s16 shownHealthWedges = gHudDisplay.wedges;
+    s16 shownHealthWedges;
+    int i;
 
-    if (sPowerMeterHUD.animation != POWER_METER_HIDING) {
-        handle_power_meter_actions(shownHealthWedges);
+    for (i = 0; i < gNumPlayers; i++) {
+#ifndef LUIGI_HUD
+        if (i == 1)
+            break;
+#endif
+        shownHealthWedges = gHudDisplay.wedges[i];
+        if (sPowerMeterHUD[i].animation != POWER_METER_HIDING) {
+            handle_power_meter_actions(shownHealthWedges, i);
+        }
+
+        if (sPowerMeterHUD[i].animation != POWER_METER_HIDDEN) {
+            switch (sPowerMeterHUD[i].animation) {
+                case POWER_METER_EMPHASIZED:
+                    animate_power_meter_emphasized(i);
+                    break;
+                case POWER_METER_DEEMPHASIZING:
+                    animate_power_meter_deemphasizing(i);
+                    break;
+                case POWER_METER_HIDING:
+                    animate_power_meter_hiding(i);
+                    break;
+                default:
+                    break;
+            }
+
+            render_dl_power_meter(shownHealthWedges, i);
+
+            sPowerMeterVisibleTimer[i]++;
+        }
     }
-
-    if (sPowerMeterHUD.animation == POWER_METER_HIDDEN) {
-        return;
-    }
-
-    switch (sPowerMeterHUD.animation) {
-        case POWER_METER_EMPHASIZED:
-            animate_power_meter_emphasized();
-            break;
-        case POWER_METER_DEEMPHASIZING:
-            animate_power_meter_deemphasizing();
-            break;
-        case POWER_METER_HIDING:
-            animate_power_meter_hiding();
-            break;
-        default:
-            break;
-    }
-
-    render_dl_power_meter(shownHealthWedges);
-
-    sPowerMeterVisibleTimer++;
 }
 
 #define HUD_TOP_Y 210
@@ -260,6 +280,16 @@ void render_hud_mario_lives(void) {
     print_text(30, HUD_TOP_Y, ","); // 'Mario Head' glyph
     print_text(46, HUD_TOP_Y, "*"); // 'X' glyph
     print_text_fmt_int(60, HUD_TOP_Y, "%d", gHudDisplay.lives);
+#ifdef LUIGI_HUD // give luigi his own hud
+    if (gNumPlayers > 1) {
+        print_text(30, HUD_TOP_Y - 17, "\'"); // 'Luigi Head' glyph
+        print_text(46, HUD_TOP_Y - 17, "*"); // 'X' glyph
+        print_text_fmt_int(60, HUD_TOP_Y - 17, "%d", gMarioStates[1].numLives);
+
+        //if (gMarioStates[1].health > 0x100)
+        //    print_text_fmt_int(96, HUD_TOP_Y - 17, "%d", (gMarioStates[1].health >> 8));
+    }
+#endif
 }
 
 /**
@@ -286,12 +316,15 @@ void render_hud_stars(void) {
  * excluding the cannon reticle which detects a camera preset for it.
  */
 void render_hud(void) {
-    s16 hudDisplayFlags = gHudDisplay.flags;
+    s16 hudDisplayFlags = gHudDisplay.flags[0];
 
     if (hudDisplayFlags == HUD_DISPLAY_NONE) {
-        sPowerMeterHUD.animation = POWER_METER_HIDDEN;
-        sPowerMeterStoredHealth = 8;
-        sPowerMeterVisibleTimer = 0;
+        sPowerMeterHUD[0].animation = POWER_METER_HIDDEN;
+        sPowerMeterHUD[1].animation = POWER_METER_HIDDEN;
+        sPowerMeterStoredHealth[0] = 8;
+        sPowerMeterStoredHealth[1] = 8;
+        sPowerMeterVisibleTimer[0] = 0;
+        sPowerMeterVisibleTimer[1] = 0;
     } else {
         create_dl_ortho_matrix();
 

@@ -58,7 +58,7 @@ void whomp_patrol(void) {
     f32 distWalked = cur_obj_lateral_dist_to_home();
 
     cur_obj_init_animation_with_accel_and_sound(0, 1.0f);
-
+    
     if (cur_obj_check_anim_frame_in_range(0, 23)) {
         o->oForwardVel = 9.0f;
     } else {
@@ -142,7 +142,7 @@ void whomp_on_ground_general(void) {
         o->oAngleVelRoll = 0;
 
         whomp_on_ground();
-        if (o->oTimer > 100 || (gMarioState->action == ACT_SQUISHED && o->oTimer > 30)) {
+        if (o->oTimer > 100 || (gMarioStates[0].action == ACT_SQUISHED && o->oTimer > 30)) {
             o->oSubAction = 10;
         }
     } else if (o->oFaceAnglePitch > 0) {

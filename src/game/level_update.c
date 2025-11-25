@@ -35,7 +35,7 @@
 #define WARP_TYPE_CHANGE_AREA 2
 #define WARP_TYPE_SAME_AREA 3
 
-struct MarioState gMarioStates[1];
+struct MarioState gMarioStates[2];
 struct HudDisplay gHudDisplay;
 
 FORCE_BSS s16 sCurrPlayMode;
@@ -53,17 +53,24 @@ FORCE_BSS s8 sTimerRunning;
 s8 gMessageHasBeenRead;
 
 struct MarioState *gMarioState = &gMarioStates[0];
+struct MarioState *gLuigiState = &gMarioStates[1];
 u8 unused1[2] = { 0 };
 s8 sWarpCheckpointActive = FALSE;
 u8 unused2[4];
 
 u32 pressed_pause(void) {
     u32 dialogActive = get_dialog_id() >= 0;
-    u32 intangible = (gMarioState->action & ACT_FLAG_INTANGIBLE) != 0;
+    u32 intangible;
+    int i;
+    struct Controller *controller;
 
-    if (!intangible && !dialogActive && !gWarpTransition.isActive && sDelayedWarpOp == WARP_OP_NONE
-        && (gPlayer1Controller->buttonPressed & START_BUTTON)) {
-        return TRUE;
+    for (i = 0; i < gNumPlayers; i++) {
+        intangible = (gMarioStates[i].action & ACT_FLAG_INTANGIBLE) != 0;
+        controller = &gControllers[i];
+        if (!intangible && !dialogActive && !gWarpTransition.isActive && sDelayedWarpOp == WARP_OP_NONE
+            && (controller->buttonPressed & START_BUTTON)) {
+            return TRUE;
+        }
     }
 
     return FALSE;
@@ -188,7 +195,7 @@ void init_mario_after_warp(void) {
     struct ObjectWarpNode *spawnNode = area_get_warp_node(sWarpDest.nodeId);
     u32 marioSpawnType = get_mario_spawn_type(spawnNode->object);
 
-    if (gMarioState->action != ACT_UNINITIALIZED) {
+    if (gMarioStates[0].action != ACT_UNINITIALIZED) {
         gPlayerSpawnInfos[0].startPos[0] = (s16) spawnNode->object->oPosX;
         gPlayerSpawnInfos[0].startPos[1] = (s16) spawnNode->object->oPosY;
         gPlayerSpawnInfos[0].startPos[2] = (s16) spawnNode->object->oPosZ;
@@ -207,12 +214,19 @@ void init_mario_after_warp(void) {
         }
 
         init_mario();
-        set_mario_initial_action(gMarioState, marioSpawnType, sWarpDest.arg);
+        set_mario_initial_action(&gMarioStates[0], marioSpawnType, sWarpDest.arg);
+        if (gNumPlayers > 1) {
+            set_mario_initial_action(&gMarioStates[1], marioSpawnType, sWarpDest.arg);
+        }
 
-        gMarioState->interactObj = spawnNode->object;
-        gMarioState->usedObj = spawnNode->object;
-        // Reset the camera. Thank you diesel.
-        update_mario_sound_and_camera(gMarioState);
+        gMarioStates[0].interactObj = spawnNode->object;
+        gMarioStates[0].usedObj = spawnNode->object;
+        if (gNumPlayers > 1) {
+            gMarioStates[1].interactObj = spawnNode->object;
+            gMarioStates[1].usedObj = spawnNode->object;
+        }
+        // Reset the camera. Not how vanilla does it but it works
+        update_mario_sound_and_camera(&gMarioStates[0]);
     }
 
     reset_camera(gCurrentArea->camera);
@@ -281,35 +295,73 @@ void warp_level(void) {
 void check_instant_warp(void) {
     s16 cameraAngle;
     struct Surface *floor;
+    Vec3f right;
+    int i;
+    //int marioDead = (gMarioStates[0].action == ACT_DISAPPEARED || gMarioStates[0].health < 0x100);
+    //int luigiDead = (gMarioStates[1].action == ACT_DISAPPEARED || gMarioStates[1].health < 0x100);
 
     if (gCurrLevelNum == LEVEL_CASTLE
         && save_file_get_total_star_count(gCurrSaveFileNum - 1, COURSE_MIN - 1, COURSE_MAX - 1) >= 70) {
         return;
     }
 
-    if ((floor = gMarioState->floor) != NULL) {
-        s32 index = floor->type - SURFACE_INSTANT_WARP_1B;
-        if (index >= INSTANT_WARP_INDEX_START && index < INSTANT_WARP_INDEX_STOP
-            && gCurrentArea->instantWarps != NULL) {
-            struct InstantWarp *warp = &gCurrentArea->instantWarps[index];
+    for (i = 0; i < gNumPlayers; i++) {
+        if ((floor = gMarioStates[i].floor) != NULL) {
+            s32 index = floor->type - SURFACE_INSTANT_WARP_1B;
+            if (index >= INSTANT_WARP_INDEX_START && index < INSTANT_WARP_INDEX_STOP
+                && gCurrentArea->instantWarps != NULL) {
+                struct InstantWarp *warp = &gCurrentArea->instantWarps[index];
 
-            if (warp->id != 0) {
-                gMarioState->pos[0] += warp->displacement[0];
-                gMarioState->pos[1] += warp->displacement[1];
-                gMarioState->pos[2] += warp->displacement[2];
+                if (warp->id != 0) {
+                    gMarioObject = gMarioStates[0].marioObj;
+                    gMarioStates[i].pos[0] += warp->displacement[0];
+                    gMarioStates[i].pos[1] += warp->displacement[1];
+                    gMarioStates[i].pos[2] += warp->displacement[2];
 
-                gMarioState->marioObj->oPosX = gMarioState->pos[0];
-                gMarioState->marioObj->oPosY = gMarioState->pos[1];
-                gMarioState->marioObj->oPosZ = gMarioState->pos[2];
+                    gMarioStates[i].marioObj->oPosX = gMarioStates[0].pos[0];
+                    gMarioStates[i].marioObj->oPosY = gMarioStates[0].pos[1];
+                    gMarioStates[i].marioObj->oPosZ = gMarioStates[0].pos[2];
 
-                cameraAngle = gMarioState->area->camera->yaw;
+                    cameraAngle = gMarioStates[i].area->camera->yaw;
 
-                change_area(warp->area);
-                gMarioState->area = gCurrentArea;
+                    change_area(warp->area);
+                    gMarioStates[i].area = gCurrentArea;
 
-                warp_camera(warp->displacement[0], warp->displacement[1], warp->displacement[2]);
+                    warp_camera(warp->displacement[0], warp->displacement[1], warp->displacement[2]);
 
-                gMarioState->area->camera->yaw = cameraAngle;
+                    gMarioStates[i].area->camera->yaw = cameraAngle;
+
+                    if (gNumPlayers > 1) {
+                        if (i == 0) {
+                            gLuigiObject = gMarioStates[1].marioObj;
+                            right[0] = -coss(gMarioStates[0].faceAngle[1]);
+                            right[1] = 0;
+                            right[2] = sins(gMarioStates[0].faceAngle[1]);
+                            gMarioStates[1].pos[0] = gMarioStates[0].pos[0] + (right[0] * 150);
+                            gMarioStates[1].pos[1] = gMarioStates[0].pos[1];
+                            gMarioStates[1].pos[2] = gMarioStates[0].pos[2] + (right[2] * 150);
+                            gMarioStates[1].marioObj->oPosX = gMarioStates[0].pos[0] + (right[0] * 150);
+                            gMarioStates[1].marioObj->oPosY = gMarioStates[0].pos[1];
+                            gMarioStates[1].marioObj->oPosZ = gMarioStates[0].pos[2] + (right[0] * 150);
+                            gMarioStates[1].area = gCurrentArea;
+                            gMarioStates[1].area->camera->yaw = cameraAngle;
+                        }
+
+                        if (i == 1) {
+                            right[0] = -coss(gMarioStates[1].faceAngle[1]);
+                            right[1] = 0;
+                            right[2] = sins(gMarioStates[1].faceAngle[1]);
+                            gMarioStates[0].pos[0] = gMarioStates[1].pos[0] - (right[0] * 150);
+                            gMarioStates[0].pos[1] = gMarioStates[1].pos[1];
+                            gMarioStates[0].pos[2] = gMarioStates[1].pos[2] - (right[2] * 150);
+                            gMarioStates[0].marioObj->oPosX = gMarioStates[1].pos[0] + (right[0] * 150);
+                            gMarioStates[0].marioObj->oPosY = gMarioStates[1].pos[1];
+                            gMarioStates[0].marioObj->oPosZ = gMarioStates[1].pos[2] + (right[0] * 150);
+                            gMarioStates[0].area = gCurrentArea;
+                            gMarioStates[0].area->camera->yaw = cameraAngle;
+                        }
+                    }
+                }
             }
         }
     }
@@ -387,13 +439,13 @@ void initiate_warp(s16 destLevel, s16 destArea, s16 destWarpNode, s32 arg3) {
  * Check if Mario is above and close to a painting warp floor, and return the
  * corresponding warp node.
  */
-struct WarpNode *get_painting_warp_node(void) {
+struct WarpNode *get_painting_warp_node(u8 id) {
     struct WarpNode *warpNode = NULL;
-    s32 paintingIndex = gMarioState->floor->type - SURFACE_PAINTING_WARP_D3;
+    s32 paintingIndex = gMarioStates[id].floor->type - SURFACE_PAINTING_WARP_D3;
 
     if (paintingIndex >= PAINTING_WARP_INDEX_START && paintingIndex < PAINTING_WARP_INDEX_END) {
         if (paintingIndex < PAINTING_WARP_INDEX_FA
-            || gMarioState->pos[1] - gMarioState->floorHeight < 80.0f) {
+            || gMarioStates[id].pos[1] - gMarioStates[id].floorHeight < 80.0f) {
             warpNode = &gCurrentArea->paintingWarpNodes[paintingIndex];
         }
     }
@@ -405,38 +457,44 @@ struct WarpNode *get_painting_warp_node(void) {
  * Check is Mario has entered a painting, and if so, initiate a warp.
  */
 void initiate_painting_warp(void) {
-    if (gCurrentArea->paintingWarpNodes != NULL && gMarioState->floor != NULL) {
-        struct WarpNode warpNode;
-        struct WarpNode *pWarpNode = get_painting_warp_node();
+    int i;
 
-        if (pWarpNode != NULL) {
-            if (gMarioState->action & ACT_FLAG_INTANGIBLE) {
-                play_painting_eject_sound();
-            } else if (pWarpNode->id != 0) {
-                warpNode = *pWarpNode;
+    for (i = 0; i < gNumPlayers; i++) {
+        if (gCurrentArea->paintingWarpNodes != NULL && gMarioStates[i].floor != NULL) {
+            struct WarpNode warpNode;
+            struct WarpNode *pWarpNode = get_painting_warp_node(i);
 
-                if (!(warpNode.destLevel & 0x80)) {
-                    sWarpCheckpointActive = check_warp_checkpoint(&warpNode);
+            if (pWarpNode != NULL) {
+                if (gMarioStates[i].action & ACT_FLAG_INTANGIBLE) {
+                    play_painting_eject_sound();
+                } else if (pWarpNode->id != 0) {
+                    warpNode = *pWarpNode;
+
+                    if (!(warpNode.destLevel & 0x80)) {
+                        sWarpCheckpointActive = check_warp_checkpoint(&warpNode);
+                    }
+
+                    set_time_stop_flags(TIME_STOP_ENABLED | TIME_STOP_ALL_OBJECTS);
+
+                    initiate_warp(warpNode.destLevel & 0x7F, warpNode.destArea, warpNode.destNode, 0);
+                    check_if_should_set_warp_checkpoint(&warpNode);
+
+                    play_transition_after_delay(WARP_TRANSITION_FADE_INTO_COLOR, 30, 255, 255, 255, 45);
+                    level_set_transition(74, basic_update);
+
+                    set_mario_action(&gMarioStates[i], ACT_DISAPPEARED, 0);
+
+                    gMarioStates[i].marioObj->header.gfx.node.flags &= ~GRAPH_RENDER_ACTIVE;
+
+                    play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);
+                    fadeout_level_music(398);
                 }
-
-                set_time_stop_flags(TIME_STOP_ENABLED | TIME_STOP_ALL_OBJECTS);
-
-                initiate_warp(warpNode.destLevel & 0x7F, warpNode.destArea, warpNode.destNode, 0);
-                check_if_should_set_warp_checkpoint(&warpNode);
-
-                play_transition_after_delay(WARP_TRANSITION_FADE_INTO_COLOR, 30, 255, 255, 255, 45);
-                level_set_transition(74, basic_update);
-
-                set_mario_action(gMarioState, ACT_DISAPPEARED, 0);
-
-                gMarioState->marioObj->header.gfx.node.flags &= ~GRAPH_RENDER_ACTIVE;
-
-                play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);
-                fadeout_level_music(398);
             }
         }
     }
 }
+
+#define PLAYER_DEAD(id) (gMarioStates[id].action == ACT_DISAPPEARED || gMarioStates[id].health < 0x100)
 
 /**
  * If there is not already a delayed warp, schedule one. The source node is
@@ -444,7 +502,9 @@ void initiate_painting_warp(void) {
  * Return the time left until the delayed warp is initiated.
  */
 s16 level_trigger_warp(struct MarioState *m, s32 warpOp) {
-    s32 val04 = TRUE;
+    s32 changeMusic = TRUE;
+    int i;
+    int warp;
 
     if (sDelayedWarpOp == WARP_OP_NONE) {
         m->invincTimer = -1;
@@ -457,7 +517,7 @@ s16 level_trigger_warp(struct MarioState *m, s32 warpOp) {
                 sDelayedWarpTimer = 20; // Must be one line to match on -O2
                 sSourceWarpNodeId = WARP_NODE_SUCCESS;
                 gSavedCourseNum = COURSE_NONE;
-                val04 = FALSE;
+                changeMusic = FALSE;
                 play_transition(WARP_TRANSITION_FADE_INTO_STAR, 0x14, 0x00, 0x00, 0x00);
                 break;
 
@@ -469,25 +529,55 @@ s16 level_trigger_warp(struct MarioState *m, s32 warpOp) {
                 break;
 
             case WARP_OP_DEATH:
-                if (m->numLives == 0) {
-                    sDelayedWarpOp = WARP_OP_GAME_OVER;
+                warp = 1;
+                for (i = 0; i < gNumPlayers; i++) {
+                    if (gMarioStates[i].health >= 0x100) {
+                        warp = 0;
+                    }
                 }
-                sDelayedWarpTimer = 32;
-                sSourceWarpNodeId = WARP_NODE_DEATH;
-                play_transition(WARP_TRANSITION_FADE_INTO_BOWSER, 0x20, 0x00, 0x00, 0x00);
+                if (warp) {
+                    if (m->numLives == 0) {
+                        sDelayedWarpOp = WARP_OP_GAME_OVER;
+                    }
+                    sDelayedWarpTimer = 32;
+                    sSourceWarpNodeId = WARP_NODE_DEATH;
+                    play_transition(WARP_TRANSITION_FADE_INTO_BOWSER, 0x20, 0x00, 0x00, 0x00);
+                } else {
+                    sDelayedWarpOp = WARP_OP_NONE;
+                }
                 break;
 
             case WARP_OP_WARP_FLOOR:
-                sSourceWarpNodeId = WARP_NODE_WARP_FLOOR;
-                if (area_get_warp_node(sSourceWarpNodeId) == NULL) {
-                    if (m->numLives == 0) {
-                        sDelayedWarpOp = WARP_OP_GAME_OVER;
+                // this sucks lol
+                warp = 1;
+                for (i = 0; i < gNumPlayers; i++) {
+                    if (gMarioStates[i].floor->type != SURFACE_DEATH_PLANE) {
+                        warp = 0;
                     } else {
-                        sSourceWarpNodeId = WARP_NODE_DEATH;
+                        if (gNumPlayers > 1) {
+                            set_mario_action(&gMarioStates[i], ACT_DISAPPEARED, 0);
+                            gMarioStates[i].health = 0;
+                        }
+                    }
+                    if (gNumPlayers > 1) {
+                        if (PLAYER_DEAD(0) && PLAYER_DEAD(1))
+                            warp = 1;
                     }
                 }
-                sDelayedWarpTimer = 20;
-                play_transition(WARP_TRANSITION_FADE_INTO_CIRCLE, 0x14, 0x00, 0x00, 0x00);
+                if (warp) {
+                    sSourceWarpNodeId = WARP_NODE_WARP_FLOOR;
+                    if (area_get_warp_node(sSourceWarpNodeId) == NULL) {
+                        if (m->numLives == 0) {
+                            sDelayedWarpOp = WARP_OP_GAME_OVER;
+                        } else {
+                            sSourceWarpNodeId = WARP_NODE_DEATH;
+                        }
+                    }
+                    sDelayedWarpTimer = 20;
+                    play_transition(WARP_TRANSITION_FADE_INTO_CIRCLE, 0x14, 0x00, 0x00, 0x00);
+                } else {
+                    sDelayedWarpOp = WARP_OP_NONE;
+                }
                 break;
 
             case WARP_OP_UNKNOWN_01: // enter TotWC
@@ -505,7 +595,7 @@ s16 level_trigger_warp(struct MarioState *m, s32 warpOp) {
             case WARP_OP_TELEPORT:
                 sDelayedWarpTimer = 30;
                 sSourceWarpNodeId = (m->usedObj->oBhvParams & 0x00FF0000) >> 16;
-                val04 = !music_changed_through_warp(sSourceWarpNodeId);
+                changeMusic = !music_changed_through_warp(sSourceWarpNodeId);
                 play_transition(WARP_TRANSITION_FADE_INTO_COLOR, 0x1E, 0xFF, 0xFF, 0xFF);
                 break;
 
@@ -513,7 +603,7 @@ s16 level_trigger_warp(struct MarioState *m, s32 warpOp) {
                 sDelayedWarpTimer = 20;
                 sDelayedWarpArg = m->actionArg;
                 sSourceWarpNodeId = (m->usedObj->oBhvParams & 0x00FF0000) >> 16;
-                val04 = !music_changed_through_warp(sSourceWarpNodeId);
+                changeMusic = !music_changed_through_warp(sSourceWarpNodeId);
                 play_transition(WARP_TRANSITION_FADE_INTO_CIRCLE, 0x14, 0x00, 0x00, 0x00);
                 break;
 
@@ -528,7 +618,7 @@ s16 level_trigger_warp(struct MarioState *m, s32 warpOp) {
                 break;
         }
 
-        if (val04) {
+        if (changeMusic) {
             fadeout_level_music((3 * sDelayedWarpTimer / 2) * 8 - 2);
         }
     }
@@ -571,39 +661,47 @@ void initiate_delayed_warp(void) {
 }
 
 void update_hud_values(void) {
-    s16 numHealthWedges = gMarioState->health > 0 ? gMarioState->health >> 8 : 0;
+    s16 numHealthWedges;
+    int i;
 
-    if (gHudDisplay.coins < gMarioState->numCoins) {
+    if (gHudDisplay.coins < gMarioStates[0].numCoins) {
         // Leave this commented out !! Ensures coins count up accurately to footage
         // if (gGlobalTimer & 1) {
         u32 coinSound;
         coinSound = SOUND_GENERAL_COIN;
 
         gHudDisplay.coins++;
-        play_sound(coinSound, gMarioState->marioObj->header.gfx.cameraToObject);
+        play_sound(coinSound, gMarioStates[gMarioObject == gLuigiObject].marioObj->header.gfx.cameraToObject);
     }
 
-    if (gMarioState->numLives > 100) {
-        gMarioState->numLives = 100;
+    for (i = 0; i < gNumPlayers; i++) {
+        if (gMarioStates[i].numLives > 100) {
+            gMarioStates[i].numLives = 100;
+        }
+
+        if (gMarioStates[i].numCoins > 999) {
+            gMarioStates[i].numLives = (s8) 999; //! Wrong variable
+        }
     }
 
-    if (gMarioState->numCoins > 999) {
-        gMarioState->numLives = (s8) 999; //! Wrong variable
+    gHudDisplay.stars = gMarioStates[0].numStars;
+    gHudDisplay.lives = gMarioStates[0].numLives;
+    gHudDisplay.keys = gMarioStates[0].numKeys;
+
+    for (i = 0; i < gNumPlayers; i++) {
+        numHealthWedges = gMarioStates[i].health > 0 ? gMarioStates[i].health >> 8 : 0;
+        if (numHealthWedges > gHudDisplay.wedges[i]) {
+            play_sound(SOUND_MENU_POWER_METER, gGlobalSoundSource);
+        }
+        gHudDisplay.wedges[i] = numHealthWedges;
     }
 
-    gHudDisplay.stars = gMarioState->numStars;
-    gHudDisplay.lives = gMarioState->numLives;
-    gHudDisplay.keys = gMarioState->numKeys;
-
-    if (numHealthWedges > gHudDisplay.wedges) {
-        play_sound(SOUND_MENU_POWER_METER, gGlobalSoundSource);
-    }
-    gHudDisplay.wedges = numHealthWedges;
-
-    if (gMarioState->hurtCounter > 0) {
-        gHudDisplay.flags |= HUD_DISPLAY_FLAG_EMPHASIZE_POWER;
-    } else {
-        gHudDisplay.flags &= ~HUD_DISPLAY_FLAG_EMPHASIZE_POWER;
+    for (i = 0; i < gNumPlayers; i++) {
+        if (gMarioStates[i].hurtCounter > 0) {
+            gHudDisplay.flags[i] |= HUD_DISPLAY_FLAG_EMPHASIZE_POWER;
+        } else {
+            gHudDisplay.flags[i] &= ~HUD_DISPLAY_FLAG_EMPHASIZE_POWER;
+        }
     }
 }
 
@@ -747,7 +845,7 @@ void level_set_transition(s16 length, void (*updateFunction)(s16 *)) {
 s32 play_mode_change_area(void) {
     //! This maybe was supposed to be sTransitionTimer == -1? sTransitionUpdate
     // is never set to -1.
-    if (sTransitionUpdate == (void (*)(s16 *)) -1) {
+    if (sTransitionUpdate == (void (*)(s16 *)) - 1) {
         update_camera(gCurrentArea->camera);
     } else if (sTransitionUpdate != NULL) {
         sTransitionUpdate(&sTransitionTimer);
@@ -774,7 +872,7 @@ s32 play_mode_change_level(void) {
     }
 
     if (--sTransitionTimer == -1) {
-        gHudDisplay.flags = HUD_DISPLAY_NONE;
+        gHudDisplay.flags[0] = HUD_DISPLAY_NONE;
         sTransitionTimer = 0;
         sTransitionUpdate = NULL;
 
@@ -793,7 +891,7 @@ s32 play_mode_change_level(void) {
  */
 UNUSED static s32 play_mode_unused(void) {
     if (--sTransitionTimer == -1) {
-        gHudDisplay.flags = HUD_DISPLAY_NONE;
+        gHudDisplay.flags[0] = HUD_DISPLAY_NONE;
 
         if (sWarpDest.type != WARP_TYPE_NOT_WARPING) {
             return sWarpDest.levelNum;
@@ -842,7 +940,7 @@ s32 init_level(void) {
     sDelayedWarpOp = WARP_OP_NONE;
     sTransitionTimer = 0;
     D_80339EE0 = 0;
-    gHudDisplay.flags = HUD_DISPLAY_DEFAULT;
+    gHudDisplay.flags[0] = HUD_DISPLAY_DEFAULT;
     sTimerRunning = FALSE;
 
     if (sWarpDest.type != WARP_TYPE_NOT_WARPING) {
@@ -857,8 +955,11 @@ s32 init_level(void) {
             reset_camera(gCurrentArea->camera);
 
             if (gDebugLevelSelect == 0) {
-                if (gMarioState->action != ACT_UNINITIALIZED) {
-                    set_mario_action(gMarioState, ACT_INTRO_CUTSCENE, 0);
+                if (gMarioStates[0].action != ACT_UNINITIALIZED) {
+                    set_mario_action(&gMarioStates[0], ACT_INTRO_CUTSCENE, 0);
+                    if (gNumPlayers > 1) {
+                        set_mario_action(&gMarioStates[1], ACT_INTRO_CUTSCENE, 0);
+                    }
                 }
             }
         }

@@ -213,7 +213,7 @@ void bowser_init_camera_actions(void) {
  */
 void bowser_act_wait(void) {
     o->oForwardVel = 0.0f;
-    cur_obj_init_animation(BOWSER_ANIM_SLOW_GAIT);
+    cur_obj_init_animation_with_sound(BOWSER_ANIM_SLOW_GAIT);
     bowser_init_camera_actions();
 }
 
@@ -757,7 +757,7 @@ void bowser_act_hit_edge(void) {
  */
 void bowser_act_spit_fire_onto_floor(void) {
     // Set fixed rand value if Mario is low health
-    if (gHudDisplay.wedges < 4) {
+    if (gHudDisplay.wedges[0] < 4) {
         o->oBowserRandSplitFloor = 3;
     } else {
         o->oBowserRandSplitFloor = random_float() * 3.0f + 1.0f;

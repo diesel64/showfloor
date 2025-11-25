@@ -218,11 +218,7 @@ struct ParticleProperties sParticleTypes[] = {
  * object.
  */
 void copy_mario_state_to_object(void) {
-    s32 i = 0;
-    // L is real
-    if (gCurrentObject != gMarioObject) {
-        i++;
-    }
+    u8 i = gCurrentObject == gLuigiObject;
 
     gCurrentObject->oVelX = gMarioStates[i].vel[0];
     gCurrentObject->oVelY = gMarioStates[i].vel[1];
@@ -263,9 +259,19 @@ void spawn_particle(u32 activeParticleFlag, s16 model, const BehaviorScript *beh
 void bhv_mario_update(void) {
     u32 particleFlags = 0;
     s32 i;
+	u8 l = gCurrentObject == gLuigiObject;
 
-    particleFlags = execute_mario_action(gCurrentObject);
+    gMarioStates[l].marioObj = gCurrentObject;
+    particleFlags = execute_mario_action(gCurrentObject, l);
     gCurrentObject->oMarioParticleFlags = particleFlags;
+
+    if (gNumPlayers > 1) {
+        if (!(gMarioStates->action & ACT_FLAG_ON_POLE) && !(gMarioStates->action & ACT_FLAG_BOWSER)) {
+            gCurrentObject->oInteractType = INTERACT_IGLOO_BARRIER;
+        } else {
+            gCurrentObject->oInteractType = 0;
+        }
+    }
 
     // Mario code updates MarioState's versions of position etc, so we need
     // to sync it with the Mario object
@@ -322,7 +328,7 @@ s32 update_objects_during_time_stop(struct ObjectNode *objList, struct ObjectNod
 
         // Selectively unfreeze certain objects
         if (!(gTimeStopState & TIME_STOP_ALL_OBJECTS)) {
-            if (gCurrentObject == gMarioObject && !(gTimeStopState & TIME_STOP_MARIO_AND_DOORS)) {
+            if ((gCurrentObject == gMarioObject || gCurrentObject == gLuigiObject) && !(gTimeStopState & TIME_STOP_MARIO_AND_DOORS)) {
                 unfrozen = TRUE;
             }
 
@@ -446,7 +452,7 @@ void unload_objects_from_area(UNUSED s32 unused, s32 areaIndex) {
 /**
  * Spawn objects given a list of SpawnInfos. Called when loading an area.
  */
-void spawn_objects_from_info(UNUSED s32 unused, struct SpawnInfo *spawnInfo) {
+void spawn_objects_from_info(s32 isLuigi, struct SpawnInfo *spawnInfo) {
     gObjectLists = gObjectListArray;
     gTimeStopState = 0;
 
@@ -457,7 +463,7 @@ void spawn_objects_from_info(UNUSED s32 unused, struct SpawnInfo *spawnInfo) {
         struct Object *object;
         UNUSED u8 filler[4];
         const BehaviorScript *script;
-        UNUSED s16 arg16 = (s16) (spawnInfo->behaviorArg & 0xFFFF);
+        UNUSED s16 arg16 = (s16)(spawnInfo->behaviorArg & 0xFFFF);
 
         script = segmented_to_virtual(spawnInfo->behaviorScript);
 
@@ -481,8 +487,13 @@ void spawn_objects_from_info(UNUSED s32 unused, struct SpawnInfo *spawnInfo) {
             object->respawnInfo = &spawnInfo->behaviorArg;
 
             if (spawnInfo->behaviorArg & 0x01) {
-                gMarioObject = object;
-                geo_make_first_child(&object->header.gfx.node);
+                if (!isLuigi) {
+                    gMarioObject = object;
+                    geo_make_first_child(&object->header.gfx.node);
+                } else {
+                    gLuigiObject = object;
+                    geo_make_first_child(&object->header.gfx.node);
+                }
             }
 
             geo_obj_init_spawninfo(&object->header.gfx, spawnInfo);
@@ -516,6 +527,7 @@ void clear_objects(void) {
     gTHIWaterDrained = 0;
     gTimeStopState = 0;
     gMarioObject = NULL;
+    gLuigiObject = NULL;
     gMarioCurrentRoom = 0;
 
     for (i = 0; i < 60; i++) {
@@ -596,7 +608,7 @@ UNUSED static u16 unused_get_elapsed_time(u64 *cycleCounts, s32 index) {
         cycles = 0;
     }
 
-    time = (u16) (((u64) cycles * 1000000 / osClockRate) / 16667.0 * 1000.0);
+    time = (u16)(((u64) cycles * 1000000 / osClockRate) / 16667.0 * 1000.0);
     if (time > 999) {
         time = 999;
     }

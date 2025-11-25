@@ -62,13 +62,13 @@ struct Object *spawn_obj_at_mario_rel_yaw(struct MarioState *m, s32 model,
  * 3: Mario must not be in first person mode.
  */
 s32 mario_ready_to_speak(void) {
-    u32 actionGroup = gMarioState->action & ACT_GROUP_MASK;
+    u32 actionGroup = gMarioStates[0].action & ACT_GROUP_MASK;
     s32 isReadyToSpeak = FALSE;
 
-    if ((gMarioState->action == ACT_WAITING_FOR_DIALOG || actionGroup == ACT_GROUP_STATIONARY
+    if ((gMarioStates[0].action == ACT_WAITING_FOR_DIALOG || actionGroup == ACT_GROUP_STATIONARY
          || actionGroup == ACT_GROUP_MOVING)
-        && (!(gMarioState->action & (ACT_FLAG_INVULNERABLE))
-            && gMarioState->action != ACT_FIRST_PERSON)) {
+        && (!(gMarioStates[0].action & (ACT_FLAG_INVULNERABLE))
+            && gMarioStates[0].action != ACT_FIRST_PERSON)) {
         isReadyToSpeak = TRUE;
     }
 
@@ -85,20 +85,20 @@ s32 set_mario_npc_dialog(s32 actionArg) {
     s32 dialogState = MARIO_DIALOG_STATUS_NONE;
 
     // in dialog
-    if (gMarioState->action == ACT_READING_NPC_DIALOG) {
-        if (gMarioState->actionState < 8) {
+    if (gMarioStates[0].action == ACT_READING_NPC_DIALOG) {
+        if (gMarioStates[0].actionState < 8) {
             dialogState = MARIO_DIALOG_STATUS_START; // starting dialog
         }
-        if (gMarioState->actionState == 8) {
+        if (gMarioStates[0].actionState == 8) {
             if (actionArg == MARIO_DIALOG_STOP) {
-                gMarioState->actionState++; // exit dialog
+                gMarioStates[0].actionState++; // exit dialog
             } else {
                 dialogState = MARIO_DIALOG_STATUS_SPEAK;
             }
         }
     } else if (actionArg != 0 && mario_ready_to_speak()) {
-        gMarioState->usedObj = gCurrentObject;
-        set_mario_action(gMarioState, ACT_READING_NPC_DIALOG, actionArg);
+        gMarioStates[0].usedObj = gCurrentObject;
+        set_mario_action(&gMarioStates[0], ACT_READING_NPC_DIALOG, actionArg);
         dialogState = MARIO_DIALOG_STATUS_START; // starting dialog
     }
 
@@ -676,6 +676,14 @@ s32 act_spawn_spin_landing(struct MarioState *m) {
  * particle flag that generates sparkles.
  */
 s32 act_exit_airborne(struct MarioState *m) {
+    if (m->health < 0x100) {
+        if (m->numLives <= 0) {
+            return set_mario_action(m, ACT_DISAPPEARED, 0);
+        } else {
+            return set_mario_action(m, ACT_DEATH_EXIT, 0);
+        }
+    }
+
     if (15 < m->actionTimer++
         && launch_mario_until_land(m, ACT_EXIT_LAND_SAVE_DIALOG, MARIO_ANIM_GENERAL_FALL, -32.0f)) {
         // heal mario
@@ -692,6 +700,14 @@ s32 act_exit_airborne(struct MarioState *m) {
 }
 
 s32 act_falling_exit_airborne(struct MarioState *m) {
+    if (m->health < 0x100) {
+        if (m->numLives <= 0) {
+            return set_mario_action(m, ACT_DISAPPEARED, 0);
+        } else {
+            return set_mario_action(m, ACT_FALLING_DEATH_EXIT, 0);
+        }
+    }
+
     if (launch_mario_until_land(m, ACT_EXIT_LAND_SAVE_DIALOG, MARIO_ANIM_GENERAL_FALL, 0.0f)) {
         // heal Mario
         m->healCounter = 31;
@@ -761,6 +777,14 @@ s32 act_falling_death_exit(struct MarioState *m) {
 // waits 11 frames before actually executing, also has reduced fvel
 s32 act_special_exit_airborne(struct MarioState *m) {
     struct Object *marioObj = m->marioObj;
+
+    if (m->health < 0x100) {
+        if (m->numLives <= 0) {
+            return set_mario_action(m, ACT_DISAPPEARED, 0);
+        } else {
+            return set_mario_action(m, ACT_SPECIAL_DEATH_EXIT, 0);
+        }
+    }
 
     play_sound_if_no_flag(m, SOUND_MARIO_YAHOO, MARIO_MARIO_SOUND_PLAYED);
 
@@ -1116,8 +1140,12 @@ static void intro_cutscene_wait_for_dialog(struct MarioState *m) {
 static void intro_cutscene_set_mario_to_idle(struct MarioState *m) {
     if (gCamera->cutscene == 0) {
         gObjCutsceneDone = TRUE;
-        set_camera_mode(m->area->camera, CAMERA_MODE_C_UP, 2);
-        set_mario_action(m, ACT_FIRST_PERSON, 1);
+        if  (gNumPlayers <= 1) {
+            set_camera_mode(m->area->camera, CAMERA_MODE_C_UP, 2);
+            set_mario_action(m, ACT_FIRST_PERSON, 1);
+        } else {
+            set_mario_action(m, ACT_IDLE, 0);
+        }
     }
 
     stop_and_set_height_to_floor(m);

@@ -6,6 +6,7 @@
 #include "game/game_init.h"
 #include "game/level_update.h"
 #include "game/main.h"
+#include "game/mario.h"
 #include "game/memory.h"
 #include "game/print.h"
 #include "game/save_file.h"
@@ -40,6 +41,7 @@ static s16 sPlayMarioGreeting = 0;
  */
 s16 intro_level_select(void) {
     s32 stageChanged = FALSE;
+    s32 numPlayersChanged = FALSE;
 
     // perform the ID updates per each button press.
     // runs into a loop so after a button is pressed
@@ -63,9 +65,22 @@ s16 intro_level_select(void) {
         gCurrLevelNum += 10, stageChanged = TRUE;
     }
 
+    if (gPlayer1Controller->buttonPressed & L_CBUTTONS) {
+        gNumPlayers = 1, numPlayersChanged = TRUE;
+        bzero(gMarioStates, sizeof(*gMarioStates));
+    }
+
+    if (gPlayer1Controller->buttonPressed & R_CBUTTONS) {
+        gNumPlayers = 2, numPlayersChanged = TRUE;
+    }
+
     // if the stage was changed, play the sound for changing a stage.
     if (stageChanged) {
         play_sound(SOUND_GENERAL_LEVEL_SELECT_CHANGE, gGlobalSoundSource);
+    }
+
+    if (numPlayersChanged) {
+        play_sound(SOUND_MENU_REVERSE_PAUSE, gGlobalSoundSource);
     }
 
     if (gCurrLevelNum > LEVEL_MAX) {
@@ -113,11 +128,16 @@ s32 intro_regular(void) {
 
     print_intro_text();
 
+    //if (gPlayer1Controller->buttonPressed & L_TRIG) { gNumPlayers = 2; play_sound(SOUND_MENU_REVERSE_PAUSE, gGlobalSoundSource); }
+
     if (gPlayer1Controller->buttonPressed & START_BUTTON) {
         play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);
         // calls level ID 100 (or 101 adding level select bool value)
         // defined in level_intro_mario_head_regular JUMP_IF commands
         // 100 is File Select - 101 is Level Select
+        if (gPlayer1Controller->buttonDown == QUIT_LEVEL_SELECT_COMBO) {
+            gDebugLevelSelect = TRUE;
+        }
         level = 100 + gDebugLevelSelect;
         sPlayMarioGreeting = 0;
 

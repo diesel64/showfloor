@@ -90,7 +90,7 @@ init_bully_collision_data(struct BullyCollisionData *data, f32 posX, f32 posZ, f
 void mario_bonk_reflection(struct MarioState *m, u32 negateSpeed) {
     if (m->wall != NULL) {
         s16 wallAngle = atan2s(m->wall->normal.z, m->wall->normal.x);
-        m->faceAngle[1] = wallAngle - (s16) (m->faceAngle[1] - wallAngle);
+        m->faceAngle[1] = wallAngle - (s16)(m->faceAngle[1] - wallAngle);
     }
 
     if (negateSpeed) {

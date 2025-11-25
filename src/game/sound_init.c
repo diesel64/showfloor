@@ -27,8 +27,6 @@ static u8 sMusicVolume = 0;
 
 static u8 sBgMusicDisabled = FALSE;
 static u16 sCurrentMusic = MUSIC_NONE;
-static u16 sCurrentShellMusic = MUSIC_NONE;
-static u16 sCurrentCapMusic = MUSIC_NONE;
 static u8 sPlayingBowserHallway = FALSE;
 UNUSED static u8 unused8032C6D8[16] = { 0 };
 static s16 sSoundMenuModeToSoundMode[] = { SOUND_MODE_STEREO, SOUND_MODE_MONO, SOUND_MODE_HEADSET };
@@ -45,7 +43,7 @@ static u32 sMenuSoundsExtra[] = {
     SOUND_ENV_SLIDING,
     SOUND_MOVING_SLIDE_DOWN_POLE,
     SOUND_MOVING_QUICKSAND_DEATH,
-    SOUND_MOVING_TERRAIN_RIDING_SHELL,
+    NO_SOUND,
     NO_SOUND,
     SOUND_ENV_BOAT_ROCKING1,
     SOUND_ENV_ELEVATOR3,
@@ -193,8 +191,8 @@ void play_bowser_hallway_music(void) {
 
     /* Bowser Hallway? */
     if (gCurrLevelNum == LEVEL_CASTLE) {
-        if (gMarioState->floor != NULL && gMarioState->floor->room == 5) {
-            if (gMarioState->pos[2] > -3724.0f) {
+        if (gMarioStates[0].floor != NULL && gMarioStates[0].floor->room == 5) {
+            if (gMarioStates[0].pos[2] > -3724.0f) {
                 shouldPlay = TRUE;
             }
         }
@@ -228,8 +226,6 @@ void set_background_music(u16 seqArgs, s16 fadeTimer) {
 void fadeout_level_music(s16 fadeTimer) {
     seq_player_fade_out(SEQ_PLAYER_LEVEL, fadeTimer);
     sCurrentMusic = MUSIC_NONE;
-    sCurrentShellMusic = MUSIC_NONE;
-    sCurrentCapMusic = MUSIC_NONE;
 }
 
 /**
@@ -238,54 +234,6 @@ void fadeout_level_music(s16 fadeTimer) {
 void play_cutscene_music(u16 seqArgs) {
     play_music(SEQ_PLAYER_LEVEL, seqArgs, 0);
     sCurrentMusic = seqArgs;
-}
-
-/**
- * Called from threads: thread5_game_loop
- */
-void play_shell_music(void) {
-    play_music(SEQ_PLAYER_LEVEL, SEQUENCE_ARGS(4, SEQ_EVENT_POWERUP | SEQ_VARIATION), 0);
-    sCurrentShellMusic = SEQUENCE_ARGS(4, SEQ_EVENT_POWERUP | SEQ_VARIATION);
-}
-
-/**
- * Called from threads: thread5_game_loop
- */
-void stop_shell_music(void) {
-    if (sCurrentShellMusic != MUSIC_NONE) {
-        stop_background_music(sCurrentShellMusic);
-        sCurrentShellMusic = MUSIC_NONE;
-    }
-}
-
-/**
- * Called from threads: thread5_game_loop
- */
-void play_cap_music(u16 seqArgs) {
-    play_music(SEQ_PLAYER_LEVEL, seqArgs, 0);
-    if (sCurrentCapMusic != MUSIC_NONE && sCurrentCapMusic != seqArgs) {
-        stop_background_music(sCurrentCapMusic);
-    }
-    sCurrentCapMusic = seqArgs;
-}
-
-/**
- * Called from threads: thread5_game_loop
- */
-void fadeout_cap_music(void) {
-    if (sCurrentCapMusic != MUSIC_NONE) {
-        fadeout_background_music(sCurrentCapMusic, 600);
-    }
-}
-
-/**
- * Called from threads: thread5_game_loop
- */
-void stop_cap_music(void) {
-    if (sCurrentCapMusic != MUSIC_NONE) {
-        stop_background_music(sCurrentCapMusic);
-        sCurrentCapMusic = MUSIC_NONE;
-    }
 }
 
 /**

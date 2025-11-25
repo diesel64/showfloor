@@ -129,6 +129,8 @@ u8 *gMovtexIdToTexture[] = { texture_waterbox_water, texture_waterbox_mist, text
 
 extern Gfx castle_grounds_dl_waterfall[];
 extern s16 castle_grounds_movtex_tris_waterfall[];
+//extern Movtex lll_movtex_tris_lava_floor[];
+//extern Gfx lll_dl_lava_floor[];
 
 /**
  * MovtexObjects that have no color attributes per vertex (though the mesh
@@ -140,6 +142,8 @@ struct MovtexObject gMovtexNonColored[] = {
     { MOVTEX_CASTLE_WATERFALL, TEXTURE_WATER, 15, castle_grounds_movtex_tris_waterfall,
       dl_waterbox_rgba16_begin, dl_waterbox_end, castle_grounds_dl_waterfall, 0xff, 0xff, 0xff, 0xb4,
       LAYER_TRANSPARENT_INTER },
+    //{ MOVTEX_LLL_LAVA_FLOOR, TEXTURE_LAVA, 9, lll_movtex_tris_lava_floor, dl_waterbox_rgba16_begin,
+    //  dl_waterbox_end, lll_dl_lava_floor, 0xff, 0xff, 0xff, 0xc8, LAYER_TRANSPARENT },
 
     { 0x00000000, 0x00000000, 0, NULL, NULL, NULL, NULL, 0x00, 0x00, 0x00, 0x00, 0x00000000 },
 };
@@ -356,6 +360,7 @@ Gfx *movtex_gen_quads_id(s16 id, s16 y, void *movetexQuadsSegmented) {
     return NULL;
 }
 
+extern u8 castle_movtex_water[];
 extern u8 castle_grounds_movtex_water[];
 extern u8 ddd_movtex_area1_water[];
 extern u8 ddd_movtex_area2_water[];
@@ -367,6 +372,8 @@ extern u8 castle_courtyard_movtex_star_statue_water[];
  */
 void *get_quad_collection_from_id(u32 id) {
     switch (id) {
+        case CASTLE_MOVTEX_WATER:
+            return castle_movtex_water;
         case CASTLE_GROUNDS_MOVTEX_WATER:
             return castle_grounds_movtex_water;
         case DDD_MOVTEX_AREA1_WATER:

@@ -118,7 +118,7 @@ extern s16 gMarioOnMerryGoRound;
 void bhv_mario_update(void);
 void set_object_respawn_info_bits(struct Object *obj, u8 bits);
 void unload_objects_from_area(UNUSED s32 unused, s32 areaIndex);
-void spawn_objects_from_info(UNUSED s32 unused, struct SpawnInfo *spawnInfo);
+void spawn_objects_from_info(s32 isLuigi, struct SpawnInfo *spawnInfo);
 void clear_objects(void);
 void update_objects(UNUSED s32 unused);
 
