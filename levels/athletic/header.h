@@ -12,6 +12,6 @@ extern const Gfx gfx_stage2[];
 extern const Collision test_info[];
 
 // script
-extern const LevelScript level_test_entry[];
+extern const LevelScript level_athletic_entry[];
 
 #endif

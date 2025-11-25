@@ -32,9 +32,9 @@ static const LevelScript script_func_local_4[] = {
     RETURN(),
 };
 
-const LevelScript level_test_entry[] = {
+const LevelScript level_athletic_entry[] = {
     INIT_LEVEL(),
-    LOAD_MIO0(        /*seg*/ 0x07, _test_segment_7SegmentRomStart, _test_segment_7SegmentRomEnd),
+    LOAD_MIO0(        /*seg*/ 0x07, _athletic_segment_7SegmentRomStart, _athletic_segment_7SegmentRomEnd),
     LOAD_MIO0(        /*seg*/ 0x05, _group1_mio0SegmentRomStart, _group1_mio0SegmentRomEnd),
     LOAD_RAW(         /*seg*/ 0x0C, _group1_geoSegmentRomStart,  _group1_geoSegmentRomEnd),
     LOAD_MIO0(        /*seg*/ 0x06, _group14_mio0SegmentRomStart, _group14_mio0SegmentRomEnd),
