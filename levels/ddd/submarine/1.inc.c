@@ -1,4 +1,4 @@
-Vtx submarine_1_dl_mesh_vtx_0[28] = {
+static const Vtx submarine_1_dl_mesh_vtx_0[28] = {
 	{{ {3913, -3, -2503}, 0, {4356, 2677}, {231, 191, 150, 255} }},
 	{{ {3907, 2, -2503}, 0, {4356, 2569}, {189, 228, 151, 255} }},
 	{{ {3925, -3, -2503}, 0, {4356, 2983}, {25, 192, 150, 255} }},
@@ -29,7 +29,7 @@ Vtx submarine_1_dl_mesh_vtx_0[28] = {
 	{{ {3907, 14, -2503}, 0, {5210, 534}, {191, 27, 150, 255} }},
 };
 
-Gfx submarine_1_dl_mesh_tri_0[] = {
+static const Gfx submarine_1_dl_mesh_tri_0[] = {
 	gsSPVertex(submarine_1_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(1, 3, 2, 0),
@@ -57,7 +57,7 @@ Gfx submarine_1_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx submarine_1_dl_mesh_vtx_1[20] = {
+static const Vtx submarine_1_dl_mesh_vtx_1[20] = {
 	{{ {3919, 8, -2452}, 0, {10097, 7472}, {164, 87, 250, 255} }},
 	{{ {4093, -97, -2475}, 0, {13386, 7490}, {77, 244, 156, 255} }},
 	{{ {4025, -165, -2430}, 0, {14356, 7453}, {227, 136, 225, 255} }},
@@ -80,7 +80,7 @@ Vtx submarine_1_dl_mesh_vtx_1[20] = {
 	{{ {4087, 120, -2411}, 0, {11499, 7438}, {74, 12, 103, 255} }},
 };
 
-Gfx submarine_1_dl_mesh_tri_1[] = {
+static const Gfx submarine_1_dl_mesh_tri_1[] = {
 	gsSPVertex(submarine_1_dl_mesh_vtx_1 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 1, 0, 0),
@@ -110,7 +110,7 @@ Gfx submarine_1_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx submarine_1_dl_mesh_vtx_2[8] = {
+static const Vtx submarine_1_dl_mesh_vtx_2[8] = {
 	{{ {4124, 571, -1071}, 0, {6286, 819}, {35, 119, 228, 255} }},
 	{{ {3715, 571, -1071}, 0, {6286, -516}, {221, 119, 228, 255} }},
 	{{ {4482, 571, -47}, 0, {3120, 1987}, {73, 104, 248, 255} }},
@@ -121,7 +121,7 @@ Vtx submarine_1_dl_mesh_vtx_2[8] = {
 	{{ {4482, 571, 3023}, 0, {-7378, 1987}, {73, 103, 12, 255} }},
 };
 
-Gfx submarine_1_dl_mesh_tri_2[] = {
+static const Gfx submarine_1_dl_mesh_tri_2[] = {
 	gsSPVertex(submarine_1_dl_mesh_vtx_2 + 0, 8, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(1, 3, 2, 0),
@@ -132,7 +132,7 @@ Gfx submarine_1_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx submarine_1_dl_mesh_vtx_3[604] = {
+static const Vtx submarine_1_dl_mesh_vtx_3[604] = {
 	{{ {3817, 213, 4150}, 0, {-597, -20}, {192, 0, 110, 255} }},
 	{{ {3817, 392, 4150}, 0, {-597, -388}, {183, 73, 73, 255} }},
 	{{ {3817, 392, 3919}, 0, {-1543, -388}, {183, 73, 73, 255} }},
@@ -739,7 +739,7 @@ Vtx submarine_1_dl_mesh_vtx_3[604] = {
 	{{ {4431, -22, -2145}, 0, {-6086, 682}, {87, 164, 247, 255} }},
 };
 
-Gfx submarine_1_dl_mesh_tri_3[] = {
+static const Gfx submarine_1_dl_mesh_tri_3[] = {
 	gsSPVertex(submarine_1_dl_mesh_vtx_3 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -994,7 +994,7 @@ Gfx submarine_1_dl_mesh_tri_3[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx submarine_1_dl_mesh[] = {
+const Gfx submarine_1_dl_mesh[] = {
 	gsSPDisplayList(mat_submarine_SubmarineMetalMaterial_Variation1),
 	gsSPDisplayList(submarine_1_dl_mesh_tri_0),
 	gsSPDisplayList(mat_submarine_SubmarineMetalMaterial_Variation2),
@@ -1006,7 +1006,7 @@ Gfx submarine_1_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

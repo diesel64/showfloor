@@ -1,12 +1,12 @@
 // Lights
-Lights1 mountain_lights = gdSPDefLights1(
+static const Lights1 mountain_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
 // Materials
-Gfx mat_mountain_DirtMaterial[] = {
+static const Gfx mat_mountain_DirtMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07008600),
@@ -20,9 +20,9 @@ Gfx mat_mountain_DirtMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_SlopeMaterial[] = {
+static const Gfx mat_mountain_SlopeMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07003800),
@@ -36,9 +36,9 @@ Gfx mat_mountain_SlopeMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_DarkGravelMaterial[] = {
+static const Gfx mat_mountain_DarkGravelMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09005000),
@@ -52,9 +52,9 @@ Gfx mat_mountain_DarkGravelMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_CarpetMaterial[] = {
+static const Gfx mat_mountain_CarpetMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 64, wf_seg7_texture_07002800),
@@ -68,9 +68,9 @@ Gfx mat_mountain_CarpetMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_PolkaDotDarkMaterial[] = {
+static const Gfx mat_mountain_PolkaDotDarkMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09002800),
@@ -84,9 +84,9 @@ Gfx mat_mountain_PolkaDotDarkMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_LightGreyGravelMaterial[] = {
+static const Gfx mat_mountain_LightGreyGravelMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09003000),
@@ -100,9 +100,9 @@ Gfx mat_mountain_LightGreyGravelMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_LightBlueGravelMaterial[] = {
+static const Gfx mat_mountain_LightBlueGravelMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09001000),
@@ -116,9 +116,9 @@ Gfx mat_mountain_LightBlueGravelMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_GreyBrickMaterial[] = {
+static const Gfx mat_mountain_GreyBrickMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09001800),
@@ -132,9 +132,9 @@ Gfx mat_mountain_GreyBrickMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_CheckerboardStoneMaterial[] = {
+static const Gfx mat_mountain_CheckerboardStoneMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09005800),
@@ -149,9 +149,9 @@ Gfx mat_mountain_CheckerboardStoneMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_PolkaDotMaterial[] = {
+static const Gfx mat_mountain_PolkaDotMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09002000),
@@ -165,9 +165,9 @@ Gfx mat_mountain_PolkaDotMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_CobblestoneMaterial[] = {
+static const Gfx mat_mountain_CobblestoneMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09004800),
@@ -181,9 +181,9 @@ Gfx mat_mountain_CobblestoneMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_WhiteGravelMaterial[] = {
+static const Gfx mat_mountain_WhiteGravelMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07004000),
@@ -197,9 +197,9 @@ Gfx mat_mountain_WhiteGravelMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_BrickMaterial[] = {
+static const Gfx mat_mountain_BrickMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07002000),
@@ -213,9 +213,9 @@ Gfx mat_mountain_BrickMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_GrassMaterial[] = {
+static const Gfx mat_mountain_GrassMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07008E00),
@@ -229,9 +229,9 @@ Gfx mat_mountain_GrassMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_DiamondPatternMaterial[] = {
+static const Gfx mat_mountain_DiamondPatternMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09004000),
@@ -245,9 +245,9 @@ Gfx mat_mountain_DiamondPatternMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_LightStoneMaterial[] = {
+static const Gfx mat_mountain_LightStoneMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07009600),
@@ -261,9 +261,9 @@ Gfx mat_mountain_LightStoneMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_DarkDirtMaterial[] = {
+static const Gfx mat_mountain_DarkDirtMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09003800),
@@ -277,9 +277,9 @@ Gfx mat_mountain_DarkDirtMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_FlowerMaterial[] = {
+static const Gfx mat_mountain_FlowerMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07007000),
@@ -293,9 +293,9 @@ Gfx mat_mountain_FlowerMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_FlowerSideMaterial[] = {
+static const Gfx mat_mountain_FlowerSideMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07007800),
@@ -309,9 +309,9 @@ Gfx mat_mountain_FlowerSideMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_WoodMaterial[] = {
+static const Gfx mat_mountain_WoodMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07009E00),
@@ -325,9 +325,9 @@ Gfx mat_mountain_WoodMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_FenceMaterial[] = {
+static const Gfx mat_mountain_FenceMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0, 0, 0, 0, TEXEL0),
+    gsDPSetCombineMode(G_CC_DECALRGBA, G_CC_DECALRGBA),
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
@@ -341,36 +341,36 @@ Gfx mat_mountain_FenceMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_mountain_FenceMaterial[] = {
+static const Gfx mat_revert_mountain_FenceMaterial[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_CULL_BACK),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_ShadowMaterial[] = {
-	gsSPClearGeometryMode(G_LIGHTING),
+static const Gfx mat_mountain_ShadowMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, SHADE, 0),
-	gsDPSetAlphaDither(G_AD_NOISE),
+    gsDPSetCombineMode(G_CC_MODULATEIA, G_CC_MODULATEIA),
+	gsSPClearGeometryMode(G_LIGHTING),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPSetTextureImage(G_IM_FMT_IA, G_IM_SIZ_16b_LOAD_BLOCK, 1, wf_seg7_texture_07006800),
 	gsDPSetTile(G_IM_FMT_IA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
+	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
+	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_IA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0),
 	gsDPSetTileSize(0, 0, 0, 124, 124),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_mountain_ShadowMaterial[] = {
-	gsSPSetGeometryMode(G_LIGHTING),
+static const Gfx mat_revert_mountain_ShadowMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetAlphaDither(G_AD_DISABLE),
+	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_TowerBrickMaterial[] = {
+static const Gfx mat_mountain_TowerBrickMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_0700A600),
@@ -384,9 +384,9 @@ Gfx mat_mountain_TowerBrickMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_TowerBrickOrangeMaterial[] = {
+static const Gfx mat_mountain_TowerBrickOrangeMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_0700AE00),
@@ -400,9 +400,9 @@ Gfx mat_mountain_TowerBrickOrangeMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_mountain_TowerWindowMaterial[] = {
+static const Gfx mat_mountain_TowerWindowMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07001000),
@@ -416,10 +416,10 @@ Gfx mat_mountain_TowerWindowMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-const Gfx mat_extending_platform_ArrowMaterial[] = {
+static const Gfx mat_extending_platform_ArrowMaterial[] = {
 	gsDPPipeSync(),
+    gsDPSetCombineMode(G_CC_DECALRGBA, G_CC_DECALRGBA),
 	gsSPClearGeometryMode(G_LIGHTING),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
@@ -434,9 +434,9 @@ const Gfx mat_extending_platform_ArrowMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-const Gfx mat_rotating_wooden_platform_DecalMaterial[] = {
+static const Gfx mat_rotating_wooden_platform_DecalMaterial[] = {
     gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
+    gsDPSetCombineMode(G_CC_DECALRGBA, G_CC_DECALRGBA),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, wf_seg7_texture_07004800),

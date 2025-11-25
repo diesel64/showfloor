@@ -1,4 +1,4 @@
-Vtx castle_inside_fire_bubble_dl_mesh_vtx_0[74] = {
+static const Vtx castle_inside_fire_bubble_dl_mesh_vtx_0[74] = {
 	{{ {768, -26, -3855}, 0, {2288, -215}, {0, 0, 129, 255} }},
 	{{ {1126, 0, -3855}, 0, {-1296, -471}, {0, 0, 129, 255} }},
 	{{ {1126, -26, -3855}, 0, {-1296, -215}, {0, 0, 129, 255} }},
@@ -73,9 +73,10 @@ Vtx castle_inside_fire_bubble_dl_mesh_vtx_0[74] = {
 	{{ {870, 0, -3113}, 0, {-8208, -11643}, {0, 127, 0, 255} }},
 	{{ {870, 0, -3010}, 0, {-8208, -10619}, {0, 127, 0, 250} }},
 	{{ {1024, 0, -3113}, 0, {-9744, -11643}, {0, 127, 0, 255} }},
+
 };
 
-Gfx castle_inside_fire_bubble_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_fire_bubble_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_fire_bubble_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -122,7 +123,7 @@ Gfx castle_inside_fire_bubble_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_fire_bubble_dl_mesh_vtx_1[288] = {
+static const Vtx castle_inside_fire_bubble_dl_mesh_vtx_1[288] = {
 	{{ {768, -128, -4085}, 0, {-20, 1446}, {0, 88, 164, 255} }},
 	{{ {717, -128, -4085}, 0, {-184, 1446}, {0, 88, 164, 255} }},
 	{{ {742, -102, -4060}, 0, {-104, 1370}, {0, 88, 164, 255} }},
@@ -413,7 +414,7 @@ Vtx castle_inside_fire_bubble_dl_mesh_vtx_1[288] = {
 	{{ {717, 51, -3804}, 0, {1346, 584}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_inside_fire_bubble_dl_mesh_tri_1[] = {
+static const Gfx castle_inside_fire_bubble_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_inside_fire_bubble_dl_mesh_vtx_1 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -581,7 +582,7 @@ Gfx castle_inside_fire_bubble_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_fire_bubble_dl_mesh_vtx_2[12] = {
+static const Vtx castle_inside_fire_bubble_dl_mesh_vtx_2[12] = {
 	{{ {870, 256, -3113}, 0, {511, 1026}, {0, 129, 0, 255} }},
 	{{ {1024, 256, -3010}, 0, {-259, 1026}, {0, 129, 0, 255} }},
 	{{ {870, 256, -3010}, 0, {511, 1026}, {0, 129, 0, 255} }},
@@ -596,7 +597,7 @@ Vtx castle_inside_fire_bubble_dl_mesh_vtx_2[12] = {
 	{{ {870, 256, -3113}, 0, {511, 1026}, {127, 0, 0, 255} }},
 };
 
-Gfx castle_inside_fire_bubble_dl_mesh_tri_2[] = {
+static const Gfx castle_inside_fire_bubble_dl_mesh_tri_2[] = {
 	gsSPVertex(castle_inside_fire_bubble_dl_mesh_vtx_2 + 0, 12, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -607,14 +608,14 @@ Gfx castle_inside_fire_bubble_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_fire_bubble_decal_dl_mesh_vtx_0[4] = {
+static const Vtx castle_inside_fire_bubble_decal_dl_mesh_vtx_0[4] = {
 	{{ {525, 146, -4495}, 0, {483, -12}, {127, 0, 0, 255} }},
 	{{ {525, 146, -4316}, 0, {-23, -12}, {127, 0, 0, 255} }},
 	{{ {525, 18, -4316}, 0, {-23, 488}, {127, 0, 0, 255} }},
 	{{ {525, 18, -4495}, 0, {483, 488}, {127, 0, 0, 255} }},
 };
 
-Gfx castle_inside_fire_bubble_decal_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_fire_bubble_decal_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_fire_bubble_decal_dl_mesh_vtx_0 + 0, 4, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -622,7 +623,7 @@ Gfx castle_inside_fire_bubble_decal_dl_mesh_tri_0[] = {
 };
 
 
-Gfx castle_inside_fire_bubble_dl_mesh[] = {
+const Gfx castle_inside_fire_bubble_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_CarpetMaterial),
 	gsSPDisplayList(castle_inside_fire_bubble_dl_mesh_tri_0),
 	gsSPDisplayList(mat_castle_inside_MarbleWallMaterial),
@@ -632,19 +633,19 @@ Gfx castle_inside_fire_bubble_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_inside_fire_bubble_decal_dl_mesh[] = {
+const Gfx castle_inside_fire_bubble_decal_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_ArrowMaterial),
 	gsSPDisplayList(castle_inside_fire_bubble_decal_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_castle_inside_ArrowMaterial),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

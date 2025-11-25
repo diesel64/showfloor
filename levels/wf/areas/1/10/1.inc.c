@@ -1,4 +1,4 @@
-const Vtx mountain_10_dl_mesh_vtx_0[16] = {
+static const Vtx mountain_10_dl_mesh_vtx_0[16] = {
 	{{{-127, 1741, -127},0, {0x4C4, 0x3CE},{0x0, 0x0, 0x81, 0xFF}}},
 	{{{-127, 1997, -127},0, {0x4C4, 0xFFD2},{0x0, 0x0, 0x81, 0xFF}}},
 	{{{128, 1997, -127},0, {0xC6, 0xFFD2},{0x0, 0x0, 0x81, 0xFF}}},
@@ -17,7 +17,7 @@ const Vtx mountain_10_dl_mesh_vtx_0[16] = {
 	{{{128, 1997, 128},0, {0x4CC, 0xFFDC},{0x0, 0x0, 0x7F, 0xFF}}},
 };
 
-const Gfx mountain_10_dl_mesh_tri_0[] = {
+static const Gfx mountain_10_dl_mesh_tri_0[] = {
 	gsSPVertex(mountain_10_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -30,7 +30,7 @@ const Gfx mountain_10_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-const Vtx mountain_10_dl_mesh_vtx_1[16] = {
+static const Vtx mountain_10_dl_mesh_vtx_1[16] = {
 	{{{-183, 1741, -437},0, {0xFCFC, 0x6AA},{0x0, 0x7F, 0x0, 0xFF}}},
 	{{{-437, 1741, -183},0, {0xF0, 0xAA0},{0x0, 0x7F, 0x0, 0xFF}}},
 	{{{-437, 1741, 184},0, {0x6AC, 0xAA0},{0x0, 0x7F, 0x0, 0xFF}}},
@@ -49,7 +49,7 @@ const Vtx mountain_10_dl_mesh_vtx_1[16] = {
 	{{{-263, 1997, -158},0, {0xFFF0, 0xFFF0},{0x0, 0x81, 0x0, 0xFF}}},
 };
 
-const Gfx mountain_10_dl_mesh_tri_1[] = {
+static const Gfx mountain_10_dl_mesh_tri_1[] = {
 	gsSPVertex(mountain_10_dl_mesh_vtx_1 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -66,7 +66,7 @@ const Gfx mountain_10_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-const Vtx mountain_10_dl_mesh_vtx_2[122] = {
+static const Vtx mountain_10_dl_mesh_vtx_2[122] = {
 	{{{260, 1997, -158},0, {0x982, 0x3CE},{0x71, 0x3A, 0x0, 0xFF}}},
 	{{{0, 2509, 0},0, {0x48C, 0xF1E6},{0x71, 0x3A, 0x0, 0xFF}}},
 	{{{260, 1997, 152},0, {0xFFF0, 0x3CE},{0x71, 0x3A, 0x0, 0xFF}}},
@@ -191,7 +191,7 @@ const Vtx mountain_10_dl_mesh_vtx_2[122] = {
 	{{{215, 1536, -511},0, {0xFFF0, 0x55A},{0x0, 0x0, 0x81, 0xFF}}},
 };
 
-const Gfx mountain_10_dl_mesh_tri_2[] = {
+static const Gfx mountain_10_dl_mesh_tri_2[] = {
 	gsSPVertex(mountain_10_dl_mesh_vtx_2 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -259,7 +259,7 @@ const Gfx mountain_10_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-const Vtx mountain_10_dl_mesh_vtx_3[32] = {
+static const Vtx mountain_10_dl_mesh_vtx_3[32] = {
 	{{{-214, 0, 512},0, {0x3CE, 0x3CE},{0xA6, 0x0, 0x5A, 0xFF}}},
 	{{{-511, 1536, 215},0, {0xFFB8, 0xE5DE},{0xA6, 0x0, 0x5A, 0xFF}}},
 	{{{-511, 0, 215},0, {0xFFB8, 0x3CE},{0xA6, 0x0, 0x5A, 0xFF}}},
@@ -294,7 +294,7 @@ const Vtx mountain_10_dl_mesh_vtx_3[32] = {
 	{{{215, 0, -511},0, {0xFFF0, 0x3CE},{0x0, 0x0, 0x81, 0xFF}}},
 };
 
-const Gfx mountain_10_dl_mesh_tri_3[] = {
+static const Gfx mountain_10_dl_mesh_tri_3[] = {
 	gsSPVertex(mountain_10_dl_mesh_vtx_3 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -328,7 +328,7 @@ const Gfx mountain_10_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

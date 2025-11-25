@@ -1,4 +1,4 @@
-Vtx water_land_2_dl_mesh_vtx_0[8] = {
+static const Vtx water_land_2_dl_mesh_vtx_0[8] = {
 	{{ {4992, -296, 469}, 0, {1821, 1025}, {166, 166, 0, 255} }},
 	{{ {4536, 158, 469}, 0, {1821, 76}, {166, 166, 0, 255} }},
 	{{ {4536, 158, -436}, 0, {237, 76}, {166, 166, 0, 255} }},
@@ -9,7 +9,7 @@ Vtx water_land_2_dl_mesh_vtx_0[8] = {
 	{{ {6582, -2706, -472}, 0, {199, 983}, {0, 127, 0, 255} }},
 };
 
-Gfx water_land_2_dl_mesh_tri_0[] = {
+static const Gfx water_land_2_dl_mesh_tri_0[] = {
 	gsSPVertex(water_land_2_dl_mesh_vtx_0 + 0, 8, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -18,14 +18,14 @@ Gfx water_land_2_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx water_land_2_dl_mesh[] = {
+const Gfx water_land_2_dl_mesh[] = {
 	gsSPDisplayList(mat_water_land_ArrowMaterial),
 	gsSPDisplayList(water_land_2_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_water_land_ArrowMaterial),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

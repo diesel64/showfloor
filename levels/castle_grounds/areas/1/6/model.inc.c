@@ -1,4 +1,4 @@
-Vtx castle_grounds_tower_1_dl_mesh_vtx_0[68] = {
+static const Vtx castle_grounds_tower_1_dl_mesh_vtx_0[68] = {
 	{{ {555, 1665, -518}, 0, {2089, 1716}, {56, 4, 142, 255} }},
 	{{ {0, 1662, -792}, 0, {5145, 1716}, {56, 4, 142, 255} }},
 	{{ {509, 3156, -487}, 0, {2156, -5572}, {56, 4, 142, 255} }},
@@ -69,7 +69,7 @@ Vtx castle_grounds_tower_1_dl_mesh_vtx_0[68] = {
 	{{ {-465, 1520, 926}, 0, {-1400, -6612}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_grounds_tower_1_dl_mesh_tri_0[] = {
+static const Gfx castle_grounds_tower_1_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_grounds_tower_1_dl_mesh_vtx_0 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -106,7 +106,7 @@ Gfx castle_grounds_tower_1_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_grounds_tower_1_dl_mesh_vtx_1[102] = {
+static const Vtx castle_grounds_tower_1_dl_mesh_vtx_1[102] = {
 	{{ {-507, 3157, 227}, 0, {2984, 3056}, {187, 107, 0, 255} }},
 	{{ {-348, 3259, 156}, 0, {2789, 3579}, {187, 107, 0, 255} }},
 	{{ {-358, 3252, -375}, 0, {1319, 3548}, {187, 107, 0, 255} }},
@@ -211,7 +211,7 @@ Vtx castle_grounds_tower_1_dl_mesh_vtx_1[102] = {
 	{{ {202, 3262, 340}, 0, {3369, -16887}, {0, 107, 69, 255} }},
 };
 
-Gfx castle_grounds_tower_1_dl_mesh_tri_1[] = {
+static const Gfx castle_grounds_tower_1_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_grounds_tower_1_dl_mesh_vtx_1 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -258,22 +258,20 @@ Gfx castle_grounds_tower_1_dl_mesh_tri_1[] = {
 };
 
 
-Gfx castle_grounds_tower_1_dl_mesh[] = {
+const Gfx castle_grounds_tower_1_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_grounds_BrickMaterial),
 	gsSPDisplayList(castle_grounds_tower_1_dl_mesh_tri_0),
-	gsSPDisplayList(mat_revert_castle_grounds_BrickMaterial),
 	gsSPDisplayList(mat_castle_grounds_RoofMaterial),
 	gsSPDisplayList(castle_grounds_tower_1_dl_mesh_tri_1),
-	gsSPDisplayList(mat_revert_castle_grounds_RoofMaterial),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_grounds_tower_2_dl_mesh_vtx_0[8] = {
+static const Vtx castle_grounds_tower_2_dl_mesh_vtx_0[8] = {
 	{{ {137, 2792, 531}, 0, {-16, -16}, {0, 5, 127, 255} }},
 	{{ {-127, 2792, 531}, 0, {1003, -13}, {0, 5, 127, 255} }},
 	{{ {-127, 2526, 540}, 0, {1003, 1011}, {0, 5, 127, 255} }},
@@ -284,7 +282,7 @@ Vtx castle_grounds_tower_2_dl_mesh_vtx_0[8] = {
 	{{ {155, 1014, 945}, 0, {-21, 1011}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_grounds_tower_2_dl_mesh_tri_0[] = {
+static const Gfx castle_grounds_tower_2_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_grounds_tower_2_dl_mesh_vtx_0 + 0, 8, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -293,14 +291,14 @@ Gfx castle_grounds_tower_2_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_grounds_tower_2_dl_mesh[] = {
+const Gfx castle_grounds_tower_2_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_grounds_WindowMaterial),
 	gsSPDisplayList(castle_grounds_tower_2_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_castle_grounds_WindowMaterial),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

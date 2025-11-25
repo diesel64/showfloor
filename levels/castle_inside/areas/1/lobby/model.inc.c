@@ -1,4 +1,4 @@
-Vtx castle_inside_main_dl_mesh_vtx_0[128] = {
+static const Vtx castle_inside_main_dl_mesh_vtx_0[128] = {
 	{{ {1331, 998, -2908}, 0, {-794, -1942}, {0, 0, 127, 255} }},
 	{{ {1229, 512, -2908}, 0, {-254, -29}, {0, 0, 127, 255} }},
 	{{ {1331, 512, -2908}, 0, {-794, -29}, {0, 0, 127, 255} }},
@@ -129,7 +129,7 @@ Vtx castle_inside_main_dl_mesh_vtx_0[128] = {
 	{{ {-154, 512, -3010}, 0, {-1346, -16}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_inside_main_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_main_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_main_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -207,7 +207,7 @@ Gfx castle_inside_main_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_main_dl_mesh_vtx_1[22] = {
+static const Vtx castle_inside_main_dl_mesh_vtx_1[22] = {
 	{{ {154, 410, -3113}, 0, {-1033, -2612}, {0, 127, 0, 255} }},
 	{{ {-154, 410, -3010}, 0, {2039, -1588}, {0, 127, 0, 255} }},
 	{{ {154, 410, -3010}, 0, {-1033, -1588}, {0, 127, 0, 255} }},
@@ -232,7 +232,7 @@ Vtx castle_inside_main_dl_mesh_vtx_1[22] = {
 	{{ {-256, 256, -2703}, 0, {3604, -542}, {0, 127, 0, 255} }},
 };
 
-Gfx castle_inside_main_dl_mesh_tri_1[] = {
+static const Gfx castle_inside_main_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_inside_main_dl_mesh_vtx_1 + 0, 14, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -254,7 +254,7 @@ Gfx castle_inside_main_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_main_dl_mesh_vtx_2[54] = {
+static const Vtx castle_inside_main_dl_mesh_vtx_2[54] = {
 	{{ {-256, 461, -2703}, 0, {1007, 345}, {63, 90, 63, 255} }},
 	{{ {-220, 461, -2739}, 0, {-17, 345}, {63, 90, 63, 255} }},
 	{{ {-256, 486, -2739}, 0, {495, 77}, {63, 90, 63, 255} }},
@@ -311,7 +311,7 @@ Vtx castle_inside_main_dl_mesh_vtx_2[54] = {
 	{{ {-1254, 282, -2045}, 0, {-16, -8}, {166, 90, 0, 255} }},
 };
 
-Gfx castle_inside_main_dl_mesh_tri_2[] = {
+static const Gfx castle_inside_main_dl_mesh_tri_2[] = {
 	gsSPVertex(castle_inside_main_dl_mesh_vtx_2 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -341,7 +341,7 @@ Gfx castle_inside_main_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_main_dl_mesh_vtx_3[46] = {
+static const Vtx castle_inside_main_dl_mesh_vtx_3[46] = {
 	{{ {-878, 1254, -2652}, 0, {2153, -439}, {18, 143, 56, 255} }},
 	{{ {-485, 1357, -2189}, 0, {2378, -987}, {8, 129, 1, 255} }},
 	{{ {-1075, 1254, -2445}, 0, {1720, -396}, {45, 139, 20, 255} }},
@@ -390,7 +390,7 @@ Vtx castle_inside_main_dl_mesh_vtx_3[46] = {
 	{{ {490, 1357, -2189}, 0, {-661, -980}, {248, 129, 1, 255} }},
 };
 
-Gfx castle_inside_main_dl_mesh_tri_3[] = {
+static const Gfx castle_inside_main_dl_mesh_tri_3[] = {
 	gsSPVertex(castle_inside_main_dl_mesh_vtx_3 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -423,7 +423,7 @@ Gfx castle_inside_main_dl_mesh_tri_3[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_main_dl_mesh_vtx_4[204] = {
+static const Vtx castle_inside_main_dl_mesh_vtx_4[204] = {
 	{{ {1121, 0, -1891}, 0, {-10717, 1551}, {166, 0, 90, 0} }},
 	{{ {1307, 26, -1706}, 0, {-12573, 1295}, {166, 0, 90, 0} }},
 	{{ {1121, 26, -1891}, 0, {-10717, 1295}, {166, 0, 90, 0} }},
@@ -630,7 +630,7 @@ Vtx castle_inside_main_dl_mesh_vtx_4[204] = {
 	{{ {1307, 0, -1706}, 0, {-12573, 2424}, {0, 127, 0, 144} }},
 };
 
-Gfx castle_inside_main_dl_mesh_tri_4[] = {
+static const Gfx castle_inside_main_dl_mesh_tri_4[] = {
 	gsSPVertex(castle_inside_main_dl_mesh_vtx_4 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -767,7 +767,7 @@ Gfx castle_inside_main_dl_mesh_tri_4[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_main_dl_mesh_vtx_5[370] = {
+static const Vtx castle_inside_main_dl_mesh_vtx_5[370] = {
 	{{ {461, 410, -2908}, 0, {-510, 425}, {90, 0, 90, 255} }},
 	{{ {422, 256, -2869}, 0, {-233, 1034}, {90, 0, 90, 255} }},
 	{{ {461, 0, -2908}, 0, {-510, 2016}, {90, 0, 90, 255} }},
@@ -1140,7 +1140,7 @@ Vtx castle_inside_main_dl_mesh_vtx_5[370] = {
 	{{ {1229, 256, -2908}, 0, {-512, 1043}, {0, 0, 129, 255} }},
 };
 
-Gfx castle_inside_main_dl_mesh_tri_5[] = {
+static const Gfx castle_inside_main_dl_mesh_tri_5[] = {
 	gsSPVertex(castle_inside_main_dl_mesh_vtx_5 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -1360,7 +1360,7 @@ Gfx castle_inside_main_dl_mesh_tri_5[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_inside_main_dl_mesh[] = {
+const Gfx castle_inside_main_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_WallTopMaterial),
 	gsSPDisplayList(castle_inside_main_dl_mesh_tri_0),
 	gsSPDisplayList(mat_castle_inside_CheckerboardMaterial),
@@ -1376,12 +1376,12 @@ Gfx castle_inside_main_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_decal_dl_mesh_vtx_0[8] = {
+static const Vtx castle_inside_decal_dl_mesh_vtx_0[8] = {
 	{{ {-461, 550, -2903}, 0, {-16, 1008}, {0, 0, 127, 255} }},
 	{{ {-461, 768, -2903}, 0, {-16, -16}, {0, 0, 127, 255} }},
 	{{ {-666, 550, -2903}, 0, {1008, 1008}, {0, 0, 127, 255} }},
@@ -1392,7 +1392,7 @@ Vtx castle_inside_decal_dl_mesh_vtx_0[8] = {
 	{{ {-461, 736, -1275}, 0, {1008, -16}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_inside_decal_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_decal_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_decal_dl_mesh_vtx_0 + 0, 8, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 2, 1, 0),
@@ -1401,7 +1401,7 @@ Gfx castle_inside_decal_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_decal_dl_mesh_vtx_1[8] = {
+static const Vtx castle_inside_decal_dl_mesh_vtx_1[8] = {
 	{{ {461, 794, -2903}, 0, {1022, -16}, {0, 0, 127, 255} }},
 	{{ {461, 550, -2903}, 0, {1022, 1008}, {0, 0, 127, 255} }},
 	{{ {666, 794, -2903}, 0, {-16, -16}, {0, 0, 127, 255} }},
@@ -1412,7 +1412,7 @@ Vtx castle_inside_decal_dl_mesh_vtx_1[8] = {
 	{{ {461, 518, -1275}, 0, {-16, 1008}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_inside_decal_dl_mesh_tri_1[] = {
+static const Gfx castle_inside_decal_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_inside_decal_dl_mesh_vtx_1 + 0, 8, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 2, 1, 0),
@@ -1421,17 +1421,16 @@ Gfx castle_inside_decal_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_inside_decal_dl_mesh[] = {
+const Gfx castle_inside_decal_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_MoonMaterial),
 	gsSPDisplayList(castle_inside_decal_dl_mesh_tri_0),
-	gsSPDisplayList(mat_revert_castle_inside_MoonMaterial),
 	gsSPDisplayList(mat_castle_inside_StarMaterial),
 	gsSPDisplayList(castle_inside_decal_dl_mesh_tri_1),
-	gsSPDisplayList(mat_revert_castle_inside_StarMaterial),
+	gsSPDisplayList(mat_revert_castle_inside_DecalMaterial),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

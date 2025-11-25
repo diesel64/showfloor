@@ -1,4 +1,4 @@
-Vtx mountain_16_dl_mesh_vtx_0[7] = {
+static const Vtx mountain_16_dl_mesh_vtx_0[7] = {
 	{{ {-511, 256, 2047}, 0, {57, 2021}, {68, 102, 222, 255} }},
 	{{ {-127, 0, 2047}, 0, {-955, -1268}, {68, 102, 222, 255} }},
 	{{ {-511, 0, 1279}, 0, {2512, -999}, {68, 102, 222, 255} }},
@@ -8,7 +8,7 @@ Vtx mountain_16_dl_mesh_vtx_0[7] = {
 	{{ {-127, 0, 2047}, 0, {-1544, -256}, {70, 106, 0, 255} }},
 };
 
-Gfx mountain_16_dl_mesh_tri_0[] = {
+static const Gfx mountain_16_dl_mesh_tri_0[] = {
 	gsSPVertex(mountain_16_dl_mesh_vtx_0 + 0, 7, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -16,7 +16,7 @@ Gfx mountain_16_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx mountain_16_dl_mesh_vtx_1[12] = {
+static const Vtx mountain_16_dl_mesh_vtx_1[12] = {
 	{{ {0, -255, -2304}, 0, {5069, 498}, {90, 0, 166, 255} }},
 	{{ {512, 0, -1792}, 0, {1899, -556}, {90, 0, 166, 255} }},
 	{{ {512, -255, -1792}, 0, {1899, 498}, {90, 0, 166, 255} }},
@@ -31,7 +31,7 @@ Vtx mountain_16_dl_mesh_vtx_1[12] = {
 	{{ {512, -255, 2303}, 0, {-12878, 494}, {127, 0, 0, 255} }},
 };
 
-Gfx mountain_16_dl_mesh_tri_1[] = {
+static const Gfx mountain_16_dl_mesh_tri_1[] = {
 	gsSPVertex(mountain_16_dl_mesh_vtx_1 + 0, 12, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -42,7 +42,7 @@ Gfx mountain_16_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx mountain_16_dl_mesh_vtx_2[16] = {
+static const Vtx mountain_16_dl_mesh_vtx_2[16] = {
 	{{ {-255, 51, -768}, 0, {607, 2169}, {0, 127, 0, 255} }},
 	{{ {128, 51, -896}, 0, {-1669, 1034}, {0, 127, 0, 255} }},
 	{{ {-127, 51, -896}, 0, {-534, 2169}, {0, 127, 0, 255} }},
@@ -61,7 +61,7 @@ Vtx mountain_16_dl_mesh_vtx_2[16] = {
 	{{ {-255, 51, -1536}, 0, {1747, 1029}, {0, 127, 0, 255} }},
 };
 
-Gfx mountain_16_dl_mesh_tri_2[] = {
+static const Gfx mountain_16_dl_mesh_tri_2[] = {
 	gsSPVertex(mountain_16_dl_mesh_vtx_2 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -78,19 +78,19 @@ Gfx mountain_16_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx mountain_16_dl_mesh_vtx_3[3] = {
+static const Vtx mountain_16_dl_mesh_vtx_3[3] = {
 	{{ {-511, 0, 2303}, 0, {2102, 1971}, {0, 0, 127, 255} }},
 	{{ {-127, 0, 2303}, 0, {5086, 1971}, {0, 0, 127, 255} }},
 	{{ {-511, 256, 2303}, 0, {2102, 1036}, {0, 0, 127, 255} }},
 };
 
-Gfx mountain_16_dl_mesh_tri_3[] = {
+static const Gfx mountain_16_dl_mesh_tri_3[] = {
 	gsSPVertex(mountain_16_dl_mesh_vtx_3 + 0, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx mountain_16_dl_mesh_vtx_4[7] = {
+static const Vtx mountain_16_dl_mesh_vtx_4[7] = {
 	{{ {0, 0, -2304}, 0, {-3024, 11868}, {0, 127, 0, 255} }},
 	{{ {-511, 0, -2304}, 0, {-1008, 11868}, {0, 127, 0, 255} }},
 	{{ {-511, 0, 1279}, 0, {-1008, -2284}, {0, 127, 0, 255} }},
@@ -100,7 +100,7 @@ Vtx mountain_16_dl_mesh_vtx_4[7] = {
 	{{ {-127, 0, 2303}, 0, {-2524, -6332}, {0, 127, 0, 255} }},
 };
 
-Gfx mountain_16_dl_mesh_tri_4[] = {
+static const Gfx mountain_16_dl_mesh_tri_4[] = {
 	gsSPVertex(mountain_16_dl_mesh_vtx_4 + 0, 7, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -110,7 +110,7 @@ Gfx mountain_16_dl_mesh_tri_4[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx mountain_16_dl_mesh_vtx_5[64] = {
+static const Vtx mountain_16_dl_mesh_vtx_5[64] = {
 	{{ {-255, 0, -512}, 0, {6048, 972}, {129, 0, 0, 255} }},
 	{{ {-255, 51, -768}, 0, {936, -16}, {129, 0, 0, 255} }},
 	{{ {-255, 0, -768}, 0, {936, 972}, {129, 0, 0, 255} }},
@@ -177,7 +177,7 @@ Vtx mountain_16_dl_mesh_vtx_5[64] = {
 	{{ {-127, 0, -1920}, 0, {4040, 974}, {166, 0, 166, 255} }},
 };
 
-Gfx mountain_16_dl_mesh_tri_5[] = {
+static const Gfx mountain_16_dl_mesh_tri_5[] = {
 	gsSPVertex(mountain_16_dl_mesh_vtx_5 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -233,7 +233,7 @@ const Gfx mountain_16_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

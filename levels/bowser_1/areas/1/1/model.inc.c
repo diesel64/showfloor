@@ -1,4 +1,4 @@
-Vtx bowser_1_dl_mesh_vtx_0[18] = {
+static const Vtx bowser_1_dl_mesh_vtx_0[18] = {
 	{{ {-1535, 307, 0}, 0, {3034, 990}, {0, 127, 0, 255} }},
 	{{ {0, 307, 0}, 0, {1502, -2712}, {0, 127, 0, 255} }},
 	{{ {-1085, 307, -1085}, 0, {0, 990}, {0, 127, 0, 255} }},
@@ -19,7 +19,7 @@ Vtx bowser_1_dl_mesh_vtx_0[18] = {
 	{{ {1086, 307, 1086}, 0, {0, 990}, {0, 127, 0, 255} }},
 };
 
-Gfx bowser_1_dl_mesh_tri_0[] = {
+static const Gfx bowser_1_dl_mesh_tri_0[] = {
 	gsSPVertex(bowser_1_dl_mesh_vtx_0 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(1, 3, 4, 0),
@@ -33,7 +33,7 @@ Gfx bowser_1_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx bowser_1_dl_mesh_vtx_1[32] = {
+static const Vtx bowser_1_dl_mesh_vtx_1[32] = {
 	{{ {1086, 307, -1085}, 0, {990, -1478}, {0, 127, 0, 255} }},
 	{{ {2172, 307, -2171}, 0, {0, 990}, {0, 127, 0, 255} }},
 	{{ {0, 307, -3071}, 0, {4056, 990}, {0, 127, 0, 255} }},
@@ -68,7 +68,7 @@ Vtx bowser_1_dl_mesh_vtx_1[32] = {
 	{{ {2172, 307, -2171}, 0, {4056, 990}, {0, 127, 0, 255} }},
 };
 
-Gfx bowser_1_dl_mesh_tri_1[] = {
+static const Gfx bowser_1_dl_mesh_tri_1[] = {
 	gsSPVertex(bowser_1_dl_mesh_vtx_1 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -90,7 +90,7 @@ Gfx bowser_1_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx bowser_1_dl_mesh_vtx_2[32] = {
+static const Vtx bowser_1_dl_mesh_vtx_2[32] = {
 	{{ {0, -2047, 3072}, 0, {990, 1996}, {207, 0, 117, 255} }},
 	{{ {0, 307, 3072}, 0, {990, -4}, {207, 0, 117, 255} }},
 	{{ {-2171, 307, 2172}, 0, {0, -8}, {207, 0, 117, 255} }},
@@ -125,7 +125,7 @@ Vtx bowser_1_dl_mesh_vtx_2[32] = {
 	{{ {-3071, 307, 0}, 0, {990, -8}, {139, 0, 207, 255} }},
 };
 
-Gfx bowser_1_dl_mesh_tri_2[] = {
+static const Gfx bowser_1_dl_mesh_tri_2[] = {
 	gsSPVertex(bowser_1_dl_mesh_vtx_2 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -147,7 +147,7 @@ Gfx bowser_1_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx bowser_1_dl_mesh[] = {
+const Gfx bowser_1_dl_mesh[] = {
 	gsSPDisplayList(mat_bowser_f3dlite_material_001),
 	gsSPDisplayList(bowser_1_dl_mesh_tri_0),
 	gsSPDisplayList(mat_bowser_f3dlite_material_002),
@@ -157,7 +157,7 @@ Gfx bowser_1_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

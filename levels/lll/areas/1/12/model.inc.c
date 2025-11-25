@@ -1,4 +1,4 @@
-Vtx fire_bubble_2_dl_mesh_vtx_0[8] = {
+static const Vtx fire_bubble_2_dl_mesh_vtx_0[8] = {
 	{{{-255, 154, -255},0, {1519, -1053},{0x0, 0x7F, 0x0, 0xFF}}},
 	{{{384, 154, -127},0, {-1018, -545},{0x0, 0x7F, 0x0, 0xFF}}},
 	{{{256, 154, -255},0, {-510, -1053},{0x0, 0x7F, 0x0, 0xFF}}},
@@ -9,7 +9,7 @@ Vtx fire_bubble_2_dl_mesh_vtx_0[8] = {
 	{{{-383, 154, -127},0, {2027, -545},{0x0, 0x7F, 0x0, 0xFF}}},
 };
 
-Gfx fire_bubble_2_dl_mesh_tri_0[] = {
+static const Gfx fire_bubble_2_dl_mesh_tri_0[] = {
 	gsSPVertex(fire_bubble_2_dl_mesh_vtx_0 + 0, 8, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -20,7 +20,7 @@ Gfx fire_bubble_2_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx fire_bubble_2_dl_mesh_vtx_1[68] = {
+static const Vtx fire_bubble_2_dl_mesh_vtx_1[68] = {
 	{{{77, 563, -178},0, {974, -2092},{0x0, 0x81, 0x0, 0xFF}}},
 	{{{77, 563, -25},0, {-4134, -2092},{0x0, 0x81, 0x0, 0xFF}}},
 	{{{-76, 563, -25},0, {-4134, 974},{0x0, 0x81, 0x0, 0xFF}}},
@@ -91,7 +91,7 @@ Vtx fire_bubble_2_dl_mesh_vtx_1[68] = {
 	{{{230, 154, -178},0, {-1068, 1482},{0x0, 0x0, 0x81, 0xFF}}},
 };
 
-Gfx fire_bubble_2_dl_mesh_tri_1[] = {
+static const Gfx fire_bubble_2_dl_mesh_tri_1[] = {
 	gsSPVertex(fire_bubble_2_dl_mesh_vtx_1 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -140,7 +140,7 @@ Gfx fire_bubble_2_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx fire_bubble_2_dl_mesh_vtx_2[28] = {
+static const Vtx fire_bubble_2_dl_mesh_vtx_2[28] = {
 	{{{256, 0, 256},0, {1656, 974},{0x0, 0x0, 0x7F, 0xFF}}},
 	{{{-255, 154, 256},0, {-16, -16},{0x0, 0x0, 0x7F, 0xFF}}},
 	{{{-255, 0, 256},0, {-16, 974},{0x0, 0x0, 0x7F, 0xFF}}},
@@ -171,7 +171,7 @@ Vtx fire_bubble_2_dl_mesh_vtx_2[28] = {
 	{{{-383, 0, -127},0, {122, 974},{0x81, 0x0, 0x0, 0xFF}}},
 };
 
-Gfx fire_bubble_2_dl_mesh_tri_2[] = {
+static const Gfx fire_bubble_2_dl_mesh_tri_2[] = {
 	gsSPVertex(fire_bubble_2_dl_mesh_vtx_2 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -191,7 +191,7 @@ Gfx fire_bubble_2_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx fire_bubble_2_dl_mesh[] = {
+const Gfx fire_bubble_2_dl_mesh[] = {
 	gsSPDisplayList(mat_fire_bubble_PolkaDotDarkMaterial),
 	gsSPDisplayList(fire_bubble_2_dl_mesh_tri_0),
 	gsSPDisplayList(mat_fire_bubble_CheckerboardStoneMaterial),
@@ -201,7 +201,7 @@ Gfx fire_bubble_2_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

@@ -1,5 +1,5 @@
 // Data
-Vtx fire_bubble_lava_plane_mesh_vtx_0[9] = {
+static const Vtx fire_bubble_lava_plane_mesh_vtx_0[9] = {
 	{{ {-8176, 0, 0}, 0, {320, -13416}, {0, 127, 0, 255} }},
 	{{ {0, 0, -8175}, 0, {15300, -28395}, {0, 127, 0, 255} }},
 	{{ {-8176, 0, -8175}, 0, {321, -28395}, {0, 127, 0, 255} }},
@@ -11,7 +11,7 @@ Vtx fire_bubble_lava_plane_mesh_vtx_0[9] = {
 	{{ {8175, 0, -8175}, 0, {30280, -28395}, {0, 127, 0, 255} }},
 };
 
-Gfx fire_bubble_lava_plane_mesh_tri_0[] = {
+static const Gfx fire_bubble_lava_plane_mesh_tri_0[] = {
 	gsSPVertex(fire_bubble_lava_plane_mesh_vtx_0 + 0, 9, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(1, 0, 3, 0),
@@ -24,7 +24,7 @@ Gfx fire_bubble_lava_plane_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx fire_bubble_1_dl_mesh_vtx_0[12] = {
+static const Vtx fire_bubble_1_dl_mesh_vtx_0[12] = {
 	{{ {-255, 154, 6016}, 0, {974, 2302}, {0, 127, 0, 255} }},
 	{{ {256, 154, 6016}, 0, {-16, 2302}, {0, 127, 0, 255} }},
 	{{ {256, 154, 4224}, 0, {-16, 7172}, {0, 127, 0, 255} }},
@@ -39,7 +39,7 @@ Vtx fire_bubble_1_dl_mesh_vtx_0[12] = {
 	{{ {-510, 307, -6593}, 0, {3018, -560}, {0, 127, 0, 255} }},
 };
 
-Gfx fire_bubble_1_dl_mesh_tri_0[] = {
+static const Gfx fire_bubble_1_dl_mesh_tri_0[] = {
 	gsSPVertex(fire_bubble_1_dl_mesh_vtx_0 + 0, 12, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -50,7 +50,7 @@ Gfx fire_bubble_1_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx fire_bubble_1_dl_mesh_vtx_1[6] = {
+static const Vtx fire_bubble_1_dl_mesh_vtx_1[6] = {
 	{{ {1543, 154, 6016}, 0, {2071, 1972}, {0, 127, 0, 255} }},
 	{{ {1028, 154, 6016}, 0, {2071, -2123}, {0, 127, 0, 255} }},
 	{{ {1028, 154, 6144}, 0, {1052, -2123}, {0, 127, 0, 255} }},
@@ -59,7 +59,7 @@ Vtx fire_bubble_1_dl_mesh_vtx_1[6] = {
 	{{ {1028, 154, 6528}, 0, {-2006, -2123}, {0, 127, 0, 255} }},
 };
 
-Gfx fire_bubble_1_dl_mesh_tri_1[] = {
+static const Gfx fire_bubble_1_dl_mesh_tri_1[] = {
 	gsSPVertex(fire_bubble_1_dl_mesh_vtx_1 + 0, 6, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -68,7 +68,7 @@ Gfx fire_bubble_1_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx fire_bubble_1_dl_mesh_vtx_2[16] = {
+static const Vtx fire_bubble_1_dl_mesh_vtx_2[16] = {
 	{{ {-255, 154, 4224}, 0, {974, 566}, {129, 0, 0, 255} }},
 	{{ {-255, 230, 4224}, 0, {974, -16}, {129, 0, 0, 255} }},
 	{{ {-255, 230, 4096}, 0, {-16, -16}, {129, 0, 0, 255} }},
@@ -87,7 +87,7 @@ Vtx fire_bubble_1_dl_mesh_vtx_2[16] = {
 	{{ {256, 230, 4224}, 0, {4040, -16}, {0, 0, 127, 255} }},
 };
 
-Gfx fire_bubble_1_dl_mesh_tri_2[] = {
+static const Gfx fire_bubble_1_dl_mesh_tri_2[] = {
 	gsSPVertex(fire_bubble_1_dl_mesh_vtx_2 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -100,7 +100,7 @@ Gfx fire_bubble_1_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx fire_bubble_1_dl_mesh_vtx_3[12] = {
+static const Vtx fire_bubble_1_dl_mesh_vtx_3[12] = {
 	{{ {-383, 307, -7231}, 0, {2556, -1080}, {0, 127, 0, 255} }},
 	{{ {512, 307, -7103}, 0, {2044, 2530}, {0, 127, 0, 255} }},
 	{{ {384, 307, -7231}, 0, {2556, 2013}, {0, 127, 0, 255} }},
@@ -115,7 +115,7 @@ Vtx fire_bubble_1_dl_mesh_vtx_3[12] = {
 	{{ {-766, 307, -7105}, 0, {2307, 2307}, {0, 127, 0, 255} }},
 };
 
-Gfx fire_bubble_1_dl_mesh_tri_3[] = {
+static const Gfx fire_bubble_1_dl_mesh_tri_3[] = {
 	gsSPVertex(fire_bubble_1_dl_mesh_vtx_3 + 0, 12, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -128,7 +128,7 @@ Gfx fire_bubble_1_dl_mesh_tri_3[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx fire_bubble_1_dl_mesh_vtx_4[138] = {
+static const Vtx fire_bubble_1_dl_mesh_vtx_4[138] = {
 	{{ {76, 793, -6360}, 0, {5062, -3114}, {90, 90, 0, 255} }},
 	{{ {76, 793, -6207}, 0, {-16, -3114}, {90, 90, 0, 255} }},
 	{{ {229, 639, -6207}, 0, {-16, 1220}, {90, 90, 0, 255} }},
@@ -269,7 +269,7 @@ Vtx fire_bubble_1_dl_mesh_vtx_4[138] = {
 	{{ {-357, 307, -6490}, 0, {-1068, 1482}, {127, 0, 0, 255} }},
 };
 
-Gfx fire_bubble_1_dl_mesh_tri_4[] = {
+static const Gfx fire_bubble_1_dl_mesh_tri_4[] = {
 	gsSPVertex(fire_bubble_1_dl_mesh_vtx_4 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -362,7 +362,7 @@ Gfx fire_bubble_1_dl_mesh_tri_4[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx fire_bubble_1_dl_mesh_vtx_5[112] = {
+static const Vtx fire_bubble_1_dl_mesh_vtx_5[112] = {
 	{{ {256, 0, 4224}, 0, {11888, 976}, {127, 0, 0, 255} }},
 	{{ {256, 154, 4224}, 0, {11888, -16}, {127, 0, 0, 255} }},
 	{{ {256, 154, 6016}, 0, {-16, -16}, {127, 0, 0, 255} }},
@@ -477,7 +477,7 @@ Vtx fire_bubble_1_dl_mesh_vtx_5[112] = {
 	{{ {-766, 307, -6849}, 0, {-17, -13}, {127, 0, 0, 255} }},
 };
 
-Gfx fire_bubble_1_dl_mesh_tri_5[] = {
+static const Gfx fire_bubble_1_dl_mesh_tri_5[] = {
 	gsSPVertex(fire_bubble_1_dl_mesh_vtx_5 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -544,26 +544,33 @@ Gfx fire_bubble_1_dl_mesh_tri_5[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx fire_bubble_1_dl_mesh_vtx_6[4] = {
+static const Vtx fire_bubble_1_dl_mesh_vtx_6[4] = {
 	{{ {-767, 307, -3647}, 0, {-3310, 736}, {0, 127, 0, 255} }},
 	{{ {768, 307, -5055}, 0, {1010, -3225}, {0, 127, 0, 255} }},
 	{{ {-767, 307, -5055}, 0, {-3310, -3225}, {0, 127, 0, 255} }},
 	{{ {768, 307, -3647}, 0, {1010, 736}, {0, 127, 0, 255} }},
 };
 
-Gfx fire_bubble_1_dl_mesh_tri_6[] = {
+static const Gfx fire_bubble_1_dl_mesh_tri_6[] = {
 	gsSPVertex(fire_bubble_1_dl_mesh_vtx_6 + 0, 4, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
 	gsSPEndDisplayList(),
 };
 
-Gfx fire_bubble_lava_plane_mesh[] = {
+const Gfx fire_bubble_lava_plane_mesh[] = {
 	gsSPDisplayList(mat_fire_bubble_LavaMaterial),
 	gsSPDisplayList(fire_bubble_lava_plane_mesh_tri_0),
+	gsSPDisplayList(mat_revert_fire_bubble_LavaMaterial),
+	gsDPPipeSync(),
+	gsSPSetGeometryMode(G_LIGHTING),
+	gsSPClearGeometryMode(G_TEXTURE_GEN),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
+	gsSPTexture(65535, 65535, 0, 0, 0),
+	gsSPEndDisplayList(),
 };
 
-Gfx fire_bubble_1_dl_mesh[] = {
+const Gfx fire_bubble_1_dl_mesh[] = {
 	gsSPDisplayList(mat_fire_bubble_BridgeMaterial),
 	gsSPDisplayList(fire_bubble_1_dl_mesh_tri_0),
 	gsSPDisplayList(mat_fire_bubble_DarkGravelMaterial),
@@ -581,7 +588,7 @@ Gfx fire_bubble_1_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

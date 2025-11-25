@@ -1,4 +1,4 @@
-Vtx courtyard_1_dl_mesh_vtx_0[79] = {
+static const Vtx courtyard_1_dl_mesh_vtx_0[79] = {
 	{{ {265, 0, -715}, 0, {-633, 4327}, {219, 116, 219, 255} }},
 	{{ {367, -100, -1125}, 0, {-1174, 2294}, {219, 116, 219, 255} }},
 	{{ {162, -100, -920}, 0, {-155, 3293}, {219, 116, 219, 255} }},
@@ -80,7 +80,7 @@ Vtx courtyard_1_dl_mesh_vtx_0[79] = {
 	{{ {367, -100, -1535}, 0, {-1335, 123}, {0, 127, 0, 255} }},
 };
 
-Gfx courtyard_1_dl_mesh_tri_0[] = {
+static const Gfx courtyard_1_dl_mesh_tri_0[] = {
 	gsSPVertex(courtyard_1_dl_mesh_vtx_0 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -122,7 +122,7 @@ Gfx courtyard_1_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx courtyard_1_dl_mesh_vtx_1[367] = {
+static const Vtx courtyard_1_dl_mesh_vtx_1[367] = {
 	{{ {-1330, -204, -613}, 0, {-16, -19472}, {129, 0, 0, 255} }},
 	{{ {-1330, -101, -338}, 0, {1359, -19986}, {129, 0, 0, 255} }},
 	{{ {-1330, -101, -613}, 0, {-16, -19986}, {129, 0, 0, 255} }},
@@ -492,7 +492,7 @@ Vtx courtyard_1_dl_mesh_vtx_1[367] = {
 	{{ {1331, -101, -2354}, 0, {15854, -22034}, {127, 0, 0, 255} }},
 };
 
-Gfx courtyard_1_dl_mesh_tri_1[] = {
+static const Gfx courtyard_1_dl_mesh_tri_1[] = {
 	gsSPVertex(courtyard_1_dl_mesh_vtx_1 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -739,7 +739,7 @@ Gfx courtyard_1_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx courtyard_1_dl_mesh_vtx_2[178] = {
+static const Vtx courtyard_1_dl_mesh_vtx_2[178] = {
 	{{ {3185, 10, 71}, 0, {31263, 3725}, {0, 127, 0, 255} }},
 	{{ {2939, 10, 317}, 0, {30035, 2497}, {0, 127, 0, 255} }},
 	{{ {2939, 10, 717}, 0, {30035, 498}, {0, 127, 0, 255} }},
@@ -920,7 +920,7 @@ Vtx courtyard_1_dl_mesh_vtx_2[178] = {
 	{{ {-900, 10, 369}, 0, {13136, 1567}, {0, 123, 30, 255} }},
 };
 
-Gfx courtyard_1_dl_mesh_tri_2[] = {
+static const Gfx courtyard_1_dl_mesh_tri_2[] = {
 	gsSPVertex(courtyard_1_dl_mesh_vtx_2 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -1038,7 +1038,7 @@ Gfx courtyard_1_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx courtyard_1_dl_mesh_vtx_3[385] = {
+static const Vtx courtyard_1_dl_mesh_vtx_3[385] = {
 	{{ {265, 102, -1944}, 0, {6750, -5186}, {0, 127, 0, 255} }},
 	{{ {-613, 102, -2149}, 0, {-2064, -7244}, {0, 127, 0, 255} }},
 	{{ {-264, 102, -1944}, 0, {1440, -5186}, {0, 127, 0, 255} }},
@@ -1426,7 +1426,7 @@ Vtx courtyard_1_dl_mesh_vtx_3[385] = {
 	{{ {761, 0, -2002}, 0, {25339, -21520}, {90, 0, 166, 255} }},
 };
 
-Gfx courtyard_1_dl_mesh_tri_3[] = {
+static const Gfx courtyard_1_dl_mesh_tri_3[] = {
 	gsSPVertex(courtyard_1_dl_mesh_vtx_3 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -1640,7 +1640,7 @@ Gfx courtyard_1_dl_mesh_tri_3[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx courtyard_1_dl_mesh_vtx_4[25] = {
+static const Vtx courtyard_1_dl_mesh_vtx_4[25] = {
 	{{ {-3071, 0, -2149}, 0, {-27617, -16}, {90, 0, 90, 255} }},
 	{{ {-3071, -204, -2149}, 0, {-27617, 1008}, {90, 0, 90, 255} }},
 	{{ {-2661, -204, -2559}, 0, {-24707, 1008}, {90, 0, 90, 255} }},
@@ -1668,7 +1668,7 @@ Vtx courtyard_1_dl_mesh_vtx_4[25] = {
 	{{ {2914, -204, -2307}, 0, {-25294, 1008}, {166, 0, 90, 255} }},
 };
 
-Gfx courtyard_1_dl_mesh_tri_4[] = {
+static const Gfx courtyard_1_dl_mesh_tri_4[] = {
 	gsSPVertex(courtyard_1_dl_mesh_vtx_4 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 0, 2, 0),
@@ -1687,7 +1687,7 @@ Gfx courtyard_1_dl_mesh_tri_4[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx courtyard_1_dl_mesh_vtx_5[203] = {
+static const Vtx courtyard_1_dl_mesh_vtx_5[203] = {
 	{{ {-2252, 0, 205}, 0, {-5646, -4626}, {0, 127, 0, 255} }},
 	{{ {-3071, 0, -613}, 0, {-1554, -540}, {0, 127, 0, 255} }},
 	{{ {-3173, 0, 0}, 0, {-1045, -3602}, {0, 127, 0, 255} }},
@@ -1893,7 +1893,7 @@ Vtx courtyard_1_dl_mesh_vtx_5[203] = {
 	{{ {2560, 0, 553}, 0, {27428, 4080}, {0, 127, 0, 255} }},
 };
 
-Gfx courtyard_1_dl_mesh_tri_5[] = {
+static const Gfx courtyard_1_dl_mesh_tri_5[] = {
 	gsSPVertex(courtyard_1_dl_mesh_vtx_5 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -2055,7 +2055,7 @@ Gfx courtyard_1_dl_mesh_tri_5[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx courtyard_1_dl_mesh_vtx_6[28] = {
+static const Vtx courtyard_1_dl_mesh_vtx_6[28] = {
 	{{ {307, 0, 512}, 0, {-2574, -21520}, {255, 255, 255, 255} }},
 	{{ {307, 0, 1126}, 0, {-5641, -21520}, {255, 255, 255, 255} }},
 	{{ {307, 512, 512}, 0, {-2574, -16405}, {255, 255, 255, 255} }},
@@ -2086,7 +2086,7 @@ Vtx courtyard_1_dl_mesh_vtx_6[28] = {
 	{{ {307, 0, 1126}, 0, {-1550, -21520}, {255, 255, 255, 255} }},
 };
 
-Gfx courtyard_1_dl_mesh_tri_6[] = {
+static const Gfx courtyard_1_dl_mesh_tri_6[] = {
 	gsSPVertex(courtyard_1_dl_mesh_vtx_6 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -2104,32 +2104,26 @@ Gfx courtyard_1_dl_mesh_tri_6[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx courtyard_1_dl_mesh[] = {
+const Gfx courtyard_1_dl_mesh[] = {
 	gsSPDisplayList(mat_courtyard_PolkaDotDarkMaterial),
 	gsSPDisplayList(courtyard_1_dl_mesh_tri_0),
-	gsSPDisplayList(mat_revert_courtyard_PolkaDotDarkMaterial),
 	gsSPDisplayList(mat_courtyard_DarkBrickMaterial),
 	gsSPDisplayList(courtyard_1_dl_mesh_tri_1),
-	gsSPDisplayList(mat_revert_courtyard_DarkBrickMaterial),
 	gsSPDisplayList(mat_courtyard_DirtMaterial),
 	gsSPDisplayList(courtyard_1_dl_mesh_tri_2),
-	gsSPDisplayList(mat_revert_courtyard_DirtMaterial),
 	gsSPDisplayList(mat_courtyard_LightBrickMaterial),
 	gsSPDisplayList(courtyard_1_dl_mesh_tri_3),
-	gsSPDisplayList(mat_revert_courtyard_LightBrickMaterial),
 	gsSPDisplayList(mat_courtyard_DarkBrickLedgeMaterial),
 	gsSPDisplayList(courtyard_1_dl_mesh_tri_4),
-	gsSPDisplayList(mat_revert_courtyard_DarkBrickLedgeMaterial),
 	gsSPDisplayList(mat_courtyard_StonePatternMaterial),
 	gsSPDisplayList(courtyard_1_dl_mesh_tri_5),
-	gsSPDisplayList(mat_revert_courtyard_StonePatternMaterial),
 	gsSPDisplayList(mat_courtyard_VoidMaterial),
 	gsSPDisplayList(courtyard_1_dl_mesh_tri_6),
 	gsSPDisplayList(mat_revert_courtyard_VoidMaterial),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

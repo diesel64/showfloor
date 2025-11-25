@@ -1,4 +1,4 @@
-Vtx mountain_8_dl_mesh_vtx_0[40] = {
+static const Vtx mountain_8_dl_mesh_vtx_0[40] = {
 	{{ {3227, 1075, -4095}, 0, {-23665, 1008}, {0, 0, 127, 255} }},
 	{{ {4096, 1075, -4095}, 0, {-7397, 1008}, {0, 0, 127, 255} }},
 	{{ {4096, 1124, -4095}, 0, {-7397, -16}, {0, 0, 127, 255} }},
@@ -41,7 +41,7 @@ Vtx mountain_8_dl_mesh_vtx_0[40] = {
 	{{ {2048, 256, 5120}, 0, {0, 990}, {127, 0, 0, 255} }},
 };
 
-Gfx mountain_8_dl_mesh_tri_0[] = {
+static const Gfx mountain_8_dl_mesh_tri_0[] = {
 	gsSPVertex(mountain_8_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -75,7 +75,7 @@ const Gfx mountain_8_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

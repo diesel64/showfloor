@@ -1,4 +1,4 @@
-Vtx trapdoor_mesh_vtx_0[20] = {
+static const Vtx trapdoor_mesh_vtx_0[20] = {
 	{{ {307, 0, 307}, 0, {496, -15133}, {127, 0, 0, 255} }},
 	{{ {307, -101, 307}, 0, {496, -14104}, {127, 0, 0, 255} }},
 	{{ {307, -101, -306}, 0, {6640, -14104}, {127, 0, 0, 255} }},
@@ -21,7 +21,7 @@ Vtx trapdoor_mesh_vtx_0[20] = {
 	{{ {0, 0, -306}, 0, {3568, -19294}, {0, 127, 0, 255} }},
 };
 
-Gfx trapdoor_mesh_tri_0[] = {
+static const Gfx trapdoor_mesh_tri_0[] = {
 	gsSPVertex(trapdoor_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -37,14 +37,13 @@ Gfx trapdoor_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx trapdoor_mesh[] = {
+const Gfx trapdoor_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_CarpetMaterial),
 	gsSPDisplayList(trapdoor_mesh_tri_0),
-	gsSPDisplayList(mat_castle_inside_CarpetMaterial),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

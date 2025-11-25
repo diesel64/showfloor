@@ -1,4 +1,4 @@
-const Vtx mountain_5_dl_mesh_vtx_0[80] = {
+static const Vtx mountain_5_dl_mesh_vtx_0[80] = {
 	{{{-152, 77, -255},0, {0x7F0, 0xB0},{0x0, 0x7F, 0x0, 0xFF}}},
 	{{{-203, 77, -255},0, {0x7F0, 0x70},{0x0, 0x7F, 0x0, 0xFF}}},
 	{{{-152, 77, 256},0, {0xFFF0, 0xBE},{0x0, 0x7F, 0x0, 0xFF}}},
@@ -81,7 +81,7 @@ const Vtx mountain_5_dl_mesh_vtx_0[80] = {
 	{{{205, -101, 256},0, {0xFFF0, 0x389},{0x7F, 0x0, 0x0, 0xFF}}},
 };
 
-const Gfx mountain_5_dl_mesh_tri_0[] = {
+static const Gfx mountain_5_dl_mesh_tri_0[] = {
 	gsSPVertex(mountain_5_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(2, 1, 3, 0),
@@ -136,19 +136,19 @@ const Gfx mountain_5_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };
 
-const Vtx mountain_5_lod_dl_mesh_vtx_0[4] = {
+static const Vtx mountain_5_lod_dl_mesh_vtx_0[4] = {
 	{{{256, -127, -255},0, {0x7F0, 0x630},{0x38, 0x72, 0x0, 0xFF}}},
 	{{{-255, 128, 256},0, {0xFFF0, 0xFE30},{0x38, 0x72, 0x0, 0xFF}}},
 	{{{256, -127, 256},0, {0xFFF0, 0x630},{0x38, 0x72, 0x0, 0xFF}}},
 	{{{-255, 128, -255},0, {0x7F0, 0xFE30},{0x38, 0x72, 0x0, 0xFF}}},
 };
 
-const Gfx mountain_5_lod_dl_mesh_tri_0[] = {
+static const Gfx mountain_5_lod_dl_mesh_tri_0[] = {
 	gsSPVertex(mountain_5_lod_dl_mesh_vtx_0 + 0, 4, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -161,7 +161,7 @@ const Gfx mountain_5_lod_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

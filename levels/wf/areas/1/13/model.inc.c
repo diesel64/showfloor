@@ -1,4 +1,4 @@
-Vtx mountain_13_dl_mesh_vtx_0[24] = {
+static const Vtx mountain_13_dl_mesh_vtx_0[24] = {
 	{{ {640, 38, -255}, 0, {22436, 6640}, {0, 127, 0, 255} }},
 	{{ {128, 38, -255}, 0, {20392, 6640}, {0, 127, 0, 255} }},
 	{{ {128, 38, 257}, 0, {20392, 8666}, {0, 127, 0, 255} }},
@@ -25,7 +25,7 @@ Vtx mountain_13_dl_mesh_vtx_0[24] = {
 	{{ {640, -90, -255}, 0, {-49, 1220}, {0, 0, 129, 255} }},
 };
 
-Gfx mountain_13_dl_mesh_tri_0[] = {
+static const Gfx mountain_13_dl_mesh_tri_0[] = {
 	gsSPVertex(mountain_13_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -43,7 +43,7 @@ Gfx mountain_13_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx mountain_13_dl_mesh_vtx_1[24] = {
+static const Vtx mountain_13_dl_mesh_vtx_1[24] = {
 	{{ {-691, 38, -101}, 0, {7106, 974}, {0, 0, 129, 255} }},
 	{{ {-691, 89, -101}, 0, {7106, 566}, {0, 0, 129, 255} }},
 	{{ {358, 89, -101}, 0, {-16, 566}, {0, 0, 129, 255} }},
@@ -70,7 +70,7 @@ Vtx mountain_13_dl_mesh_vtx_1[24] = {
 	{{ {358, 38, -101}, 0, {4552, -1326}, {0, 129, 0, 255} }},
 };
 
-Gfx mountain_13_dl_mesh_tri_1[] = {
+static const Gfx mountain_13_dl_mesh_tri_1[] = {
 	gsSPVertex(mountain_13_dl_mesh_vtx_1 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -96,7 +96,7 @@ const Gfx mountain_13_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

@@ -1,4 +1,4 @@
-const Vtx beta_extending_platform_dl_mesh_vtx_0[20] = {
+static const Vtx beta_extending_platform_dl_mesh_vtx_0[20] = {
 	{{{375, -5, 204},0, {-578, 976},{0x0, 0x81, 0xFE, 0xFF}}},
 	{{{-214, 0, -204},0, {1010, -16},{0x0, 0x81, 0xFE, 0xFF}}},
 	{{{215, 0, -204},0, {-129, -16},{0x0, 0x81, 0xFE, 0xFF}}},
@@ -43,7 +43,7 @@ const Gfx beta_extending_platform_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

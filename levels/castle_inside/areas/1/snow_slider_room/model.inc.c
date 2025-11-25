@@ -1,4 +1,4 @@
-Vtx castle_inside_snow_slider_dl_mesh_vtx_0[269] = {
+static const Vtx castle_inside_snow_slider_dl_mesh_vtx_0[269] = {
 	{{ {-2278, 205, -2089}, 0, {1577, 780}, {0, 0, 127, 255} }},
 	{{ {-2278, 282, -2089}, 0, {1577, 610}, {0, 0, 127, 255} }},
 	{{ {-2355, 282, -2089}, 0, {1235, 610}, {0, 0, 127, 255} }},
@@ -270,7 +270,7 @@ Vtx castle_inside_snow_slider_dl_mesh_vtx_0[269] = {
 	{{ {-2586, 461, -2140}, 0, {2764, 434}, {0, 127, 0, 255} }},
 };
 
-Gfx castle_inside_snow_slider_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_snow_slider_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_snow_slider_dl_mesh_vtx_0 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -422,7 +422,7 @@ Gfx castle_inside_snow_slider_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_snow_slider_dl_mesh_vtx_1[80] = {
+static const Vtx castle_inside_snow_slider_dl_mesh_vtx_1[80] = {
 	{{ {-2534, 384, -2140}, 0, {-1296, -215}, {127, 0, 0, 255} }},
 	{{ {-2534, 410, -2498}, 0, {2288, -471}, {127, 0, 0, 255} }},
 	{{ {-2534, 410, -2140}, 0, {-1296, -471}, {127, 0, 0, 255} }},
@@ -505,7 +505,7 @@ Vtx castle_inside_snow_slider_dl_mesh_vtx_1[80] = {
 	{{ {-1741, 205, -2242}, 0, {17904, -2939}, {0, 127, 0, 255} }},
 };
 
-Gfx castle_inside_snow_slider_dl_mesh_tri_1[] = {
+static const Gfx castle_inside_snow_slider_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_inside_snow_slider_dl_mesh_vtx_1 + 0, 14, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -555,7 +555,7 @@ Gfx castle_inside_snow_slider_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_snow_slider_dl_mesh_vtx_2[12] = {
+static const Vtx castle_inside_snow_slider_dl_mesh_vtx_2[12] = {
 	{{ {-1741, 205, -2242}, 0, {-252, 1218}, {0, 0, 129, 255} }},
 	{{ {-1638, 461, -2242}, 0, {-252, 200}, {0, 0, 129, 255} }},
 	{{ {-1638, 205, -2242}, 0, {-252, 1218}, {0, 0, 129, 255} }},
@@ -570,7 +570,7 @@ Vtx castle_inside_snow_slider_dl_mesh_vtx_2[12] = {
 	{{ {-1741, 205, -2396}, 0, {509, 1218}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_inside_snow_slider_dl_mesh_tri_2[] = {
+static const Gfx castle_inside_snow_slider_dl_mesh_tri_2[] = {
 	gsSPVertex(castle_inside_snow_slider_dl_mesh_vtx_2 + 0, 12, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -581,7 +581,7 @@ Gfx castle_inside_snow_slider_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_inside_snow_slider_dl_mesh[] = {
+const Gfx castle_inside_snow_slider_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_WoodMaterial),
 	gsSPDisplayList(castle_inside_snow_slider_dl_mesh_tri_0),
 	gsSPDisplayList(mat_castle_inside_CarpetMaterial),
@@ -591,7 +591,7 @@ Gfx castle_inside_snow_slider_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

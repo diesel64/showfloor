@@ -1,4 +1,4 @@
-Vtx courtyard_3_dl_mesh_vtx_0[24] = {
+static const Vtx courtyard_3_dl_mesh_vtx_0[24] = {
 	{{ {-2047, 1126, 195}, 0, {974, -16}, {0, 0, 127, 255} }},
 	{{ {-2047, 717, 195}, 0, {974, 974}, {0, 0, 127, 255} }},
 	{{ {-1637, 717, 195}, 0, {-16, 974}, {0, 0, 127, 255} }},
@@ -25,7 +25,7 @@ Vtx courtyard_3_dl_mesh_vtx_0[24] = {
 	{{ {205, 1331, 502}, 0, {974, 974}, {0, 0, 127, 255} }},
 };
 
-Gfx courtyard_3_dl_mesh_tri_0[] = {
+static const Gfx courtyard_3_dl_mesh_tri_0[] = {
 	gsSPVertex(courtyard_3_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -43,36 +43,14 @@ Gfx courtyard_3_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_courtyard_WindowMaterial[] = {
-	gsSPClearGeometryMode(G_CULL_BACK),
-	gsSPSetLights1(courtyard_lights),
-	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, ENVIRONMENT, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, ENVIRONMENT, 0),
-	gsDPSetAlphaDither(G_AD_NOISE),
-	gsSPTexture(65535, 65535, 0, 0, 1),
-	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, outside_0900A800),
-	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
-	gsDPLoadBlock(7, 0, 0, 1023, 256),
-	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_CLAMP | G_TX_NOMIRROR, 5, 0, G_TX_CLAMP | G_TX_NOMIRROR, 5, 0),
-	gsDPSetTileSize(0, 0, 0, 124, 124),
-	gsSPEndDisplayList(),
-};
-
-Gfx mat_revert_courtyard_WindowMaterial[] = {
-	gsSPSetGeometryMode(G_CULL_BACK),
-	gsDPPipeSync(),
-	gsDPSetAlphaDither(G_AD_DISABLE),
-	gsSPEndDisplayList(),
-};
-
-Gfx courtyard_3_dl_mesh[] = {
+const Gfx courtyard_3_dl_mesh[] = {
 	gsSPDisplayList(mat_courtyard_WindowMaterial),
 	gsSPDisplayList(courtyard_3_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_courtyard_WindowMaterial),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

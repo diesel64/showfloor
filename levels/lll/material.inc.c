@@ -1,12 +1,12 @@
 // Lights
-Lights1 fire_bubble_lights = gdSPDefLights1(
+static const Lights1 fire_bubble_lights = gdSPDefLights1(
 	0x3F, 0x3F, 0x3F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
 // Materials
-Gfx mat_fire_bubble_BrickMaterial[] = {
+static const Gfx mat_fire_bubble_BrickMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09001800),
@@ -20,9 +20,9 @@ Gfx mat_fire_bubble_BrickMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_fire_bubble_PolkaDotMaterial[] = {
+static const Gfx mat_fire_bubble_PolkaDotMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09002000),
@@ -36,9 +36,9 @@ Gfx mat_fire_bubble_PolkaDotMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_fire_bubble_PolkaDotDarkMaterial[] = {
+static const Gfx mat_fire_bubble_PolkaDotDarkMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09002800),
@@ -52,9 +52,9 @@ Gfx mat_fire_bubble_PolkaDotDarkMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_fire_bubble_CheckerboardStoneMaterial[] = {
+static const Gfx mat_fire_bubble_CheckerboardStoneMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09005800),
@@ -68,9 +68,9 @@ Gfx mat_fire_bubble_CheckerboardStoneMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_fire_bubble_WallMaterial[] = {
+static const Gfx mat_fire_bubble_WallMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, lll_seg7_texture_07006800),
@@ -84,9 +84,9 @@ Gfx mat_fire_bubble_WallMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_fire_bubble_GrayGravelMaterial[] = {
+static const Gfx mat_fire_bubble_GrayGravelMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, lll_seg7_texture_07004800),
@@ -100,9 +100,9 @@ Gfx mat_fire_bubble_GrayGravelMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_fire_bubble_BridgeMaterial[] = {
+static const Gfx mat_fire_bubble_BridgeMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, lll_seg7_texture_07003800),
@@ -116,9 +116,9 @@ Gfx mat_fire_bubble_BridgeMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_fire_bubble_DarkGravelMaterial[] = {
+static const Gfx mat_fire_bubble_DarkGravelMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09005000),
@@ -131,28 +131,9 @@ Gfx mat_fire_bubble_DarkGravelMaterial[] = {
 	gsSPSetLights1(fire_bubble_lights),
 	gsSPEndDisplayList(),
 };
-
-// I swear to god, I will figure out how movtex stuff works one day
-Gfx mat_fire_bubble_LavaMaterial[] = {
+static const Gfx mat_fire_bubble_VolcanoOutsideMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
-	gsSPTexture(65535, 65535, 0, 0, 1),
-	gsDPTileSync(),
-	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, lll_seg7_texture_07008000),
-	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0),
-	gsDPLoadSync(),
-	gsDPLoadBlock(7, 0, 0, 1023, 256),
-	gsDPPipeSync(),
-	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0),
-	gsDPSetTileSize(0, 0, 0, 124, 124),
-	gsDPSetPrimColor(0, 0, 255, 255, 255, 200),
-	gsSPSetLights1(fire_bubble_lights),
-	gsSPEndDisplayList(),
-};
-
-Gfx mat_fire_bubble_VolcanoOutsideMaterial[] = {
-	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, generic_09003800),
@@ -166,9 +147,9 @@ Gfx mat_fire_bubble_VolcanoOutsideMaterial[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_fire_bubble_VolcanoInsideMaterial[] = {
+static const Gfx mat_fire_bubble_VolcanoInsideMaterial[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE, TEXEL0, 0, SHADE, 0, 0, 0, 0, SHADE),
+    gsDPSetCombineMode(G_CC_MODULATERGB, G_CC_MODULATERGB),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPTileSync(),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 32, lll_seg7_texture_07008800),
@@ -181,3 +162,28 @@ Gfx mat_fire_bubble_VolcanoInsideMaterial[] = {
 	gsSPSetLights1(fire_bubble_lights),
 	gsSPEndDisplayList(),
 };
+
+// I swear to god, I will figure out how movtex stuff works one day
+static const Gfx mat_fire_bubble_LavaMaterial[] = {
+	gsDPPipeSync(),
+	gsDPSetPrimColor(0, 0, 255, 255, 255, 200),
+	gsDPSetCombineMode(G_CC_MODULATEIA_PRIM, G_CC_MODULATEIA_PRIM),
+	gsSPClearGeometryMode(G_LIGHTING | G_CULL_BACK),
+	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsDPTileSync(),
+	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, lll_seg7_texture_07008000),
+	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0),
+	gsDPLoadSync(),
+	gsDPLoadBlock(7, 0, 0, 1023, 256),
+	gsDPPipeSync(),
+	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0),
+	gsDPSetTileSize(0, 0, 0, 124, 124),
+	gsSPEndDisplayList(),
+};
+
+static const Gfx mat_revert_fire_bubble_LavaMaterial[] = {
+	gsDPPipeSync(),
+	gsSPSetGeometryMode(G_LIGHTING | G_CULL_BACK),
+	gsSPEndDisplayList(),
+};
+

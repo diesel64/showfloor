@@ -17,7 +17,7 @@ const Gfx extending_platform_decal_dl_mesh[] = {
 	gsSPDisplayList(extending_platform_decal_dl_mesh_tri_0),
 	gsDPPipeSync(),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

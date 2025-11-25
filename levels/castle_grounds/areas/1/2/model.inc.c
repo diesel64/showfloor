@@ -1,4 +1,4 @@
-Vtx castle_grounds_2_dl_mesh_vtx_0[84] = {
+static const Vtx castle_grounds_2_dl_mesh_vtx_0[84] = {
 	{{ {-816, 260, 3370}, 0, {310, 2278}, {0, 224, 0, 255} }},
 	{{ {48, 260, 3912}, 0, {65, 486}, {0, 224, 0, 255} }},
 	{{ {513, 823, 3527}, 0, {668, 486}, {0, 224, 0, 255} }},
@@ -85,7 +85,7 @@ Vtx castle_grounds_2_dl_mesh_vtx_0[84] = {
 	{{ {6682, 2539, -7762}, 0, {540, -5028}, {0, 224, 0, 255} }},
 };
 
-Gfx castle_grounds_2_dl_mesh_tri_0[] = {
+static const Gfx castle_grounds_2_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_grounds_2_dl_mesh_vtx_0 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -151,14 +151,14 @@ Gfx castle_grounds_2_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_grounds_2_dl_mesh[] = {
+const Gfx castle_grounds_2_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_grounds_GrayscaleGrassMaterial),
 	gsSPDisplayList(castle_grounds_2_dl_mesh_tri_0),
 	gsSPDisplayList(mat_revert_castle_grounds_GrayscaleGrassMaterial),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

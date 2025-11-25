@@ -1,4 +1,4 @@
-Vtx castle_grounds_3_dl_mesh_vtx_0[118] = {
+static const Vtx castle_grounds_3_dl_mesh_vtx_0[118] = {
 	{{ {3211, 853, -2420}, 0, {3054, 496}, {103, 0, 74, 255} }},
 	{{ {3683, 853, -3073}, 0, {8189, 496}, {103, 0, 74, 255} }},
 	{{ {3683, 907, -3073}, 0, {8189, 57}, {103, 0, 74, 255} }},
@@ -119,7 +119,7 @@ Vtx castle_grounds_3_dl_mesh_vtx_0[118] = {
 	{{ {-3477, 907, -3685}, 0, {-8225, 57}, {136, 0, 216, 255} }},
 };
 
-Gfx castle_grounds_3_dl_mesh_tri_0[] = {
+static const Gfx castle_grounds_3_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_grounds_3_dl_mesh_vtx_0 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -189,7 +189,7 @@ Gfx castle_grounds_3_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_grounds_3_dl_mesh_vtx_1[8] = {
+static const Vtx castle_grounds_3_dl_mesh_vtx_1[8] = {
 	{{ {-248, 2093, -2103}, 0, {-16, -16}, {0, 0, 127, 255} }},
 	{{ {-248, 1856, -2103}, 0, {-16, 935}, {0, 0, 127, 255} }},
 	{{ {-229, 1838, -2103}, 0, {58, 1008}, {0, 0, 127, 255} }},
@@ -200,7 +200,7 @@ Vtx castle_grounds_3_dl_mesh_vtx_1[8] = {
 	{{ {262, 2093, -2103}, 0, {2032, -16}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_grounds_3_dl_mesh_tri_1[] = {
+static const Gfx castle_grounds_3_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_grounds_3_dl_mesh_vtx_1 + 0, 8, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -209,7 +209,7 @@ Gfx castle_grounds_3_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_grounds_3_dl_mesh_vtx_2[6] = {
+static const Vtx castle_grounds_3_dl_mesh_vtx_2[6] = {
 	{{ {262, 2093, -2103}, 0, {2032, 1008}, {0, 0, 127, 255} }},
 	{{ {262, 2329, -2103}, 0, {2032, 58}, {0, 0, 127, 255} }},
 	{{ {243, 2346, -2103}, 0, {1958, -16}, {0, 0, 127, 255} }},
@@ -218,7 +218,7 @@ Vtx castle_grounds_3_dl_mesh_vtx_2[6] = {
 	{{ {-248, 2093, -2103}, 0, {-16, 1008}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_grounds_3_dl_mesh_tri_2[] = {
+static const Gfx castle_grounds_3_dl_mesh_tri_2[] = {
 	gsSPVertex(castle_grounds_3_dl_mesh_vtx_2 + 0, 6, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 2, 3, 0),
@@ -227,20 +227,17 @@ Gfx castle_grounds_3_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_grounds_3_dl_mesh[] = {
+const Gfx castle_grounds_3_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_grounds_LiningMaterial),
 	gsSPDisplayList(castle_grounds_3_dl_mesh_tri_0),
-	gsSPDisplayList(mat_revert_castle_grounds_LiningMaterial),
 	gsSPDisplayList(mat_castle_grounds_ClockBottomMaterial),
 	gsSPDisplayList(castle_grounds_3_dl_mesh_tri_1),
-	gsSPDisplayList(mat_revert_castle_grounds_ClockBottomMaterial),
 	gsSPDisplayList(mat_castle_grounds_ClockTopMaterial),
 	gsSPDisplayList(castle_grounds_3_dl_mesh_tri_2),
-	gsSPDisplayList(mat_revert_castle_grounds_ClockTopMaterial),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

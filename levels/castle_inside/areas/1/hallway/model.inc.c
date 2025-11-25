@@ -1,4 +1,4 @@
-Vtx castle_inside_hallway_dl_mesh_vtx_0[138] = {
+static const Vtx castle_inside_hallway_dl_mesh_vtx_0[138] = {
 	{{ {-205, 333, -3471}, 0, {-13, 17}, {0, 0, 127, 255} }},
 	{{ {-256, 333, -3471}, 0, {-13, 17}, {0, 0, 127, 255} }},
 	{{ {-256, 282, -3471}, 0, {-13, 17}, {0, 0, 127, 255} }},
@@ -139,7 +139,7 @@ Vtx castle_inside_hallway_dl_mesh_vtx_0[138] = {
 	{{ {256, 282, -5365}, 0, {-1593, 450}, {0, 0, 127, 255} }},
 };
 
-Gfx castle_inside_hallway_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_hallway_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_hallway_dl_mesh_vtx_0 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -220,7 +220,7 @@ Gfx castle_inside_hallway_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_hallway_dl_mesh_vtx_1[118] = {
+static const Vtx castle_inside_hallway_dl_mesh_vtx_1[118] = {
 	{{ {-256, 0, -5109}, 0, {3160, -158}, {0, 0, 127, 255} }},
 	{{ {256, -26, -5109}, 0, {-1960, 98}, {0, 0, 127, 255} }},
 	{{ {256, 0, -5109}, 0, {-1960, -158}, {0, 0, 127, 255} }},
@@ -341,7 +341,7 @@ Vtx castle_inside_hallway_dl_mesh_vtx_1[118] = {
 	{{ {-422, 0, -2869}, 0, {4720, -9211}, {0, 127, 0, 242} }},
 };
 
-Gfx castle_inside_hallway_dl_mesh_tri_1[] = {
+static const Gfx castle_inside_hallway_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_inside_hallway_dl_mesh_vtx_1 + 0, 16, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -415,7 +415,7 @@ Gfx castle_inside_hallway_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_inside_hallway_dl_mesh[] = {
+const Gfx castle_inside_hallway_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_WallBottomMaterial),
 	gsSPDisplayList(castle_inside_hallway_dl_mesh_tri_0),
 	gsSPDisplayList(mat_castle_inside_CarpetMaterial),
@@ -423,7 +423,7 @@ Gfx castle_inside_hallway_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };

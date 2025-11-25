@@ -1,4 +1,4 @@
-Vtx castle_inside_water_land_dl_mesh_vtx_0[82] = {
+static const Vtx castle_inside_water_land_dl_mesh_vtx_0[82] = {
 	{{ {2534, 384, -2140}, 0, {2288, -215}, {129, 0, 0, 255} }},
 	{{ {2534, 410, -2498}, 0, {-1296, -471}, {129, 0, 0, 255} }},
 	{{ {2534, 384, -2498}, 0, {-1296, -215}, {129, 0, 0, 255} }},
@@ -83,7 +83,7 @@ Vtx castle_inside_water_land_dl_mesh_vtx_0[82] = {
 	{{ {3149, 410, -1858}, 0, {7406, -4112}, {0, 127, 0, 255} }},
 };
 
-Gfx castle_inside_water_land_dl_mesh_tri_0[] = {
+static const Gfx castle_inside_water_land_dl_mesh_tri_0[] = {
 	gsSPVertex(castle_inside_water_land_dl_mesh_vtx_0 + 0, 14, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -133,7 +133,7 @@ Gfx castle_inside_water_land_dl_mesh_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_water_land_dl_mesh_vtx_1[190] = {
+static const Vtx castle_inside_water_land_dl_mesh_vtx_1[190] = {
 	{{ {2278, 205, -2549}, 0, {1136, 1296}, {0, 0, 129, 255} }},
 	{{ {2278, 282, -2549}, 0, {1136, 1139}, {0, 0, 129, 255} }},
 	{{ {2355, 282, -2549}, 0, {1292, 1139}, {0, 0, 129, 255} }},
@@ -326,7 +326,7 @@ Vtx castle_inside_water_land_dl_mesh_vtx_1[190] = {
 	{{ {1741, 205, -2396}, 0, {368, 1094}, {127, 0, 0, 255} }},
 };
 
-Gfx castle_inside_water_land_dl_mesh_tri_1[] = {
+static const Gfx castle_inside_water_land_dl_mesh_tri_1[] = {
 	gsSPVertex(castle_inside_water_land_dl_mesh_vtx_1 + 0, 15, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(3, 4, 5, 0),
@@ -431,7 +431,7 @@ Gfx castle_inside_water_land_dl_mesh_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx castle_inside_water_land_dl_mesh_vtx_2[12] = {
+static const Vtx castle_inside_water_land_dl_mesh_vtx_2[12] = {
 	{{ {1741, 461, -2242}, 0, {-243, 200}, {0, 0, 129, 255} }},
 	{{ {1638, 205, -2242}, 0, {-243, 1218}, {0, 0, 129, 255} }},
 	{{ {1638, 461, -2242}, 0, {-243, 200}, {0, 0, 129, 255} }},
@@ -446,7 +446,7 @@ Vtx castle_inside_water_land_dl_mesh_vtx_2[12] = {
 	{{ {1741, 461, -2242}, 0, {-243, 200}, {0, 129, 0, 255} }},
 };
 
-Gfx castle_inside_water_land_dl_mesh_tri_2[] = {
+static const Gfx castle_inside_water_land_dl_mesh_tri_2[] = {
 	gsSPVertex(castle_inside_water_land_dl_mesh_vtx_2 + 0, 12, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsSP1Triangle(0, 3, 1, 0),
@@ -457,7 +457,7 @@ Gfx castle_inside_water_land_dl_mesh_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx castle_inside_water_land_dl_mesh[] = {
+const Gfx castle_inside_water_land_dl_mesh[] = {
 	gsSPDisplayList(mat_castle_inside_CarpetMaterial),
 	gsSPDisplayList(castle_inside_water_land_dl_mesh_tri_0),
 	gsSPDisplayList(mat_castle_inside_PurpleWallMaterial),
@@ -467,7 +467,7 @@ Gfx castle_inside_water_land_dl_mesh[] = {
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),
 };
