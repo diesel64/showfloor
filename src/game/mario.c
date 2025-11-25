@@ -1631,7 +1631,7 @@ void init_mario(void) {
         vec3f_copy(gMarioStates[i].marioObj->header.gfx.pos, gMarioStates[i].pos);
         vec3s_set(gMarioStates[i].marioObj->header.gfx.angle, 0, gMarioStates[i].faceAngle[1], 0);
 
-        gMarioStates[i].marioObj->header.gfx.sharedChild = gLoadedGraphNodes[i+2];
+        gMarioStates[i].marioObj->header.gfx.sharedChild = gLoadedGraphNodes[i+1];
     }
 }
 

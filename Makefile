@@ -29,6 +29,11 @@ $(eval $(call validate-option,COMPILER,ido gcc))
 
 # VERSION - selects the version of the game to build
 #   jp - builds the 1996 Japanese version
+#
+# (yes i'm aware this is the worst possible way i could've done this)
+# (yes i'm aware that i left this entire file really messy)
+# (yes i'm aware that i left the entire repository a complete mess)
+# (sorry)
 VERSION ?= jp
 $(eval $(call validate-option,VERSION,jp))
 
@@ -680,7 +685,7 @@ $(ELF): $(O_FILES) $(SZP_OBJ_FILES) $(SEG_FILES) $(BUILD_DIR)/$(LD_SCRIPT) undef
 	$(V)$(LD) -L $(BUILD_DIR) -T undefined_syms.txt -T $(BUILD_DIR)/$(LD_SCRIPT) -Map $(BUILD_DIR)/sm64.$(VERSION).map --no-check-sections $(addprefix -R ,$(SEG_FILES)) -o $@ $(O_FILES) -lultra -lgoddard -lgcc
 
 # Build ROM
-PAD_TO_GAP_FILL := --pad-to=0x800000 --gap-fill=0xFF
+PAD_TO_GAP_FILL := --pad-to=0x0 --gap-fill=0xFF
 
 $(ROM): $(ELF)
 	$(call print,Building ROM:,$<,$@)
