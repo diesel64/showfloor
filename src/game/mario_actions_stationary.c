@@ -64,7 +64,7 @@ s32 check_common_hold_idle_cancels(struct MarioState *m) {
 
     if (m->heldObj->oInteractionSubtype & INT_SUBTYPE_DROP_IMMEDIATELY) {
         m->heldObj->oInteractionSubtype =
-            (s32) (m->heldObj->oInteractionSubtype & ~INT_SUBTYPE_DROP_IMMEDIATELY);
+            (s32)(m->heldObj->oInteractionSubtype & ~INT_SUBTYPE_DROP_IMMEDIATELY);
         return set_mario_action(m, ACT_PLACING_DOWN, 0);
     }
 
@@ -214,15 +214,18 @@ s32 act_waking_up(struct MarioState *m) {
         return set_mario_action(m, ACT_BEGIN_SLIDING, 0);
     }
 
-    m->actionTimer++;
-
-    if (m->actionTimer > 20) {
+    if (is_anim_past_end(m)) {
         return set_mario_action(m, ACT_IDLE, 0);
     }
 
     stationary_ground_step(m);
 
-    set_mario_animation(m, !m->actionArg ? MARIO_ANIM_WAKE_FROM_SLEEP : MARIO_ANIM_WAKE_FROM_LYING);
+    if (m->input & INPUT_A_PRESSED) {
+        m->actionArg = 1;
+    }
+
+    set_mario_animation(m, !m->actionArg ? MARIO_ANIM_WAKE_FROM_SLEEP
+                                         : MARIO_ANIM_WAKE_FROM_SLEEP_A_PRESSED);
 
     return FALSE;
 }
@@ -746,8 +749,7 @@ s32 act_first_person(struct MarioState *m) {
 
     if (m->actionState == 0) {
         lower_background_noise(2);
-        if (m->actionArg
-            != 1) // If Mario is entering c-up from the intro, don't use this slower transition
+        if (m->actionArg != 1) // If Mario is entering c-up from the intro, don't use this slower transition
             set_camera_mode(m->area->camera, CAMERA_MODE_C_UP, 0x10);
         m->actionState = 1;
     } else if (!(m->input & INPUT_FIRST_PERSON) || sp1C) {
