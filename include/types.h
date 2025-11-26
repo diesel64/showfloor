@@ -250,7 +250,7 @@ struct MarioBodyState {
 };
 
 struct MarioState {
-    /*0x00*/ u16 unk00;
+    /*0x00*/ u16 playerNum;
     /*0x02*/ u16 input;
     /*0x04*/ u32 flags;
     /*0x08*/ u32 particleFlags;

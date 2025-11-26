@@ -161,6 +161,7 @@
 #define ACT_FLAG_PAUSE_EXIT                  /* 0x08000000 */ (1 << 27)
 #define ACT_FLAG_SWIMMING_OR_FLYING          /* 0x10000000 */ (1 << 28)
 #define ACT_FLAG_WATER_OR_TEXT               /* 0x20000000 */ (1 << 29)
+#define ACT_FLAG_BOWSER                      /* 0x40000000 */ (1 << 30)
 #define ACT_FLAG_THROWING                    /* 0x80000000 */ (1 << 31)
 
 #define ACT_UNINITIALIZED              0x00000000 // (0x000)
@@ -380,9 +381,9 @@
 #define ACT_PLACING_DOWN               0x00000387 // (0x187 | ACT_FLAG_STATIONARY)
 #define ACT_THROWING                   0x80000588 // (0x188 | ACT_FLAG_MOVING | ACT_FLAG_THROWING)
 #define ACT_HEAVY_THROW                0x80000589 // (0x189 | ACT_FLAG_MOVING | ACT_FLAG_THROWING)
-#define ACT_PICKING_UP_BOWSER          0x00000390 // (0x190 | ACT_FLAG_STATIONARY)
-#define ACT_HOLDING_BOWSER             0x00000391 // (0x191 | ACT_FLAG_STATIONARY)
-#define ACT_RELEASING_BOWSER           0x00000392 // (0x192 | ACT_FLAG_STATIONARY)
+#define ACT_PICKING_UP_BOWSER          0x40000390 // (0x190 | ACT_FLAG_STATIONARY | ACT_FLAG_BOWSER)
+#define ACT_HOLDING_BOWSER             0x40000391 // (0x191 | ACT_FLAG_STATIONARY | ACT_FLAG_BOWSER)
+#define ACT_RELEASING_BOWSER           0x40000392 // (0x192 | ACT_FLAG_STATIONARY | ACT_FLAG_BOWSER)
 
 /*
  this input mask is unused by the controller,
