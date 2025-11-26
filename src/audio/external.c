@@ -235,7 +235,7 @@ u8 sBackgroundMusicDefaultVolume[] = {
     127, // SEQ_SOUND_PLAYER
     80,  // SEQ_EVENT_CUTSCENE_COLLECT_STAR
     80,  // SEQ_MENU_TITLE_SCREEN
-    80,  // SEQ_LEVEL_GRASS
+    88,  // SEQ_LEVEL_GRASS
     70,  // SEQ_LEVEL_INSIDE_CASTLE
     75,  // SEQ_LEVEL_WATER
     75,  // SEQ_LEVEL_HOT
